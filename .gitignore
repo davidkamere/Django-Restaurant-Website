@@ -1,0 +1,4 @@
+lib_env/
+__pycache__/
+*.sqlite3'.env' 
+.idea/
