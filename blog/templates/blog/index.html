@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <div class="ui hidden divider"></div>
+    <div class="ui center aligned fluid container" style="margin:auto;">
+    <div class="ui center aligned fluid container" style="margin:auto; height: 400px; background: url(../../static/media/landing/header.jpeg) no-repeat center;" >
+        <div class="ui center aligned grid" >
+            <div class="four wide column">
+                <img src="{% static "/media/landing/circle-cropped.png" %}" alt="My image" style="max-height: 150px; max-width: 150px">
+            </div>
+              <div class="eight wide center aligned column" style="margin-top: 40px">
+
+                  <div class="ui five item fluid stackable menu" style="background-color: inherit">
+                    <a class="active item" style="color: #EFC008;">
+                      HOME
+                    </a>
+                    <a class="item" style="color: white; ">
+                      MENU
+                    </a>
+                    <a class="item" style="color: white; ">
+                      RECIPES
+                    </a>
+                    <a class="item" style="color: white; ">
+                      GALLERY
+                    </a>
+                    <a class="item" style="color: white;">
+                      ABOUT
+                    </a>
+                  </div>
+              </div>
+
+        <div class="four wide column"></div>
+        <div class="six wide column">
+            <p style="color: white" id="thanks">
+                Join our mailing list to get the latest offers and posts
+            </p>
+            <div class="ui fluid action input" >
+                <input placeholder="Enter your Email here..." type="email" id="recipient_email" name="recipient_email_address" required>
+                <button class="ui inverted big basic olive button" type="submit" data-modal-target="empty" name="email">
+                    <a style="color: white">SUBSCRIBE</a>
+                </button>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+    <div class="ui hidden divider"></div>
+
+    <div class="ui center aligned fluid container" style="margin:auto; padding: 0 3%" >
+        <div class="ui center aligned grid" style="background-color: black;">
+            <div class="sixteen wide center aligned column" >
+                <p style="color: white;">
+                    TODAY'S SPECIALS
+                </p>
+            </div>
+
+
+            <div class="ui hidden divider"></div>
+            <div class="four wide column">
+                <p style="color: white" id="thanks">
+                    SNACKS & PAIRINGS
+                </p>
+            </div>
+            <div class="four wide column">
+                <p style="color: white" id="thanks">
+                    BURGERS
+                </p>
+            </div>
+            <div class="ui hidden divider"></div>
+            <div class="sixteen wide center aligned column" >
+                <p style="color: white" id="thanks">
+                    We deliver in Nairobi
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="ui hidden divider"></div>
+    <div class="ui hidden divider"></div>
+    <div class="ui hidden divider"></div>
+    <div class="ui center aligned fluid container" style="margin:auto">
+        <div class="ui center aligned stackable grid" >
+                <div class="four wide column" style="padding:14% 0px">
+                    <p style="color: #EFC008;">
+                    MAMA'S PLATE
+                    </p>
+                    <p style="color: black">
+                    Ole-Sangale Link Rd, Nairobi
+                    </p>
+                </div>
+                <div class="four wide column" style="padding:12% 0px">
+                    <p style="color: black">
+                    Phone
+                    </p>
+                    <p style="color: black">
+                    0769 365891
+                    </p>
+                    <p style="color: black">
+                    Email
+                    </p>
+                    <p style="color: black">
+                    mamasplate@gmail.com
+                    </p>
+                </div>
+                <div class="eight wide column">
+                    <img src="{% static "/media/landing/map.png" %}" alt="My image" style="max-height: 700px; max-width: 500px">
+                </div>
+        </div>
+    </div>
+    <div class="ui hidden divider"></div>
+    <div class="ui hidden divider"></div>
+    <div class="ui hidden divider"></div>
+    <div class="ui center aligned fluid container" style="margin:auto; padding: 0 3%" >
+        <div class="ui center aligned grid" style="background-color: black;">
+            <div class="sixteen wide center aligned column" >
+                <p style="color: #EFC008;">
+                    MAMA'S PLATE
+                </p>
+            </div>
+            <div class="sixteen wide center aligned column" >
+                <p style="color: white" style="border-bottom:6px solid white">
+                    Ole-Sangale Link Rd, Nairobi | Tel: 0769 365891
+                </p>
+            </div>
+
+        </div>
+    </div>
+    <div class="ui hidden divider"></div>
+{%  endblock content %}
