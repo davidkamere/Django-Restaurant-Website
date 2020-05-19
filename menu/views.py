@@ -9,3 +9,6 @@ def menu(request):
     context = {'items': items}
     return render(request, 'menu/menu.html', context)
 
+
+
+

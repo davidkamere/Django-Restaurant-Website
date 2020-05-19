@@ -8,6 +8,7 @@ app_name = 'the_blog'
 urlpatterns = [
     # Landing Page
     url(r'^$', views.index, name='index'),
+    url(r'^blog/$', views.blog, name='blog'),
     ]
 
 

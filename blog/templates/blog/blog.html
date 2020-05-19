@@ -1,0 +1,169 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <div class="ui hidden divider"></div>
+    <div class="ui grid">
+      <div class="left floated five wide column" >
+        <!--<i class="large bars icon" style="margin-left: 10px"></i>-->
+      </div>
+      <div class="center aligned six wide column" >
+        <img src="{% static "/media/landing/circle-cropped.png" %}"
+                     alt="My image" style="max-height: 150px; max-width: 150px ; margin-bottom: 5px;">
+      </div>
+      <div class="right floated five wide column">
+        <p></p>
+      </div>
+    </div>
+    <div class="ui hidden divider"></div>
+    <div class="ui hidden divider"></div>
+    <div class="ui grid">
+       <div class="ui sixteen wide center aligned column">
+           <span id="head2" style="color:silver; font-weight: bold; letter-spacing: 2px">NEWS, RECIPES AND MUCH MORE</span>
+       </div>
+    </div>
+    <div class="ui hidden divider"></div>
+    <div class="ui hidden divider"></div>
+
+    <div class="ui container">
+        <div class="ui stackable center aligned  grid">
+            <div class="ui row">
+                <div class="ui three wide column">
+                    <img src="{% static "/media/menu/hamburger.jpg" %}" id="images" alt="My image" style="max-height: 250px;
+                 width: 200px;object-fit: scale-down;padding: 10px; margin-top: 20px">
+                </div>
+                <div class="ui five wide center aligned column" style="margin:auto;padding:inherit">
+                    <div class="ui row"><b>One</b></div>
+                    <div class="ui row">Two</div>
+
+                </div>
+                <div class="ui five wide center aligned column" style="margin:auto; color:#efefef; font-weight: bold">Three</div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="ui hidden divider"></div>
+    <div class="ui hidden divider"></div>
+    <div class="ui hidden divider"></div>
+    <div class="ui hidden divider"></div>
+    <div class="ui center aligned fluid container" style="margin:auto; padding: 2px 3%" >
+        <div class="ui center aligned grid" style="background-color: black;">
+            <div class="sixteen wide center aligned column" style="margin-top: 4px; margin-bottom: 1px">
+                <p style="color: #EFC008;" id="base2" >
+                    MAMA'S PLATE
+                </p>
+            </div>
+            <div class="sixteen wide center aligned column" >
+                <p style="color: white" style="border-bottom:6px solid white" id="desc">
+                    Ole-Sangale Link Rd, Nairobi | Tel: 0769 365891
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <style type="text/css">
+        body {
+
+              background-repeat: repeat;
+              background-size: cover;
+              background-position: center;
+
+
+            }
+        #title{
+           font-family: 'Cabin Sketch', cursive;
+           font-size:45px;
+           letter-spacing: 3px;
+           font-weight:bold;
+        }
+        #head1{
+            font-family: 'Cabin Sketch', cursive;
+            font-size:35px;
+
+        }
+        #head2{
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        #base2{
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 3px;
+        }
+
+        #desc{
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+        #price{
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 18px;
+            font-weight: 500;
+        }
+        #menu_item {
+            font-size: 14px;
+            letter-spacing: 2px;
+            }
+
+        #menu {
+            margin-left: initial;
+            }
+        @media only screen and (max-width: 1200px) {
+            #images{
+               width: 355px !important;
+
+            }
+            #menu{
+                margin-left: 0;
+            }
+            #length{
+                width:initial;
+            }
+            #price{
+                margin: auto;
+            }
+            #dish{
+                margin: auto;
+                padding: 0;
+            }
+            #description{
+                margin: auto;
+                padding: 0;
+            }
+
+
+        }
+        /*@media only screen and (max-width: 767px) {
+            #sandwich{
+                display: inline !important;
+                margin-right: -60px;
+            }
+            .stackable.compact.menu{
+                display: none !important;
+            }
+        }*/
+    </style>
+{%  endblock content %}

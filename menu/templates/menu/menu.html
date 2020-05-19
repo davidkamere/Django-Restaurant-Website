@@ -5,10 +5,12 @@
     <div class="ui container" style="padding: 15px; margin: 5px -5px" id="length">
         <div class="ui stackable center aligned grid" >
             <img src="{% static "/media/landing/circle-cropped.png" %}"
-                     alt="My image" style="max-height: 150px; max-width: 150px ; margin-bottom: 0;">
+                     alt="My image" style="max-height: 150px; max-width: 150px ; margin-bottom: 5px;">
+            <div class="ui hidden divider"></div>
+            <div class="row" style="margin-bottom: -2px">
 
-            <div class="row" style="margin-bottom: 0">
-                <h1>MAMA'S MENU</h1>
+                <h1 id="title"><b>MAMA'S MENU</b></h1>
+
             </div>
 
             <div class="row">
@@ -17,17 +19,17 @@
                 <div class="ui hidden divider"></div>
 
                 <div class="ui hidden divider"></div>
-                <div class="ui secondary vertical left aligned menu">
-                  <a class="item" >
-                    MAIN COURSE
+                <div class="ui secondary vertical left aligned menu" style="padding:8px; border-radius:5px">
+                  <a class="item" id="menu_item">
+                      <b style="color: #EFC008" id="head3">MAIN COURSE</b>
                   </a>
                   <div class="ui hidden divider" style="background-color: #EFC008; margin-left: 5px;"></div>
-                  <a class="item" >
-                    SNACKS & PAIRINGS
+                  <a class="item" id="menu_item">
+                      <b id="">SNACKS & PAIRINGS</b>
                   </a>
                   <div class="ui hidden divider" style="background-color: #EFC008; margin-left: 5px;"></div>
-                  <a class="item">
-                    DRINKS
+                  <a class="item" id="menu_item">
+                      <b id="">DRINKS</b>
                   </a>
                 </div>
             </div>
@@ -37,7 +39,7 @@
                     <div class="row">
                     <div class="center aligned column" style="color:white;background-color: black;padding: 50px 50px; opacity: 0.9;">
 
-                        <h2 style="margin-bottom: 20px">&nbsp;BEEF</h2>
+                        <h2 style="margin-bottom: 20px" id="head1">&nbsp;BEEF</h2>
 
 
                             {% for item in items %}
@@ -48,7 +50,7 @@
 
                                         <div class="left floated column"
                                         style="padding: 20px 18px 15px;" id="dish">
-                                            <p style="color: #EFC008;">{{item.dish}}</p>
+                                            <p style="color: #EFC008;" id="head2">{{item.dish}}</p>
 
                                         </div>
 
@@ -63,7 +65,7 @@
                                         <div class="center aligned grid">
                                         <div class="left aligned column">
                                             <div class="item" >
-                                                <p>{{item.description}}</p>
+                                                <p id="desc">{{item.description}}</p>
                                             </div>
                                         </div>
                                         </div>
@@ -77,9 +79,9 @@
                             {% endfor %}
 
                     </div>
-                    <div class="center aligned column" style="background-color: #EFC008;padding: 50px 50px;opacity: 0.9;">
+                    <div class="center aligned column" style="background-color: #EFC008;padding: 50px 50px;opacity: 1;">
 
-                        <h2 style="margin-bottom: 20px">CHICKEN</h2>
+                        <h2 style="margin-bottom: 20px" id="head1">CHICKEN</h2>
 
 
                             {% for item in items %}
@@ -90,7 +92,7 @@
 
                                         <div class="left floated column"
                                         style="padding: 20px 18px 15px;"  id="dish">
-                                            <p style="color: white;">{{item.dish}}</p>
+                                            <p style="color: white;" id="head2">{{item.dish}}</p>
 
                                         </div>
 
@@ -105,7 +107,7 @@
                                         <div class="center aligned grid" >
                                         <div class="left aligned column" style="color: black;" >
                                             <div class="item" >
-                                                <p>{{item.description}}</p>
+                                                <p id="desc">{{item.description}}</p>
                                             </div>
                                         </div>
                                         </div>
@@ -164,51 +166,10 @@
             <div class="sixteen wide column" >
                 <div class="ui three column stackable grid" style="margin-left: 30px">
                     <div class="row">
-                    <div class="center aligned column" style="color:white;background-color: black;padding: 50px 50px; opacity: 0.9;">
 
-                        <h2 style="margin-bottom: 20px">&nbsp;BEEF</h2>
+                    <div class="center aligned column" style="background-color: #EFC008;padding: 50px 50px;opacity: 1;">
 
-
-                            {% for item in items %}
-                            {% if item.sub_category.sub_category == 'Beef' %}
-                                <div class="row">
-                                    <div class="ui hidden divider"></div>
-
-
-                                        <div class="left floated column"
-                                        style="padding: 20px 18px 15px;" id="dish">
-                                            <p style="color: #EFC008;">{{item.dish}}</p>
-
-                                        </div>
-
-                                        <div class="right floated one wide column"
-                                        style="padding: 20px 18px 15px;" id="price">
-                                            <p style="color:#EFC008;">&nbsp;{{item.price}}/=</p>
-
-                                        </div>
-
-
-                                    <div class="justified row" style="padding: 20px" id="description">
-                                        <div class="center aligned grid">
-                                        <div class="left aligned column">
-                                            <div class="item" >
-                                                <p>{{item.description}}</p>
-                                            </div>
-                                        </div>
-                                        </div>
-
-                                    </div>
-
-
-                                </div>
-                                <div class="ui hidden divider"></div>
-                            {% endif %}
-                            {% endfor %}
-
-                    </div>
-                    <div class="center aligned column" style="background-color: #EFC008;padding: 50px 50px;opacity: 0.9;">
-
-                        <h2 style="margin-bottom: 20px">CHICKEN</h2>
+                        <h2 style="margin-bottom: 20px" id="head1">CHICKEN</h2>
 
 
                             {% for item in items %}
@@ -219,13 +180,13 @@
 
                                         <div class="left floated column"
                                         style="padding: 20px 18px 15px;"  id="dish">
-                                            <p style="color: white;">{{item.dish}}</p>
+                                            <p style="color: white;" id="head2">{{item.dish}}</p>
 
                                         </div>
 
                                         <div class="right floated one wide column"
                                         style="padding: 20px 18px 15px;" id="price">
-                                            <p style="color:white;">&nbsp;{{item.price}}/=</p>
+                                            <p style="color:white;" id="price">&nbsp;{{item.price}}/=</p>
 
                                         </div>
 
@@ -234,7 +195,7 @@
                                         <div class="center aligned grid" >
                                         <div class="left aligned column" style="color: black;" >
                                             <div class="item" >
-                                                <p>{{item.description}}</p>
+                                                <p id="desc">{{item.description}}</p>
                                             </div>
                                         </div>
                                         </div>
@@ -248,9 +209,10 @@
                             {% endfor %}
 
                     </div>
-                    <div class="center aligned column" style="color:white;background-color: black;padding: 50px 50px; opacity: 0.8;">
 
-                        <h2 style="margin-bottom: 20px">&nbsp;BEEF</h2>
+                    <div class="center aligned column" style="color:white;background-color: black;padding: 50px 50px; opacity: 0.9;">
+
+                        <h2 style="margin-bottom: 20px" id="head1">&nbsp;BEEF</h2>
 
 
                             {% for item in items %}
@@ -261,7 +223,7 @@
 
                                         <div class="left floated column"
                                         style="padding: 20px 18px 15px;" id="dish">
-                                            <p style="color: #EFC008;">{{item.dish}}</p>
+                                            <p style="color: #EFC008;" id="head2">{{item.dish}}</p>
 
                                         </div>
 
@@ -276,7 +238,49 @@
                                         <div class="center aligned grid">
                                         <div class="left aligned column">
                                             <div class="item" >
-                                                <p>{{item.description}}</p>
+                                                <p id="desc">{{item.description}}</p>
+                                            </div>
+                                        </div>
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+                                <div class="ui hidden divider"></div>
+                            {% endif %}
+                            {% endfor %}
+
+                    </div>
+                    <div class="center aligned column" style="color:white;background-color: #efefef;padding: 50px 50px; opacity: 1;">
+
+                        <h2 style="margin-bottom: 20px; color:black" id="head1">&nbsp;BEEF</h2>
+
+
+                            {% for item in items %}
+                            {% if item.sub_category.sub_category == 'Beef' %}
+                                <div class="row">
+                                    <div class="ui hidden divider"></div>
+
+
+                                        <div class="left floated column"
+                                        style="padding: 20px 18px 15px;" id="dish">
+                                            <p style="color: #EFC008;" id="head2">{{item.dish}}</p>
+
+                                        </div>
+
+                                        <div class="right floated one wide column"
+                                        style="padding: 20px 18px 15px;" id="price">
+                                            <p style="color:#EFC008;">&nbsp;{{item.price}}/=</p>
+
+                                        </div>
+
+
+                                    <div class="justified row" style="padding: 20px" id="description">
+                                        <div class="center aligned grid">
+                                        <div class="left aligned column">
+                                            <div class="item" >
+                                                <p style="color:black" id="desc">{{item.description}}</p>
                                             </div>
                                         </div>
                                         </div>
@@ -308,15 +312,15 @@
     <div class="ui hidden divider"></div>
     <div class="ui hidden divider"></div>
     <div class="ui hidden divider"></div>
-    <div class="ui center aligned fluid container" style="margin:auto; padding: 0 3%" >
+    <div class="ui center aligned fluid container" style="margin:auto; padding: 2px 3%" >
         <div class="ui center aligned grid" style="background-color: black;">
-            <div class="sixteen wide center aligned column" >
-                <p style="color: #EFC008;">
+            <div class="sixteen wide center aligned column" style="margin-top: 4px; margin-bottom: 1px">
+                <p style="color: #EFC008;" id="base2" >
                     MAMA'S PLATE
                 </p>
             </div>
             <div class="sixteen wide center aligned column" >
-                <p style="color: white" style="border-bottom:6px solid white">
+                <p style="color: white" style="border-bottom:6px solid white" id="desc">
                     Ole-Sangale Link Rd, Nairobi | Tel: 0769 365891
                 </p>
             </div>
@@ -326,12 +330,52 @@
     <div class="ui hidden divider"></div>
     <style type="text/css">
         body {
-              background: url(../../static/media/menu/wood1.jpg);
+
               background-repeat: repeat;
               background-size: cover;
               background-position: center;
 
+
             }
+        #title{
+           font-family: 'Cabin Sketch', cursive;
+           font-size:45px;
+           letter-spacing: 3px;
+           font-weight:bold;
+        }
+        #head1{
+            font-family: 'Cabin Sketch', cursive;
+            font-size:35px;
+
+        }
+        #head2{
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        #base2{
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 3px;
+        }
+
+        #desc{
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+        #price{
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 18px;
+            font-weight: 500;
+        }
+        #menu_item {
+            font-size: 14px;
+            letter-spacing: 2px;
+            }
+
         #menu {
             margin-left: initial;
             }

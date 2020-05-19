@@ -11,14 +11,14 @@
               <div class="eight wide center aligned column" style="margin-top: 40px">
 
                   <div class="ui five item fluid stackable menu" style="background-color: inherit">
-                    <a class="active item" style="color: #EFC008;">
+                    <a class="active item" style="color: #EFC008;" href="{% url 'the_blog:index' %}">
                       HOME
                     </a>
-                    <a class="item" style="color: white; ">
+                    <a class="item" style="color: white; " href="{% url 'the_menu:menu' %}">
                       MENU
                     </a>
-                    <a class="item" style="color: white; ">
-                      RECIPES
+                    <a class="item" style="color: white; " href="{% url 'the_blog:blog' %}">
+                      BLOG
                     </a>
                     <a class="item" style="color: white; ">
                       GALLERY
