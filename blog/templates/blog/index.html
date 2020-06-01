@@ -58,12 +58,12 @@
 
         <div class="four wide column"></div>
 
-        <div class="ten wide center aligned column" style="margin-bottom: 40px">
+        <div class="fourteen wide center aligned column" style="margin-bottom: 40px" id="mail_p">
             <p style="color: white" id="mailing">
                 Join our mailing list to get the latest offers and posts
             </p>
             <div class="ui fluid center aligned action input" style="min-width: 200px;">
-                <input placeholder="Enter your Email here..." style="min-width: 100px;" type="email" id="recipient_email" name="recipient_email_address" required>
+                <input placeholder="Enter your Email here..." style="min-width: 120px;" type="email" id="recipient_email" name="recipient_email_address" required>
                 <button class="ui inverted big basic olive button" type="submit" data-modal-target="empty" name="email" style="background: #EFC008;">
                     <a style="color: white; min-width: 40px;" id="desc">SUBSCRIBE</a>
                 </button>
@@ -209,13 +209,13 @@
     <div class="ui hidden divider"></div>
 
 
-    <div class="ui center aligned fluid container" style="margin:10px; padding: 0 25px;" >
-        <div class="ui three column stackable center aligned grid" style="margin:25px; padding: 0 10px">
+    <div class="ui center aligned fluid container" style="margin:0; padding: 0;" >
+        <div class="ui three column stackable center aligned grid" style="margin:5px; padding: 0 10px">
 
           <div class="column" style="margin:0;">
             <div class="ui fluid card" style="object-fit: scale-down">
 
-                <img src="{% static "/media/gallery/one.jpeg" %}" style="max-height: 300px;" >
+                <img src="{% static "/media/gallery/one.jpeg" %}" style="max-height: 310px;" >
 
 
             </div>
@@ -224,7 +224,7 @@
           <div class="column" style="margin:0;padding: 4px">
             <div class="ui fluid card" style="object-fit: scale-down">
 
-                <img src="{% static "/media/gallery/two.jpeg" %}" style="max-height: 325px">
+                <img src="{% static "/media/gallery/two.jpeg" %}" style="max-height: 330px">
 
 
             </div>
@@ -233,7 +233,7 @@
           <div class="column" style="margin:0;">
             <div class="ui fluid card" style="object-fit: scale-down">
 
-                <img src="{% static "/media/gallery/three.jpeg" %}" style="max-height: 300px;">
+                <img src="{% static "/media/gallery/three.jpeg" %}" style="max-height: 310px;">
 
 
             </div>
@@ -272,6 +272,9 @@
 
 
             }
+        #mail_p{
+            padding:0 350px;
+        }
         #h_menu {
             display: none;
         }
@@ -346,6 +349,9 @@
             }
             #headmenu{
                 display: none;
+            }
+            #mail_p{
+                padding:0;
             }
             #h_menu{
                 display: none;
