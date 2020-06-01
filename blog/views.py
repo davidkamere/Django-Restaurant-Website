@@ -11,3 +11,9 @@ def blog(request):
     """The blog for Mama's plate"""
 
     return render(request, 'blog/blog.html')
+
+
+def about(request):
+    """The about for Mama's plate"""
+
+    return render(request, 'blog/about.html')
