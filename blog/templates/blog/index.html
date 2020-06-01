@@ -6,12 +6,12 @@
         <div class="center aligned ten wide column" id="v_menu">
                 <div class="ui hidden divider"></div>
                 <span>
-                    <a class="active item" style="color: #EFC008; margin: 0 25px" href="{% url 'the_blog:index' %}" id="head2">
+                    <a class="active item" style="color: #EFC008; margin: 0 25px" href="{% url 'the_blog:index' %}" id="headmenu">
                       HOME
                     </a>
                 </span>
                 <span>
-                    <a class="item" style="color: white; margin: 0 25px" href="{% url 'the_menu:menu' %}" id="head2">
+                    <a class="item" style="color: white; margin: 0 25px" href="{% url 'the_menu:menu' %}" id="headmenu">
                       MENU
                     </a>
                 </span>
@@ -20,12 +20,12 @@
                                  alt="My image" style="max-height: 150px; max-width: 150px ; margin: 10px 25px; border:0">
                 </a>
                 <span>
-                    <a class="item" style="color: white;  margin: 0 25px" href="{% url 'the_blog:blog' %}" id="head2">
+                    <a class="item" style="color: white;  margin: 0 25px" href="{% url 'the_blog:blog' %}" id="headmenu">
                       BLOG
                     </a>
                 </span>
                 <span>
-                    <a class="item" style="color: white; margin: 0 25px" href="{% url 'the_blog:about' %}" id="head2">
+                    <a class="item" style="color: white; margin: 0 25px" href="{% url 'the_blog:about' %}" id="headmenu">
                       ABOUT
                     </a>
                 </span>
@@ -296,6 +296,11 @@
             font-size: 16px;
             font-weight: 500;
         }
+        #headmenu{
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+        }
         #head3 {
             font-family: 'Josefin Sans', sans-serif;
             font-size: 20px;
@@ -338,6 +343,9 @@
             #images{
                width: 355px !important;
 
+            }
+            #headmenu{
+                display: none;
             }
             #h_menu{
                 display: none;
