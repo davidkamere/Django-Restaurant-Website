@@ -3,10 +3,32 @@
 {% block content %}
 
     <div class="ui center aligned fluid container" style="margin-top:0; background: url(../../static/media/landing/header.jpeg) no-repeat center;" >
-        <div class="center aligned six wide column" id="v_menu">
+        <div class="center aligned ten wide column" id="v_menu">
                 <div class="ui hidden divider"></div>
-                <img src="{% static "/media/landing/circle-cropped.png" %}"
-                             alt="My image" style="max-height: 150px; max-width: 150px ; margin-bottom: 5px;">
+                <span>
+                    <a class="active item" style="color: #EFC008; margin: 0 25px" href="{% url 'the_blog:index' %}" id="head2">
+                      HOME
+                    </a>
+                </span>
+                <span>
+                    <a class="item" style="color: white; margin: 0 25px" href="{% url 'the_menu:menu' %}" id="head2">
+                      MENU
+                    </a>
+                </span>
+                <a href="{% url 'the_blog:index' %}">
+                    <img src="{% static "/media/landing/circle-cropped.png" %}"
+                                 alt="My image" style="max-height: 150px; max-width: 150px ; margin: 10px 25px; border:0">
+                </a>
+                <span>
+                    <a class="item" style="color: white;  margin: 0 25px" href="{% url 'the_blog:blog' %}" id="head2">
+                      BLOG
+                    </a>
+                </span>
+                <span>
+                    <a class="item" style="color: white; margin: 0 25px" href="{% url 'the_blog:about' %}" id="head2">
+                      ABOUT
+                    </a>
+                </span>
               </div>
         <div class="ui center aligned grid" >
 
@@ -187,13 +209,13 @@
     <div class="ui hidden divider"></div>
 
 
-    <div class="ui center aligned fluid container" style="margin:15px; padding: 0 45px;" >
-        <div class="ui three column stackable center aligned grid" style="margin:25px; padding: 0 15px">
+    <div class="ui center aligned fluid container" style="margin:10px; padding: 0 25px;" >
+        <div class="ui three column stackable center aligned grid" style="margin:25px; padding: 0 10px">
 
           <div class="column" style="margin:0;">
             <div class="ui fluid card" style="object-fit: scale-down">
 
-                <img src="{% static "/media/gallery/one.jpeg" %}" style="max-height: 290px;" >
+                <img src="{% static "/media/gallery/one.jpeg" %}" style="max-height: 300px;" >
 
 
             </div>
@@ -202,7 +224,7 @@
           <div class="column" style="margin:0;padding: 4px">
             <div class="ui fluid card" style="object-fit: scale-down">
 
-                <img src="{% static "/media/gallery/two.jpeg" %}" style="max-height: 320px">
+                <img src="{% static "/media/gallery/two.jpeg" %}" style="max-height: 325px">
 
 
             </div>
@@ -211,7 +233,7 @@
           <div class="column" style="margin:0;">
             <div class="ui fluid card" style="object-fit: scale-down">
 
-                <img src="{% static "/media/gallery/three.jpeg" %}" style="max-height: 290px;">
+                <img src="{% static "/media/gallery/three.jpeg" %}" style="max-height: 300px;">
 
 
             </div>
