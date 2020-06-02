@@ -11,7 +11,7 @@
     </div>
     <div class="center aligned sixteen wide column" id="v_menu">
                 <div class="ui hidden divider"></div>
-                <span style="border: 1px solid #EFC008;padding: 20px 5px" id="headmenu">
+                <span style="border: 1px solid #EFefef;padding: 20px 5px" id="headmenu">
                     <a class="active item" style="color: #EFC008;text-decoration: none; margin: 0 30px" href="{% url 'the_blog:index' %}" id="headmenu">
                       HOME
                     </a>
@@ -304,11 +304,24 @@
     <div class="ui hidden divider"></div>
     <div class="ui hidden divider"></div>
     <div class="ui center aligned fluid container" style="margin:auto; padding: 0 3%" >
-        <div class="ui center aligned grid" style="background-color: black;">
-            <div class="sixteen wide center aligned column" >
+        <div class="ui center aligned grid" style="background-color: black; ">
+            <div class="sixteen wide center aligned column" style="margin-bottom:-2px" >
                 <p style="color: #EFC008;" id="base2">
                     MAMA'S PLATE
                 </p>
+            </div>
+            <div class="sixteen wide center aligned column" style="margin-top:-3px">
+                <span id="bottom_socials">
+                      <a href="https://wa.me/254769365891" target="_blank"><button class="ui black circular whatsapp icon button" style="margin: 0 10px">
+                          <i class="green whatsapp icon"></i>
+                      </button></a>
+                      <a href="https://www.instagram.com/mamas.plate/" target="_blank"><button class="ui black circular instagram icon button" style="margin: 0 10px">
+                          <i class="instagram icon"></i>
+                      </button></a>
+                      <a href = "mailto: afronotsparadise@gmail.com" target="_blank"><button class="ui black circular mail icon button" style="margin: 0 10px">
+                          <i class="white mail icon"></i>
+                      </button></a>
+                  </span>
             </div>
             <div class="sixteen wide center aligned column" >
                 <p style="color: white" style="border-bottom:6px solid white" id="desc">
@@ -424,7 +437,7 @@
             }
             .ui.icon.vertical.menu{
               display: block;
-              position: fixed; /* Set the navbar to fixed position */
+             position: fixed;  /* Set the navbar to fixed position */
               top: 20.5%; /* Position the navbar at the top of the page */
               z-index: 1;
             }
