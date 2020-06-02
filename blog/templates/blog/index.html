@@ -1,35 +1,84 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
+    <div class="center aligned fluid ui container">
+    <div class="ui labeled icon left floated inverted vertical menu" style="margin-right: 40px ; margin-left: -25px; border: thin solid #EFC008; background: black " >
 
-    <div class="ui center aligned fluid container" style="margin-top:0; background: url(../../static/media/landing/header.jpeg) no-repeat center;" >
-        <div class="center aligned ten wide column" id="v_menu">
+        <div class="item" id="dmt">
+            <i class="large bars icon"></i>
+        </div>
+
+    </div>
+    <div class="center aligned sixteen wide column" id="v_menu">
                 <div class="ui hidden divider"></div>
-                <span>
-                    <a class="active item" style="color: #EFC008; margin: 0 25px" href="{% url 'the_blog:index' %}" id="headmenu">
+                <span style="border: 1px solid #EFC008;padding: 20px 5px" id="headmenu">
+                    <a class="active item" style="color: #EFC008;text-decoration: none; margin: 0 30px" href="{% url 'the_blog:index' %}" id="headmenu">
                       HOME
                     </a>
                 </span>
                 <span>
-                    <a class="item" style="color: white; margin: 0 25px" href="{% url 'the_menu:menu' %}" id="headmenu">
+                    <a class="item" style="color: black; text-decoration: none; margin: 0 35px" href="{% url 'the_menu:menu' %}" id="headmenu">
                       MENU
                     </a>
                 </span>
-                <a href="{% url 'the_blog:index' %}">
+                <a href="{% url 'the_blog:index' %}" style="text-decoration: none">
                     <img src="{% static "/media/landing/circle-cropped.png" %}"
-                                 alt="My image" style="max-height: 150px; max-width: 150px ; margin: 10px 25px; border:0">
+                                 alt="My image" style="max-height: 150px; max-width: 150px ; margin: 0px 40px 10px ; border:0">
                 </a>
                 <span>
-                    <a class="item" style="color: white;  margin: 0 25px" href="{% url 'the_blog:blog' %}" id="headmenu">
+                    <a class="item" style="color: black; text-decoration: none; margin: 0 35px" href="{% url 'the_blog:blog' %}" id="headmenu">
                       BLOG
                     </a>
                 </span>
                 <span>
-                    <a class="item" style="color: white; margin: 0 25px" href="{% url 'the_blog:about' %}" id="headmenu">
+                    <a class="item" style="color: black; text-decoration: none; margin: 0 35px" href="{% url 'the_blog:about' %}" id="headmenu">
                       ABOUT
                     </a>
                 </span>
-              </div>
+    </div>
+    </div>
+    <div class="ui hidden divider"></div>
+    <div>
+        <div class="ui sidebar vertical menu" style="text-decoration: none">
+            <div class="ui hidden divider"></div>
+            <div class="ui hidden divider"></div>
+            <div class="ui hidden divider"></div>
+            <div class="ui hidden divider"></div>
+            <a style="color: #EFC008; margin:0px 110px 0px 60px; border: 1px solid #EFC008;padding:20px" href="{% url 'the_blog:index' %}">
+               HOME
+            </a>
+            <div class="ui hidden divider"></div>
+            <div class="ui hidden divider"></div>
+            <div class="ui hidden divider"></div>
+
+
+            <a style="color:black;text-decoration:none; padding:40px 20px; margin:0 110px 0 60px" href="{% url 'the_menu:menu' %}" >
+               MENU
+            </a>
+            <div class="ui hidden divider"></div>
+            <div class="ui hidden divider"></div>
+
+            <a style="color:black;text-decoration:none; padding:20px; margin:0px 110px 0px 60px" href="{% url 'the_blog:blog' %}">
+               BLOG
+            </a>
+            <div class="ui hidden divider"></div>
+            <div class="ui hidden divider"></div>
+
+            <a style="color:black;text-decoration:none; padding:20px; margin:0 110px 0 60px" href="{% url 'the_blog:about' %}">
+               ABOUT
+            </a>
+            <div class="ui hidden divider"></div>
+            <div class="ui hidden divider"></div>
+
+            <a style="color:black;text-decoration:none; padding:20px; margin:0 110px 0 60px">
+               GALLERY
+            </a>
+            <div class="ui hidden divider"></div>
+
+        </div>
+    <div class="pusher">
+    <div class="ui center aligned fluid container" style="margin-top:0; background: url(../../static/media/landing/header.jpeg) no-repeat center;" >
+
         <div class="ui center aligned grid" >
 
             <div class="four wide column" id="h_menu">
@@ -58,30 +107,37 @@
 
         <div class="four wide column"></div>
 
-        <div class="fourteen wide center aligned column" style="margin-bottom: 40px" id="mail_p">
-            <p style="color: white" id="mailing">
-                Join our mailing list to get the latest offers and posts
-            </p>
-            <div class="ui fluid center aligned action input" style="min-width: 200px;">
-                <input placeholder="Enter your Email here..." style="min-width: 120px;" type="email" id="recipient_email" name="recipient_email_address" required>
-                <button class="ui inverted big basic olive button" type="submit" data-modal-target="empty" name="email" style="background: #EFC008;">
-                    <a style="color: white; min-width: 40px;" id="desc">SUBSCRIBE</a>
-                </button>
+        <div class="sixteen wide center aligned column" style="margin-bottom: 40px;" id="mail_p">
+            <div style="background-color: black;opacity: 0.6;padding: 50px; margin: 0px;border-radius: 3px;">
+                <p style="color: white" id="mailing">
+                    Join our mailing list to get the latest offers and posts
+                </p>
+                <div class="ui fluid center aligned action input" style="min-width: 200px;">
+                    <input placeholder="Enter your Email here..." style="min-width: 120px;" type="email" id="recipient_email" name="recipient_email_address" required>
+                    <button class="ui inverted big basic olive button" type="submit" data-modal-target="empty" name="email" style="background: #EFC008;" id="dmt">
+                        <a style="color: white; min-width: 40px;" id="desc">SUBSCRIBE</a>
+                    </button>
+                </div>
             </div>
         </div>
 
         </div>
     </div>
-
+    </div>
+    </div>
     <div class="ui hidden divider"></div>
     <div class="ui hidden divider"></div>
 
     <div class="ui center aligned fluid container" style="margin:auto; padding: 15px 3.5%" >
-        <div class="ui center aligned grid" style="background-color: black; padding: 10px 18px">
+        <div class="ui center aligned grid" style="background-color: black; padding: 12px 10px">
             <div class="sixteen wide center aligned column" >
+
                 <p style="color: #EFC008;" id="head1">
-                    TODAY'S SPECIALS
+                    <span style="border-bottom: 2px solid #EFC008;padding-bottom: 12px" >
+                        <span>TODAY'S SPECIALS</span>
+                    </span>
                 </p>
+
             </div>
 
             <div class="ui hidden divider"></div>
@@ -92,7 +148,7 @@
 
                     <div class="five wide fluid stackable column">
 
-                            <p style="color: white" id="head3">
+                            <p style="color: white;" id="head3">
                                 SNACKS & PAIRINGS
                             </p>
 
@@ -272,6 +328,10 @@
 
 
             }
+        .ui.icon.vertical.menu{
+                display: none;
+            }
+
         #mail_p{
             padding:0 350px;
         }
@@ -343,6 +403,11 @@
             margin-left: initial;
             }
         @media only screen and (max-width: 1200px) {
+
+            #mail_p{
+                padding:0;
+            }
+
             #images{
                width: 355px !important;
 
@@ -350,15 +415,20 @@
             #headmenu{
                 display: none;
             }
-            #mail_p{
-                padding:0;
-            }
+
             #h_menu{
                 display: none;
             }
             #v_menu{
                 display: initial;
             }
+            .ui.icon.vertical.menu{
+              display: block;
+              position: fixed; /* Set the navbar to fixed position */
+              top: 20.5%; /* Position the navbar at the top of the page */
+              z-index: 1;
+            }
+
             #menu{
                 margin-left: 0;
             }
@@ -379,14 +449,13 @@
 
 
         }
-        /*@media only screen and (max-width: 767px) {
-            #sandwich{
-                display: inline !important;
-                margin-right: -60px;
-            }
-            .stackable.compact.menu{
-                display: none !important;
-            }
-        }*/
+
     </style>
+{% block scripts %}
+    <script type="text/javascript">
+        $('#dmt').on('click', function () {
+            $('.ui.sidebar').sidebar('toggle');
+    });
+    </script>
+{% endblock scripts %}
 {%  endblock content %}
