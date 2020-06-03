@@ -94,24 +94,32 @@
 
                 <div class="ui hidden divider"></div>
                 <div class="ui secondary vertical left aligned menu" style="padding:8px; border-radius:5px">
-                  <a class="item" id="menu_item">
-                      <b style="color: #EFC008" id="head3">MAIN COURSE</b>
+                  <a class="item" id="toggle1">
+                      <span id="menu_item"  ><b id="head3">MAIN COURSE</b></span>
                   </a>
                   <div class="ui hidden divider" style="background-color: #EFC008; margin-left: 5px;"></div>
-                  <a class="item" id="menu_item">
-                      <b id="">SNACKS & PAIRINGS</b>
+                  <a class="item" id="toggle2" >
+                      <span  id="menu_item"><b >SNACKS & PAIRINGS</b></span>
                   </a>
                   <div class="ui hidden divider" style="background-color: #EFC008; margin-left: 5px;"></div>
-                  <a class="item" id="menu_item">
-                      <b id="">DRINKS</b>
+                  <a class="item" id="toggle3">
+                      <span id="menu_item" ><b >DRINKS</b></span>
                   </a>
                 </div>
             </div>
+
+
+
+
+
+
+
             <div class="ui hidden divider"></div>
             <div class="eleven wide column" style="padding: 25px" >
                 <div class="ui two column stackable grid" style="margin-left: 5px">
                     <div class="row">
-                    <div class="center aligned column" style="color:white;background-color: black;padding: 50px 50px; opacity: 0.9;">
+                    <!--  -->
+                    <div class="center aligned column" style="color:white;background-color: black;padding: 50px 50px; opacity: 0.9;" id="menu1">
 
                         <h2 style="margin-bottom: 20px" id="head1">&nbsp;BEEF</h2>
 
@@ -153,13 +161,190 @@
                             {% endfor %}
 
                     </div>
-                    <div class="center aligned column" style="background-color: #EFC008;padding: 50px 50px;opacity: 1;">
+                    <div class="center aligned column" style="color:white;background-color: black;padding: 50px 50px; opacity: 0.9;" id="menu2">
+
+                        <h2 style="margin-bottom: 20px" id="head1">&nbsp;SNACKS</h2>
+
+
+                            {% for item in items %}
+                            {% if item.sub_category.sub_category == 'Snacks' %}
+                                <div class="row">
+                                    <div class="ui hidden divider"></div>
+
+
+                                        <div class="left floated column"
+                                        style="padding: 20px 18px 15px;" id="dish">
+                                            <p style="color: #EFC008;" id="head2">{{item.dish}}</p>
+
+                                        </div>
+
+                                        <div class="right floated one wide column"
+                                        style="padding: 20px 18px 15px;" id="price">
+                                            <p style="color:#EFC008;">&nbsp;{{item.price}}/=</p>
+
+                                        </div>
+
+
+                                    <div class="justified row" style="padding: 20px" id="description">
+                                        <div class="center aligned grid">
+                                        <div class="left aligned column">
+                                            <div class="item" >
+                                                <p id="desc">{{item.description}}</p>
+                                            </div>
+                                        </div>
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+                                <div class="ui hidden divider"></div>
+                            {% endif %}
+                            {% endfor %}
+
+                    </div>
+                    <div class="center aligned column" style="color:white;background-color: black;padding: 50px 50px; opacity: 0.9;" id="menu3">
+
+                        <h2 style="margin-bottom: 20px" id="head1">&nbsp;HOT&nbsp; BEVERAGES</h2>
+
+
+                            {% for item in items %}
+                            {% if item.sub_category.sub_category == 'Hot Beverages' %}
+                                <div class="row">
+                                    <div class="ui hidden divider"></div>
+
+
+                                        <div class="left floated column"
+                                        style="padding: 20px 18px 15px;" id="dish">
+                                            <p style="color: #EFC008;" id="head2">{{item.dish}}</p>
+
+                                        </div>
+
+                                        <div class="right floated one wide column"
+                                        style="padding: 20px 18px 15px;" id="price">
+                                            <p style="color:#EFC008;">&nbsp;{{item.price}}/=</p>
+
+                                        </div>
+
+
+                                    <div class="justified row" style="padding: 20px" id="description">
+                                        <div class="center aligned grid">
+                                        <div class="left aligned column">
+                                            <div class="item" >
+                                                <p id="desc">{{item.description}}</p>
+                                            </div>
+                                        </div>
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+                                <div class="ui hidden divider"></div>
+                            {% endif %}
+                            {% endfor %}
+
+                    </div>
+
+
+
+
+
+
+
+                    <div class="center aligned column" style="background-color: #EFC008;padding: 50px 50px;opacity: 1;" id="menu4">
 
                         <h2 style="margin-bottom: 20px" id="head1">CHICKEN</h2>
 
 
                             {% for item in items %}
                                 {% if item.sub_category.sub_category == 'Chicken' %}
+                                <div class="row">
+                                    <div class="ui hidden divider"></div>
+
+
+                                        <div class="left floated column"
+                                        style="padding: 20px 18px 15px;"  id="dish">
+                                            <p style="color: white;" id="head2">{{item.dish}}</p>
+
+                                        </div>
+
+                                        <div class="right floated one wide column"
+                                        style="padding: 20px 18px 15px;" id="price">
+                                            <p style="color:white;">&nbsp;{{item.price}}/=</p>
+
+                                        </div>
+
+
+                                    <div class="justified row" style="padding: 20px" id="description">
+                                        <div class="center aligned grid" >
+                                        <div class="left aligned column" style="color: black;" >
+                                            <div class="item" >
+                                                <p id="desc">{{item.description}}</p>
+                                            </div>
+                                        </div>
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+                                <div class="ui hidden divider"></div>
+                            {% endif %}
+                            {% endfor %}
+
+                    </div>
+
+                    <div class="center aligned column" style="background-color: #EFC008;padding: 50px 50px;opacity: 1;" id="menu5">
+
+                        <h2 style="margin-bottom: 20px" id="head1">PAIRINGS</h2>
+
+
+                            {% for item in items %}
+                                {% if item.sub_category.sub_category == 'Pairings' %}
+                                <div class="row">
+                                    <div class="ui hidden divider"></div>
+
+
+                                        <div class="left floated column"
+                                        style="padding: 20px 18px 15px;"  id="dish">
+                                            <p style="color: white;" id="head2">{{item.dish}}</p>
+
+                                        </div>
+
+                                        <div class="right floated one wide column"
+                                        style="padding: 20px 18px 15px;" id="price">
+                                            <p style="color:white;">&nbsp;{{item.price}}/=</p>
+
+                                        </div>
+
+
+                                    <div class="justified row" style="padding: 20px" id="description">
+                                        <div class="center aligned grid" >
+                                        <div class="left aligned column" style="color: black;" >
+                                            <div class="item" >
+                                                <p id="desc">{{item.description}}</p>
+                                            </div>
+                                        </div>
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+                                <div class="ui hidden divider"></div>
+                            {% endif %}
+                            {% endfor %}
+
+                    </div>
+
+                     <div class="center aligned column" style="background-color: #EFC008;padding: 50px 50px;opacity: 1;" id="menu6">
+
+                        <h2 style="margin-bottom: 20px" id="head1">COLD BEVERAGES</h2>
+
+
+                            {% for item in items %}
+                                {% if item.sub_category.sub_category == 'Cold Beverages' %}
                                 <div class="row">
                                     <div class="ui hidden divider"></div>
 
@@ -424,6 +609,9 @@
 
 
             }
+        #menu2{
+            display: none;
+        }
         .ui.icon.vertical.menu{
                 display: none;
             }
@@ -526,6 +714,51 @@
     <script type="text/javascript">
         $('#dmt').on('click', function () {
             $('.ui.sidebar').sidebar('toggle');
+    });
+        $(document).ready(function() {
+            $("#menu1").show();
+            $("#menu4").show();
+            $('#menu2').hide();
+            $('#menu3').hide();
+            $('#menu5').hide();
+            $('#menu6').hide();
+            $('#toggle1').attr('style','color:#EFC008');
+            $('#toggle2').attr('style','color:black');
+            $('#toggle3').attr('style','color:black');
+        });
+
+        $('#toggle2').on('click', function () {
+            $("#menu2").show();
+            $("#menu5").show();
+            $('#menu1').hide();
+            $('#menu3').hide();
+            $('#menu4').hide();
+            $('#menu6').hide();
+            $('#toggle1').attr('style','color:black');
+            $('#toggle2').attr('style','color:#EFC008');
+            $('#toggle3').attr('style','color:black');
+    });
+        $('#toggle1').on('click', function () {
+            $("#menu1").show();
+            $("#menu4").show();
+            $('#menu2').hide();
+            $('#menu3').hide();
+            $('#menu5').hide();
+            $('#menu6').hide();
+            $('#toggle1').attr('style','color:#EFC008');
+            $('#toggle2').attr('style','color:black');
+            $('#toggle3').attr('style','color:black');
+    });
+        $('#toggle3').on('click', function () {
+            $("#menu3").show();
+            $("#menu6").show();
+            $('#menu1').hide();
+            $('#menu2').hide();
+            $('#menu4').hide();
+            $('#menu5').hide();
+            $('#toggle1').attr('style','color:black');
+            $('#toggle2').attr('style','color:black');
+            $('#toggle3').attr('style','color:#EFC008');
     });
     </script>
 {% endblock scripts %}
