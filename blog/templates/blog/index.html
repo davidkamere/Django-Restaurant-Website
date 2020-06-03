@@ -255,7 +255,7 @@
                     </p>
                 </div>
                 <div class="eight wide column">
-                    <img src="{% static "/media/landing/map.png" %}" alt="My image" style="max-height: 700px; max-width: 460px" id="images">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.776663073947!2d36.80927001444972!3d-1.3092812360202326!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f11588d2c0c2d%3A0x7914a0406530bfda!2sMama&#39;s%20Plate!5e0!3m2!1sen!2ske!4v1591220907724!5m2!1sen!2ske" width="500" height="440" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0" id="images"></iframe>
                 </div>
         </div>
     </div>
@@ -469,6 +469,13 @@
         $('#dmt').on('click', function () {
             $('.ui.sidebar').sidebar('toggle');
     });
+    </script>
+    <script type="application/ld+json">{
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Mama's Plate",
+    "hasMap": "https://goo.gl/maps/ET2A2pnwtSmHYhRn6"
+    }
     </script>
 {% endblock scripts %}
 {%  endblock content %}

@@ -90,24 +90,25 @@
         <div class="ui stackable center aligned  grid">
             <div class="ui row">
                 <div class="ui three wide column">
-                    <img src="{% static "/media/menu/hamburger.jpeg" %}" id="images" alt="My image" style="max-height: 250px;
+                    <img src="{% static "/media/blog/scone.jpeg" %}" id="images" alt="My image" style="max-height: 200px;
                  width: 200px;object-fit: scale-down;padding: 10px; margin-top: 20px">
                 </div>
-                <div class="ui five wide center aligned column" style="margin:auto;">
+                <div class="ui six wide left aligned column" style="margin:auto; padding: 5px 10px">
                     <div class="ui row">
-                        <div class="ui center aligned column" style="margin:auto;">
-                            <b>One</b>
+                        <div class="ui left aligned column" style="margin:0;">
+                            <b>Introducing the Recipe Box </b>
                         </div>
                     </div>
                     <div class="ui hidden divider"></div>
                     <div class="ui row">
-                        <div class="ui center aligned column" style="margin:auto;">
-                            Two
+                        <div class="ui left aligned column" style="margin:auto;">
+                            Contains all the ingredients you need to make the Tastiest Chocolate Chip Banana Bread.. Ever! All you need to do is just mix it up and put it in the oven.
                         </div>
                     </div>
 
                 </div>
-                <div class="ui five wide center aligned column" style="margin:auto; color:#efefef; font-weight: bold">Three</div>
+                <div class="ui two wide center aligned column" style="margin:auto; color:#efefef; font-weight: bold" id="category">NEWS</div>
+                <div class="ui three wide center aligned column" style="margin:auto; color:#efefef; font-weight: bold">2/6/2020</div>
             </div>
 
         </div>
@@ -231,6 +232,9 @@
 
             }
             #headmenu{
+                display: none;
+            }
+            #category{
                 display: none;
             }
             .ui.icon.vertical.menu{

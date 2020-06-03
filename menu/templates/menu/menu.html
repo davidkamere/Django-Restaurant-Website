@@ -252,7 +252,48 @@
                             {% endfor %}
 
                     </div>
+                    <div class="center aligned column" style="color:white;background-color: #efefef;padding: 50px 20px; opacity: 1;" id="menu7">
 
+                        <h2 style="margin-bottom: 20px; color:#39ff14" id="head1">VEGETARIAN</h2>
+
+
+                            {% for item in items %}
+                            {% if item.sub_category.sub_category == "Vegetarian" %}
+                                <div class="row">
+                                    <div class="ui hidden divider"></div>
+
+
+                                        <div class="left floated column"
+                                        style="padding: 20px 18px 15px;" id="dish">
+                                            <p style="color: #EFC008;" id="head2">{{item.dish}}</p>
+
+                                        </div>
+
+                                        <div class="right floated one wide column"
+                                        style="padding: 20px 18px 15px;" id="price">
+                                            <p style="color:#EFC008;">&nbsp;{{item.price}}/=</p>
+
+                                        </div>
+
+
+                                    <div class="justified row" style="padding: 20px" id="description">
+                                        <div class="center aligned grid">
+                                        <div class="left aligned column">
+                                            <div class="item" >
+                                                <p style="color:black" id="desc">{{item.description}}</p>
+                                            </div>
+                                        </div>
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+                                <div class="ui hidden divider"></div>
+                            {% endif %}
+                            {% endfor %}
+
+                    </div>
 
 
 
@@ -729,6 +770,7 @@
             $('#menu3').hide();
             $('#menu5').hide();
             $('#menu6').hide();
+            $('#menu7').hide();
             $('#toggle1').attr('style','color:#EFC008');
             $('#toggle2').attr('style','color:black');
             $('#toggle3').attr('style','color:black');
@@ -742,6 +784,7 @@
             $('#menu3').hide();
             $('#menu4').hide();
             $('#menu6').hide();
+            $("#menu7").hide();
             $('#toggle1').attr('style','color:black');
             $('#toggle2').attr('style','color:#EFC008');
             $('#toggle3').attr('style','color:black');
@@ -754,6 +797,7 @@
             $('#menu3').hide();
             $('#menu5').hide();
             $('#menu6').hide();
+            $("#menu7").hide();
             $('#toggle1').attr('style','color:#EFC008');
             $('#toggle2').attr('style','color:black');
             $('#toggle3').attr('style','color:black');
@@ -766,9 +810,23 @@
             $('#menu2').hide();
             $('#menu4').hide();
             $('#menu5').hide();
+            $("#menu7").hide();
             $('#toggle1').attr('style','color:black');
             $('#toggle2').attr('style','color:black');
             $('#toggle3').attr('style','color:#EFC008');
+            $('#toggle4').hide();
+    });
+        $('#toggle4').on('click', function () {
+            $("#menu7").show();
+            $("#menu6").hide();
+            $('#menu1').hide();
+            $('#menu1').hide();
+            $('#menu2').hide();
+            $('#menu4').hide();
+            $('#menu5').hide();
+            $('#toggle1').attr('style','color:black');
+            $('#toggle2').attr('style','color:black');
+            $('#toggle3').attr('style','color:black');
             $('#toggle4').hide();
     });
     </script>
