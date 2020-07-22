@@ -10,6 +10,7 @@ urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^blog/$', views.blog, name='blog'),
     url(r'^about/$', views.about, name='about'),
+    re_path(r'^post/(?P<entry_id>\d+)/$', views.post, name='post'),
     ]
 
 
