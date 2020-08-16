@@ -16,18 +16,19 @@
                       HOME
                     </a>
                 </span>
-                <span>
-                    <a class="item" style="color: black; text-decoration: none; margin: 0 35px" href="{% url 'the_menu:menu' %}" id="headmenu">
-                      MENU
+	        <span>
+                    <a class="item" style="color: black; text-decoration: none; margin: 0 35px" href="{% url 'the_blog:blog' %}" id="headmenu">
+                      BLOG
                     </a>
                 </span>
+                
                 <a href="{% url 'the_blog:index' %}" style="text-decoration: none">
                     <img src="{% static "/media/landing/circle-cropped.png" %}"
                                  alt="My image" style="max-height: 150px; max-width: 150px ; margin: 0px 40px 10px ; border:0">
                 </a>
                 <span>
-                    <a class="item" style="color: black; text-decoration: none; margin: 0 35px" href="{% url 'the_blog:blog' %}" id="headmenu">
-                      BLOG
+                    <a class="item" style="color: black; text-decoration: none; margin: 0 35px" href="{% url 'the_menu:menu' %}" id="headmenu">
+                      MENU
                     </a>
                 </span>
                 <span>
@@ -37,6 +38,7 @@
                 </span>
     </div>
     </div>
+    <div class="ui hidden divider"></div>
     <div class="ui hidden divider"></div>
     <div>
         <div class="ui sidebar vertical menu" style="text-decoration: none">
@@ -70,9 +72,7 @@
             <div class="ui hidden divider"></div>
             <div class="ui hidden divider"></div>
 
-            <a style="color:black;text-decoration:none; padding:20px; margin:0 110px 0 60px">
-               GALLERY
-            </a>
+           
             <div class="ui hidden divider"></div>
 
         </div>
@@ -96,9 +96,7 @@
                     <a class="item" style="color: white; " href="{% url 'the_blog:blog' %}" id="head2">
                       BLOG
                     </a>
-                    <a class="item" style="color: white; " id="head2">
-                      GALLERY
-                    </a>
+                   
                     <a class="item" style="color: white;" id="head2">
                       ABOUT
                     </a>
@@ -112,17 +110,108 @@
                 <p style="color: white" id="mailing">
                     Join our mailing list to get the latest offers and posts
                 </p>
-                <div class="ui fluid center aligned action input" style="min-width: 200px;">
-                    <input placeholder="Enter your Email here..." style="min-width: 120px;" type="email" id="recipient_email" name="recipient_email_address" required>
-                    <button class="ui inverted big basic olive button" type="submit" data-modal-target="empty" name="email" style="background: #EFC008;" id="dmt">
-                        <a style="color: white; min-width: 40px;" id="desc">SUBSCRIBE</a>
-                    </button>
-                </div>
+                <form method="post" action="{% url 'the_blog:index' %}" name="subscribeForm" id="subForm">
+                        {% csrf_token %}
+                    <div class="ui fluid center aligned action input" style="min-width: 200px;">
+                        <input placeholder="Enter your Email here..." style="min-width: 120px;" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" type="email" id="recipient_email" name="recipient_email_address" required>
+                        <button class="ui inverted big basic olive button" type="submit" data-modal-target="empty" name="email" style="background: #EFC008;" id="dmt">
+                            <a style="color: white; min-width: 40px;" id="desc">SUBSCRIBE</a>
+                        </button>
+                    </div>
+                </form>>
             </div>
         </div>
 
         </div>
     </div>
+    <div class="ui hidden divider"></div>
+    <div class="ui hidden divider"></div>
+
+    <div class="ui center aligned fluid container" style="padding:50px; margin-bottom:40px;">
+	<div class="ui center aligned three column stackable equal width fluid grid" style="padding:0px;">
+	    <div class="row" style="color:silver; font-weight: bold; letter-spacing: 2px" id="head2">RECENT POSTS</div>
+	
+         
+	    <div class="row">
+	    <div class="left aligned column" style="padding:10px 45px">
+		
+			<img src="{% static "/media/menu/hamburger.jpeg" %}" id="images" alt="My image" style="height: 300px;
+                 	width: 300px;object-fit: scale-down;">
+			
+				<div class="ui items">
+  					<div class="item">
+    						<div class="content">
+      							<a class="header" style="color: #EFC008;" id="base2">CUTE DOG</a>
+      							<div class="description" id="desc">
+        						<p>You may have heard of the popular street food recipe in Mexico called Elote. If not, it’s an incredible dish that starts with corn on the cob; grilled until blackened and smoky then slathered in a creamy</p>
+        						<p></p>
+      							</div>
+      						<div class="extra">
+        						<i class="green check icon"></i>
+        						121 Votes
+      						</div>
+    						</div>
+  					</div>
+					
+				</div>
+		
+			
+
+	    </div>
+	    <div class="left aligned column" style="padding:10px 45px">
+
+		
+			<img src="{% static "/media/menu/hamburger.jpeg" %}" id="images" alt="My image" style="height: 300px;
+                 	width: 300px;object-fit: scale-down;">
+			
+			<div class="ui items">
+  					<div class="item">
+    						<div class="content">
+      							<a class="header" style="color: #EFC008;" id="base2">CUTE DOG</a>
+      							<div class="description" id="desc">
+        						<p >You may have heard of the popular street food recipe in Mexico called Elote. If not, it’s an incredible dish that starts with corn on the cob; grilled until blackened and smoky then slathered in a creamy</p>
+        						<p></p>
+      							</div>
+      						<div class="extra">
+        						<i class="green check icon"></i>
+        						121 Votes
+      						</div>
+    						</div>
+  					</div>
+					
+				</div>
+
+	    </div>
+	    <div class="left aligned column" style="padding:10px 45px">
+		
+			<img src="{% static "/media/menu/hamburger.jpeg" %}" id="images" alt="My image" style="height: 300px;
+                 	width: 300px;object-fit: scale-down;">
+			
+			<div class="ui items">
+  					<div class="item">
+    						<div class="content">
+      							<a class="header" style="color: #EFC008;" id="base2">CUTE DOG</a>
+      							<div class="description" id="desc">
+        						<p>You may have heard of the popular street food recipe in Mexico called Elote. If not, it’s an incredible dish that starts with corn on the cob; grilled until blackened and smoky then slathered in a creamy</p>
+        						<p></p>
+      							</div>
+      						<div class="extra">
+        						<i class="green check icon"></i>
+        						121 Votes
+      						</div>
+    						</div>
+  					</div>
+					
+				</div>
+
+	    </div>
+	    </div>
+	</div>
+	<a style="text-decoration: none;"href="{% url 'the_blog:blog' %}">
+			<button class="ui right floated black basic button" style="padding: 18px; margin-top:40px;"><span id="head3">READ MORE</span></button>
+	</a>
+    </div>
+
     </div>
     </div>
     <div class="ui hidden divider"></div>
@@ -208,18 +297,24 @@
                         <p style="color: white" id="head4">
                                 Breakfast Panini
                         </p>
-
+ 
                     </div>
                 </div>
 
 
 
-            <div class="ui hidden divider"></div>
+            
             <div class="ui hidden divider"></div>
             <div class="sixteen wide center aligned column" >
                 <p style="color: #efefef" id="desc">
-                    We deliver in Nairobi
+                    We deliver in Nairobi &nbsp
+  	            <a href="https://wa.me/254743676796" target="_blank" style="text-decoration:none; color:white"><i class="bicycle icon"></i></a>
+		    <a href="https://wa.me/254743676796" target="_blank" style="text-decoration:none"><i class="green whatsapp icon"></i></a>
                 </p>
+		<div class="ui hidden divider"></div>
+		<!--<a style="text-decoration: none;"href="{% url 'the_menu:menu' %}">
+			<button class="ui right floated inverted button" style="backgroung-color: #EFC008; padding:18px;"><span id="head3">SEE MENU</span></button>
+		</a>-->
             </div>
 
             </div>
@@ -476,6 +571,14 @@
     "name": "Mama's Plate",
     "hasMap": "https://goo.gl/maps/ET2A2pnwtSmHYhRn6"
     }
+    </script>
+    <script type="text/javascript">
+        $('#subForm').submit(function() {
+            $("#subForm").hide();
+            $('#gold').attr('style','color:gold');
+            $("#mailing").text('Thank you for Subscribing!!!!');
+        }
+        )
     </script>
 {% endblock scripts %}
 {%  endblock content %}

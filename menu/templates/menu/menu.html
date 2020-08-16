@@ -9,7 +9,8 @@
             <i class="large bars icon"></i>
         </div>
 
-    </div>
+    </div>  
+    
     <div class="center aligned sixteen wide column" id="v_menu">
                 <div class="ui hidden divider"></div>
                 <span>
@@ -17,18 +18,19 @@
                       HOME
                     </a>
                 </span>
-                <span style="border: 1px solid #EFefef;padding: 20px 5px" id="headmenu">
-                    <a class="item" style="color: #EFC008; text-decoration: none; margin: 0 35px" href="{% url 'the_menu:menu' %}" id="headmenu">
-                      MENU
+		<span>
+                    <a class="item" style="color: black; text-decoration: none; margin: 0 35px" href="{% url 'the_blog:blog' %}" id="headmenu">
+                      BLOG
                     </a>
                 </span>
+                
                 <a href="{% url 'the_blog:index' %}" style="text-decoration: none">
                     <img src="{% static "/media/landing/circle-cropped.png" %}"
                                  alt="My image" style="max-height: 150px; max-width: 150px ; margin: 0px 40px 10px ; border:0">
                 </a>
-                <span>
-                    <a class="item" style="color: black; text-decoration: none; margin: 0 35px" href="{% url 'the_blog:blog' %}" id="headmenu">
-                      BLOG
+                <span style="border: 1px solid #EFefef;padding: 20px 5px" id="headmenu">
+                    <a class="item" style="color: #EFC008; text-decoration: none; margin: 0 35px" href="{% url 'the_menu:menu' %}" id="headmenu">
+                      MENU
                     </a>
                 </span>
                 <span>
@@ -71,19 +73,17 @@
             <div class="ui hidden divider"></div>
             <div class="ui hidden divider"></div>
 
-            <a style="color:black;text-decoration:none; padding:20px; margin:0 110px 0 60px">
-               GALLERY
-            </a>
+           
             <div class="ui hidden divider"></div>
 
     </div>
     <div class="ui container" style="padding: 15px; margin: 5px -5px" id="length">
         <div class="ui stackable center aligned grid" >
 
-            <div class="ui hidden divider"></div>
-            <div class="row" style="margin-bottom: -2px">
 
-                <h1 id="title"><b>MAMA'S MENU</b></h1>
+            <div class="row" style="margin-bottom: -2px; margin-right: -12px">
+
+                <h1 id="title" >MAMA'S MENU  :</h1>
 
             </div>
 
@@ -128,7 +128,7 @@
                     <!--  -->
                     <div class="center aligned column" style="color:white;background-color: black;padding: 50px 50px; opacity: 0.9;" id="menu1">
 
-                        <h2 style="margin-bottom: 20px" id="head1">&nbsp;BEEF</h2>
+                        <h2 style="margin-bottom: 20px; color:white" id="head1">&nbsp;BEEF</h2>
 
 
                             {% for item in items %}
@@ -154,7 +154,7 @@
                                         <div class="center aligned grid">
                                         <div class="left aligned column">
                                             <div class="item" >
-                                                <p id="desc">{{item.description}}</p>
+                                                <p id="desc" style="color: white;">{{item.description}}</p>
                                             </div>
                                         </div>
                                         </div>
@@ -168,9 +168,9 @@
                             {% endfor %}
 
                     </div>
-                    <div class="center aligned column" style="color:white;background-color: black;padding: 50px 50px; opacity: 0.9;" id="menu2">
+                    <div class="center aligned column" style="background-color:black; padding: 50px 50px; opacity: 0.9;" id="menu2">
 
-                        <h2 style="margin-bottom: 20px" id="head1">&nbsp;SNACKS</h2>
+                        <h2 style="margin-bottom: 20px; color:white" id="head1">&nbsp;SNACKS</h2>
 
 
                             {% for item in items %}
@@ -196,7 +196,7 @@
                                         <div class="center aligned grid">
                                         <div class="left aligned column">
                                             <div class="item" >
-                                                <p id="desc">{{item.description}}</p>
+                                                <p id="desc" style="color: white;">{{item.description}}</p>
                                             </div>
                                         </div>
                                         </div>
@@ -210,9 +210,9 @@
                             {% endfor %}
 
                     </div>
-                    <div class="center aligned column" style="color:white;background-color: black;padding: 50px 50px; opacity: 0.9;" id="menu3">
+                    <div class="center aligned column" style="background-color: black;padding: 50px 50px; opacity: 0.9;" id="menu3">
 
-                        <h2 style="margin-bottom: 20px" id="head1">&nbsp;HOT&nbsp; BEVERAGES</h2>
+                        <h2 style="margin-bottom: 20px; color:white" id="head1">&nbsp;HOT&nbsp; BEVERAGES</h2>
 
 
                             {% for item in items %}
@@ -238,7 +238,7 @@
                                         <div class="center aligned grid">
                                         <div class="left aligned column">
                                             <div class="item" >
-                                                <p id="desc">{{item.description}}</p>
+                                                <p id="desc"style="color:white;" >{{item.description}}</p>
                                             </div>
                                         </div>
                                         </div>
@@ -252,7 +252,7 @@
                             {% endfor %}
 
                     </div>
-                    <div class="center aligned column" style="color:white;background-color: #efefef;padding: 50px 20px; opacity: 1;" id="menu7">
+                    <div class="center aligned column" style="color:white;background-color: white;padding: 50px 20px; opacity: 1; margin-left:19px" id="menu7">
 
                         <h2 style="margin-bottom: 20px; color:#39ff14" id="head1">VEGETARIAN</h2>
 
@@ -300,9 +300,9 @@
 
 
 
-                    <div class="center aligned column" style="background-color: #EFC008;padding: 50px 50px;opacity: 1;" id="menu4">
+                    <div class="center aligned column" style="background-color: white;padding: 50px 50px;opacity: 1; border: 1px solid #efefef;" id="menu4" >
 
-                        <h2 style="margin-bottom: 20px" id="head1">CHICKEN</h2>
+                        <h2 style="margin-bottom: 20px; color:black;" id="head1" >CHICKEN</h2>
 
 
                             {% for item in items %}
@@ -313,13 +313,13 @@
 
                                         <div class="left floated column"
                                         style="padding: 20px 18px 15px;"  id="dish">
-                                            <p style="color: white;" id="head2">{{item.dish}}</p>
+                                            <p style="color: #EFC008;" id="head2">{{item.dish}}</p>
 
                                         </div>
 
                                         <div class="right floated one wide column"
                                         style="padding: 20px 18px 15px;" id="price">
-                                            <p style="color:white;">&nbsp;{{item.price}}/=</p>
+                                            <p style="color:#EFC008;">&nbsp;{{item.price}}/=</p>
 
                                         </div>
 
@@ -343,7 +343,7 @@
 
                     </div>
 
-                    <div class="center aligned column" style="background-color: #EFC008;padding: 50px 50px;opacity: 1;" id="menu5">
+                    <div class="center aligned column" style="background-color: white;padding: 50px 50px;opacity: 1;" id="menu5">
 
                         <h2 style="margin-bottom: 20px" id="head1">PAIRINGS</h2>
 
@@ -356,13 +356,13 @@
 
                                         <div class="left floated column"
                                         style="padding: 20px 18px 15px;"  id="dish">
-                                            <p style="color: white;" id="head2">{{item.dish}}</p>
+                                            <p style="color: #EFC008;" id="head2">{{item.dish}}</p>
 
                                         </div>
 
                                         <div class="right floated one wide column"
                                         style="padding: 20px 18px 15px;" id="price">
-                                            <p style="color:white;">&nbsp;{{item.price}}/=</p>
+                                            <p style="color:#EFC008;">&nbsp;{{item.price}}/=</p>
 
                                         </div>
 
@@ -386,7 +386,7 @@
 
                     </div>
 
-                     <div class="center aligned column" style="background-color: #EFC008;padding: 50px 50px;opacity: 1;" id="menu6">
+                     <div class="center aligned column" style="background-color: white;padding: 50px 50px;opacity: 1;border: 1px solid #efefef;" id="menu6">
 
                         <h2 style="margin-bottom: 20px" id="head1">COLD BEVERAGES</h2>
 
@@ -399,22 +399,22 @@
 
                                         <div class="left floated column"
                                         style="padding: 20px 18px 15px;"  id="dish">
-                                            <p style="color: white;" id="head2">{{item.dish}}</p>
+                                            <p style="color: #EFC008;" id="head2">{{item.dish}}</p>
 
                                         </div>
 
                                         <div class="right floated one wide column"
                                         style="padding: 20px 18px 15px;" id="price">
-                                            <p style="color:white;">&nbsp;{{item.price}}/=</p>
+                                            <p style="color:#EFC008;">&nbsp;{{item.price}}/=</p>
 
                                         </div>
 
 
                                     <div class="justified row" style="padding: 20px" id="description">
                                         <div class="center aligned grid" >
-                                        <div class="left aligned column" style="color: black;" >
+                                        <div class="left aligned column">
                                             <div class="item" >
-                                                <p id="desc">{{item.description}}</p>
+                                                <p id="desc" style="color:black">{{item.description}}</p>
                                             </div>
                                         </div>
                                         </div>
@@ -466,18 +466,18 @@
     <div class="ui hidden divider"></div>
     <div class="ui hidden divider"></div>
     <div class="ui hidden divider"></div>
-    <div class="ui container" style="margin: auto;">
+    <div class="ui fluid container" style="margin: auto;">
         <div class="ui stackable grid">
             <div class="row">
             <div class="ui hidden divider"></div>
             <div class="sixteen wide column" >
-                <div class="ui three column stackable grid" style="margin-left: 30px">
+                <div class="ui three column stackable grid" style="margin-left: 42px">
                     <div class="row">
 
-                    <div class="center aligned column" style="background-color: #EFC008;padding: 50px 50px;opacity: 1;">
+                    <div class="center aligned column" style="background-color: white;padding: 50px 50px;opacity: 1;border: 1px solid #efefef;">
 
                         <h2 style="margin-bottom: 20px" id="head1">MAMA'S COMBOS</h2>
-
+			<div class="ui hidden divider"></div>
 
                             {% for item in items %}
                                 {% if item.main_category.main_category == "MAMA'S COMBOS" %}
@@ -487,13 +487,13 @@
 
                                         <div class="left floated column"
                                         style="padding: 20px 18px 15px;"  id="dish">
-                                            <p style="color: white;" id="head2">{{item.dish}}</p>
+                                            <p style="color: #EFC008;" id="head2">{{item.dish}}</p>
 
                                         </div>
 
                                         <div class="right floated one wide column"
                                         style="padding: 20px 18px 15px;" id="price">
-                                            <p style="color:white;" id="price">&nbsp;{{item.price}}/=</p>
+                                            <p style="color:#EFC008;" id="price">&nbsp;{{item.price}}/=</p>
 
                                         </div>
 
@@ -517,10 +517,10 @@
 
                     </div>
 
-                    <div class="center aligned column" style="color:white;background-color: black;padding: 50px 30px; opacity: 0.9;">
+                    <div class="center aligned column" style="color:white;background-color: #EFC008;padding: 50px; opacity: 0.9;">
 
                         <h2 style="margin-bottom: 20px" id="head1">&nbsp;WRAPS AND PANINIS</h2>
-
+			<div class="ui hidden divider"></div>
 
                             {% for item in items %}
                             {% if item.main_category.main_category == "WRAPS AND PANINIS" %}
@@ -530,13 +530,13 @@
 
                                         <div class="left floated column"
                                         style="padding: 20px 10px 15px;" id="dish">
-                                            <p style="color: #EFC008;" id="head2">{{item.dish}}</p>
+                                            <p style="color: black;" id="head2">{{item.dish}}</p>
 
                                         </div>
 
                                         <div class="right floated one wide column"
                                         style="padding: 20px 10px 15px;" id="price">
-                                            <p style="color:#EFC008;">&nbsp;{{item.price}}/=</p>
+                                            <p style="color:black;">&nbsp;{{item.price}}/=</p>
 
                                         </div>
 
@@ -559,10 +559,10 @@
                             {% endfor %}
 
                     </div>
-                    <div class="center aligned column" style="color:white;background-color: #efefef;padding: 50px 50px; opacity: 1;">
+                    <div class="center aligned column" style="color:white;background-color: white;padding: 50px 50px; opacity: 1;border: 1px solid #efefef;">
 
                         <h2 style="margin-bottom: 20px; color:black" id="head1">MAMA'S BURGERS</h2>
-
+			<div class="ui hidden divider"></div>
 
                             {% for item in items %}
                             {% if item.main_category.main_category == "MAMA'S BURGERS" %}
@@ -671,10 +671,10 @@
 
         #title{
            font-family: 'Cabin Sketch', cursive;
-           font-size:45px;
-           letter-spacing: 3px;
-           font-weight:bold;
+           font-size:35px;
+	   
         }
+
         #head1{
             font-family: 'Cabin Sketch', cursive;
             font-size:35px;

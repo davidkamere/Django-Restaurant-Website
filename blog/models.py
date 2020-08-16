@@ -1,4 +1,5 @@
 from django.db import models
+from ckeditor_uploader.fields import  RichTextUploadingField
 
 
 # Create your models here.
@@ -10,7 +11,7 @@ class Post(models.Model):
         (3, "Other"),
     )
 
-    back_story = models.CharField(max_length=500, blank=True, null=True)
+    content = RichTextUploadingField()
     title = models.CharField(max_length=200)
     date_added = models.DateTimeField(auto_now_add=True)
     ingredients = models.CharField(max_length=200, blank=True, null=True)
@@ -44,6 +45,18 @@ class Images(models.Model):
 
     class Meta:
         verbose_name_plural = 'Images'
+
+
+class Subscription(models.Model):
+    """Stores subscribers"""
+    address = models.EmailField()
+    date_added = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name_plural = 'Email Addresses'
+
+    def __str__(self):
+        return self.address
 
 
 

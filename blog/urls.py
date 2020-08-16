@@ -11,7 +11,8 @@ urlpatterns = [
     url(r'^blog/$', views.blog, name='blog'),
     url(r'^about/$', views.about, name='about'),
     re_path(r'^post/(?P<entry_id>\d+)/$', views.post, name='post'),
-    ]
+    re_path(r'^comment/(?P<entry_id>\d+)/$', views.comment, name='comment'),
+    ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
 
