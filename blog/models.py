@@ -17,6 +17,7 @@ class Post(models.Model):
     ingredients = models.CharField(max_length=200, blank=True, null=True)
     recipe = models.CharField(max_length=500, blank=True, null=True)
     category = models.IntegerField(choices=CATEGORY_CHOICES, default=2)
+    header_image = models.ImageField(upload_to='images/', blank=True, null=True)
 
     def __str__(self):
         return "%s" % self.title

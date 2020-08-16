@@ -53,15 +53,15 @@
             <div class="ui hidden divider"></div>
             <div class="ui hidden divider"></div>
 
+   	    <a style="color:black;text-decoration:none; padding:20px; margin:0px 110px 0px 60px" href="{% url 'the_blog:blog' %}">
+               BLOG
+            </a>
+            
+            <div class="ui hidden divider"></div>
+            <div class="ui hidden divider"></div>
 
             <a style="color:black;text-decoration:none; padding:40px 20px; margin:0 110px 0 60px" href="{% url 'the_menu:menu' %}" >
                MENU
-            </a>
-            <div class="ui hidden divider"></div>
-            <div class="ui hidden divider"></div>
-
-            <a style="color:black;text-decoration:none; padding:20px; margin:0px 110px 0px 60px" href="{% url 'the_blog:blog' %}">
-               BLOG
             </a>
             <div class="ui hidden divider"></div>
             <div class="ui hidden divider"></div>
@@ -128,83 +128,48 @@
     <div class="ui hidden divider"></div>
 
     <div class="ui center aligned fluid container" style="padding:50px; margin-bottom:40px;">
-	<div class="ui center aligned three column stackable equal width fluid grid" style="padding:0px;">
+	<div class="ui center aligned three column stackable grid" style="padding:0px;">
 	    <div class="row" style="color:silver; font-weight: bold; letter-spacing: 2px" id="head2">RECENT POSTS</div>
 	
          
 	    <div class="row">
+	    {% for post in posts %}
+	    <a href="{% url 'the_blog:post' post.id %}" style="text-decoration:none; color:black">
 	    <div class="left aligned column" style="padding:10px 45px">
 		
 			<img src="{% static "/media/menu/hamburger.jpeg" %}" id="images" alt="My image" style="height: 300px;
                  	width: 300px;object-fit: scale-down;">
-			
+				
 				<div class="ui items">
   					<div class="item">
+						
     						<div class="content">
-      							<a class="header" style="color: #EFC008;" id="base2">CUTE DOG</a>
+      							<a class="header" style="color: #EFC008;" id="base2"href="{% url 'the_blog:post' post.id %}" style="text-decoration:none; color:black">{{ post.title|upper }}</a>
       							<div class="description" id="desc">
-        						<p>You may have heard of the popular street food recipe in Mexico called Elote. If not, it’s an incredible dish that starts with corn on the cob; grilled until blackened and smoky then slathered in a creamy</p>
-        						<p></p>
+							<a href="{% url 'the_blog:post' post.id %}" style="text-decoration:none; color:black">
+        						<p>{{ post.content|safe|truncatewords:30}}</p>
+							</a>
       							</div>
-      						<div class="extra">
-        						<i class="green check icon"></i>
-        						121 Votes
+      							<div class="extra">
+							<div style="color: #C0C0C0; margin:20px 0; letter-spacing:2px">{{ post.date_added|date:"d/m/Y" }}</div>
+        						<i class="yellow comment outline icon" ></i>
+                                    			{% with total=post.comments.count %}
+                                        			{{ total }} Comment{{ total|pluralize }}
+                                    			{% endwith %}
+        						
       						</div>
+						
     						</div>
   					</div>
 					
 				</div>
-		
+				
 			
 
 	    </div>
-	    <div class="left aligned column" style="padding:10px 45px">
-
-		
-			<img src="{% static "/media/menu/hamburger.jpeg" %}" id="images" alt="My image" style="height: 300px;
-                 	width: 300px;object-fit: scale-down;">
-			
-			<div class="ui items">
-  					<div class="item">
-    						<div class="content">
-      							<a class="header" style="color: #EFC008;" id="base2">CUTE DOG</a>
-      							<div class="description" id="desc">
-        						<p >You may have heard of the popular street food recipe in Mexico called Elote. If not, it’s an incredible dish that starts with corn on the cob; grilled until blackened and smoky then slathered in a creamy</p>
-        						<p></p>
-      							</div>
-      						<div class="extra">
-        						<i class="green check icon"></i>
-        						121 Votes
-      						</div>
-    						</div>
-  					</div>
-					
-				</div>
-
-	    </div>
-	    <div class="left aligned column" style="padding:10px 45px">
-		
-			<img src="{% static "/media/menu/hamburger.jpeg" %}" id="images" alt="My image" style="height: 300px;
-                 	width: 300px;object-fit: scale-down;">
-			
-			<div class="ui items">
-  					<div class="item">
-    						<div class="content">
-      							<a class="header" style="color: #EFC008;" id="base2">CUTE DOG</a>
-      							<div class="description" id="desc">
-        						<p>You may have heard of the popular street food recipe in Mexico called Elote. If not, it’s an incredible dish that starts with corn on the cob; grilled until blackened and smoky then slathered in a creamy</p>
-        						<p></p>
-      							</div>
-      						<div class="extra">
-        						<i class="green check icon"></i>
-        						121 Votes
-      						</div>
-    						</div>
-  					</div>
-					
-				</div>
-
-	    </div>
+            </a>
+            {% endfor %}
+	    
 	    </div>
 	</div>
 	<a style="text-decoration: none;"href="{% url 'the_blog:blog' %}">

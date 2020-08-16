@@ -51,16 +51,16 @@
             <div class="ui hidden divider"></div>
 
 
+   	    <a style="color:black;text-decoration:none; padding:20px; margin:0 110px 0 60px" href="{% url 'the_blog:blog' %}">
+               BLOG
+            </a>
+            
+            <div class="ui hidden divider"></div>
+            <div class="ui hidden divider"></div>
+
 
             <a style="color:black;text-decoration:none; padding:20px; margin:0 110px 0 60px" href="{% url 'the_menu:menu' %}" >
                MENU
-            </a>
-            <div class="ui hidden divider"></div>
-            <div class="ui hidden divider"></div>
-
-
-            <a style="color:black;text-decoration:none; padding:20px; margin:0 110px 0 60px" href="{% url 'the_blog:blog' %}">
-               BLOG
             </a>
             <div class="ui hidden divider"></div>
             <div class="ui hidden divider"></div>
@@ -85,7 +85,7 @@
         <div class="ui hidden divider"></div>
         <div class="ui container">
             <div>
-                <h1 id="base2" style="font-size: 2em; font-weight: bold">{{ entry.title }}</h1>
+                <h1 id="base2" style="font-size: 2em; font-weight: bold">{{ entry.title|title }}</h1>
 
             </div>
             <div class="ui hidden divider"></div>
@@ -105,9 +105,52 @@
     <div class="ui hidden divider"></div>
 
     <div class="ui container">
+
+
+            <div class="ui hidden divider"></div>
+	   
+            <div class="ui four column doubling stackable grid container" id="next" style="margin-bottom:100px">
+              <div class="column">
+		
+                <h2 id="base2" style="color: #EFC008">PREVIOUS POST</h2>
+		<img src="{% static "/media/menu/hamburger.jpeg" %}" id="images" alt="My image" style="height: 300px;
+                 	width: 300px;object-fit: scale-down;">
+                <p><a style="color: black;text-decoration:none" href="{% url 'the_blog:post' previous.id %}" id="base2">{{ previous.title|upper }}</a></p>
+                
+              </div>
+              <div class="column">
+                <p></p>
+                <p></p>
+              </div>
+              <div class="column">
+                <p></p>
+                <p></p>
+              </div>
+              <div class="column">
+		
+                <h2 id="base2" style="color: #EFC008">NEXT POST</h2>
+		<img src="{% static "/media/menu/hamburger.jpeg" %}" id="images" alt="My image" style="height: 300px;
+                 	width: 300px;object-fit: scale-down;">
+                <p><a style="color: black;text-decoration:none" href="{% url 'the_blog:post' next.id %}" id="base2">{{ next.title|upper }}</a></p>
+               
+              </div>
+            </div>
+	  
+
+
+
+
+
     <div class="ui comments" id="commentSection" style="margin: 50px">
+	<h2 style="color: #EFC008" id="base2">
+		{% with total=entry.comments.count %}
+		{% if total > 0 %}
+        	{{ total }} COMMENT{{ total|pluralize }}
+		{% endif %}
+        	{% endwith %}
+	</h2>
               {% for comment in comments %}
-                <div class="comment" style="padding: 10px;">
+                <div class="comment" style="padding: 10px;margin-bottom:40px;">
                     <a class="avatar">
                       <i class="black user icon"></i>
                     </a>
@@ -118,13 +161,15 @@
                         <div class="metadata">
                           <div class="date">{{ comment.created_on }}</div>
                         </div>
-                      <div class="text">{{ comment.comment | linebreaks }}</div>
+                      <div class="text" id="desc">{{ comment.comment | linebreaks }}</div>
                     </div>
                 </div>
               {% endfor %}
               <div class="ui hidden divider"></div>
+	      <div class="ui hidden divider"></div>
+              
 
-                  <h2 style="color: #EFC008" id="comment">Leave a comment</h2>
+                  <h2 style="color: #EFC008" id="base2">LEAVE A COMMENT</h2>
                   <div class="ui hidden divider"></div>
                   <form method="post" action="{% url 'the_blog:comment' entry.id %}" class="ui form">
                       {{ comment_form|crispy }}
