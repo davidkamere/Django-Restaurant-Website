@@ -176,7 +176,7 @@ django_heroku.settings(locals())
 # heroku setting
 if os.getcwd() == '/app':
     DEBUG = False
-    DATABASES = {}
+    ALLOWED_HOSTS = ['https://mamasplate.herokuapp.com/']
     DATABASES['default'] = dj_database_url.config(conn_max_age=600)
 
     ALLOWED_HOSTS = ['*']
