@@ -1,17 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-    {% if user.is_authenticated %}
-    <div class="ui hidden divider"></div>
-    <div class="right aligned container">
-        <button class="ui right floated secondary button" style="text-decoration:none">
-         <a href="{% url 'the_blog:logout' %}" style="text-decoration:none; color:white">Logout</a>
-        </button>
-    </div>
-    <div class="ui hidden divider"></div>
-    <div class="ui hidden divider"></div>
-    <div class="ui hidden divider"></div>
-    {% endif %}
     <div class="center aligned fluid ui container">
     <div class="ui labeled icon left floated inverted vertical menu" style="margin-right: 40px ; margin-left: -25px; border: thin solid #EFC008; background: black " >
 
@@ -88,90 +77,22 @@
     <div class="ui hidden divider"></div>
     <div class="ui grid">
        <div class="ui sixteen wide center aligned column">
-           <span id="head2" style="color:silver; font-weight: bold; letter-spacing: 2px">NEWS, RECIPES AND MUCH MORE</span>
+	<div class="ui row">
+           <span id="head2" style="color:silver; font-weight: bold; letter-spacing: 2px">404</span>
+	</div>
+        <div class="ui row">
+           <span id="head2" style="color:silver; font-weight: bold; letter-spacing: 2px">SORRY, BUT NOTHING EXISTS HERE</span>
+	</div>
        </div>
-    </div>
-
-
-    {% if user.is_authenticated %}
-                    <a class="ui centered olive card" href="{% url 'the_blog:create' %}" style="background-color: black; margin-top: 50px">
-                      <div class="content">
-                          <div class="center aligned header">
-
-                          </div>
-                        <div class="center aligned description" style="padding: 10px">
-                          <h3 style="color: white; font-size: 18px" id="base2">Click me to ADD a NEW POST</h3>
-                        </div>
-                      </div>
-                      <div class="extra content">
-                        <div class="center aligned author">
-                            <i class="yellow large plus icon"></i>
-                            <i class="black large pencil alternate icon"></i>
-                        </div>
-                      </div>
-                      </a>
-                    </div>
-                    <div class="ui hidden divider"></div>
-                    <div class="ui hidden divider"></div>
-
-     {% endif %}
-
-    <div class="ui hidden divider"></div>
-    <div class="ui hidden divider"></div>
-
-    <div class="ui container">
-        {% for post in posts %}
-        <div class="ui stackable center aligned  grid" style="padding:45px 30px">
-            <div class="ui row">
-                <a href="{% url 'the_blog:post' post.id %}" style="text-decoration:none; color:black"><div class="ui three wide column">
-                    <img src="{% static "/media/blog/scone.jpeg" %}" id="images" alt="My image" style="max-height: 200px;
-                 width: 200px;object-fit: scale-down;padding: 10px; margin-top: 20px">
-                </div></a>
-		<div class="ui hidden divider" style="margin-top:30px;"></div>
-   		<div class="ui hidden divider" style="margin-top:30px;"></div>
-                <div class="ui six wide left aligned column" style="margin:auto; padding: 20px 10px">
-                    <div class="ui row">
-                        <div class="ui center aligned column" style="margin:0;" id="head2">
-                            <a href="{% url 'the_blog:post' post.id %}" style="text-decoration:none; color:#EFC008; letter-spacing: 3px;"><b>{{ post.title|upper }} </b></a>
-                        </div>
-                    </div>
-                    <div class="ui hidden divider"></div>
-                    <a href="{% url 'the_blog:post' post.id %}" style="text-decoration:none; color:black"><div class="ui row">
-                        <div class="ui left aligned column" style="margin:0;" id="desc">
-                            {{ post.content|safe|truncatewords:30}}
-                        </div>
-                    </div></a>
-
-                </div>
-                <div class="ui two wide center aligned column" style="margin:auto; color:#efefef; font-weight: bold" id="category">{{ post.get_category_display|upper}}</div>
-                <div class="ui three wide center aligned column" style="margin:auto; color:#efefef; font-weight: bold">{{ post.date_added|date:"d/m/Y" }}</div>
-            </div>
-	    <div class="ui divider" style="margin-top:15px"></div>
-
-        </div>
-        {% endfor %}
-
-
+	
     </div>
     <div class="ui hidden divider"></div>
     <div class="ui hidden divider"></div>
-    <div class="ui right aligned container" style="margin-bottom: 20px; margin-top: -10px">
-            <div class="ui inverted pagination menu" style="margin-bottom: 20px">
-                {% if posts.has_previous %}
-                    <!--<a href="?page=1">&laquo; first</a>-->
-                    <a href="?page={{ posts.previous_page_number }}" class="ui item"><i class="angle double left icon"></i></a>
-                {% endif %}
 
-                <div class="ui item">
-                    Page {{ posts.number }} / {{ posts.paginator.num_pages }}
-                </div>
-
-                {% if entries.has_next %}
-                    <a href="?page={{ posts.next_page_number }}" class="ui item" ><i class="angle double right icon"></i></a>
-                    <!--<a href="?page={{ posts.paginator.num_pages }}">last &raquo;</a>-->
-                {% endif %}
-            </div>
-   </div>
+  
+    <div class="ui hidden divider"></div>
+    <div class="ui hidden divider"></div>
+   
     <div class="ui hidden divider"></div>
     <div class="ui hidden divider"></div>
     <div class="ui hidden divider"></div>

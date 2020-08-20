@@ -1,6 +1,18 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
+    
+    {% if user.is_authenticated %}
+    <div class="ui hidden divider"></div>
+    <div class="right aligned container">
+        <button class="ui right floated secondary button" style="text-decoration:none">
+         <a href="{% url 'the_blog:logout' %}" style="text-decoration:none; color:white">Logout</a>
+        </button>
+    </div>
+    <div class="ui hidden divider"></div>
+    <div class="ui hidden divider"></div>
+    <div class="ui hidden divider"></div>
+    {% endif %}
     <div class="center aligned fluid ui container">
     <div class="ui labeled icon left floated inverted vertical menu" style="margin-right: 40px ; margin-left: -25px; border: thin solid #EFC008; background: black " >
 
@@ -38,6 +50,28 @@
                 </span>
     </div>
     </div>
+    {% if user.is_authenticated %}
+                    <a class="ui centered olive card" href="{% url 'the_blog:create' %}" style="background-color: black; margin-top: 50px">
+                      <div class="content">
+                          <div class="center aligned header">
+
+                          </div>
+                        <div class="center aligned description" style="padding: 10px">
+                          <h3 style="color: white; font-size: 18px" id="base2">Click me to ADD a NEW POST</h3>
+                        </div>
+                      </div>
+                      <div class="extra content">
+                        <div class="center aligned author">
+                            <i class="yellow large plus icon"></i>
+                            <i class="black large pencil alternate icon"></i>
+                        </div>
+                      </div>
+                      </a>
+                    </div>
+                    <div class="ui hidden divider"></div>
+                    <div class="ui hidden divider"></div>
+
+     {% endif %}
     <div class="ui hidden divider"></div>
     <div class="ui hidden divider"></div>
     <div>
@@ -128,19 +162,25 @@
     <div class="ui hidden divider"></div>
 
     <div class="ui center aligned fluid container" style="padding:50px; margin-bottom:40px;">
+
+
 	<div class="ui center aligned three column stackable grid" style="padding:0px;">
+
+
+
+
 	    <div class="row" style="color:silver; font-weight: bold; letter-spacing: 2px" id="head2">RECENT POSTS</div>
 	
          
-	    <div class="row">
+	    <div class="row" style="margin: auto">
 	    {% for post in posts %}
 	    <a href="{% url 'the_blog:post' post.id %}" style="text-decoration:none; color:black">
-	    <div class="left aligned column" style="padding:10px 45px">
+	    <div class="left aligned column">
 		
 			<img src="{% static "/media/menu/hamburger.jpeg" %}" id="images" alt="My image" style="height: 300px;
-                 	width: 300px;object-fit: scale-down;">
+                 	width: 320px;object-fit: scale-down;">
 				
-				<div class="ui items">
+				<div class="ui items" style="margin: auto">
   					<div class="item">
 						
     						<div class="content">
@@ -157,6 +197,7 @@
                                         			{{ total }} Comment{{ total|pluralize }}
                                     			{% endwith %}
         						
+							
       						</div>
 						
     						</div>

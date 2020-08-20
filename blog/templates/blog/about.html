@@ -1,6 +1,17 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
+{% if user.is_authenticated %}
+    <div class="ui hidden divider"></div>
+    <div class="right aligned container">
+        <button class="ui right floated secondary button" style="text-decoration:none">
+         <a href="{% url 'the_blog:logout' %}" style="text-decoration:none; color:white">Logout</a>
+        </button>
+    </div>
+    <div class="ui hidden divider"></div>
+    <div class="ui hidden divider"></div>
+    <div class="ui hidden divider"></div>
+    {% endif %}
     <div class="center aligned fluid ui container">
     <div class="ui labeled icon left floated inverted vertical menu" style="margin-right: 40px ; margin-left: -25px; border: thin solid #EFC008; background: black " >
 

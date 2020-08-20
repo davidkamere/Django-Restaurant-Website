@@ -2,6 +2,20 @@
 {% load crispy_forms_tags %}
 {% load static %}
 {% block content %}
+    {% if user.is_authenticated %}
+    <div class="ui hidden divider"></div>
+    <div class="right aligned container">
+
+        <button class="ui right floated secondary button" style="text-decoration:none">
+         <a href="{% url 'the_blog:logout' %}" style="text-decoration:none; color:white">Logout</a>
+        </button>
+
+    </div>
+    <div class="ui hidden divider"></div>
+    <div class="ui hidden divider"></div>
+    <div class="ui hidden divider"></div>
+    {% endif %}
+
     <div class="center aligned fluid ui container">
     <div class="ui labeled icon left floated inverted vertical menu" style="margin-right: 40px ; margin-left: -25px; border: thin solid #EFC008; background: black " >
 
@@ -83,18 +97,64 @@
     <div class="ui container">
         <div class="ui hidden divider"></div>
         <div class="ui hidden divider"></div>
+        <div class="ui hidden divider"></div>
         <div class="ui container">
-            <div>
-                <h1 id="base2" style="font-size: 2em; font-weight: bold">{{ entry.title|title }}</h1>
+
+
+            <div class="ui center aligned container">
+                <h1 id="base2" style="font-size: 2em; font-weight: bold; color: #EFC008; opacity: 0.6">{{ entry.title|upper}}</h1>
 
             </div>
             <div class="ui hidden divider"></div>
 
-            <div id="date" style="color: silver">{{ entry.date_added }}</div>
+            <div id="desc" style="color: silver" class="ui center aligned container">{{ entry.date_added }}</div>
+            <div class="ui center aligned container">
 
+
+            </div>
             <div class="ui hidden divider"></div>
 
+            <div class="ui hidden divider"></div>
+            <div class="ui hidden divider"></div>
+            <div class="ui hidden divider"></div>
+            <div class="ui hidden divider"></div>
+
+
             <h4 id="head2">{{ entry.content|safe }}</h4>
+
+	        {% if entry.ingredients %}
+            <div class="four wide column" style="margin-top: 40px">
+
+                <div class="ui left aligned silver segment" style="background-color:#F9F9F9; padding: 40px">
+                  <a style="color: black;text-decoration:none" href="{% url 'the_blog:pdf' entry.id %}">
+                      <div class="ui right aligned fluid container">
+                      <i class="large red file pdf icon"></i>
+                      Download this recipe
+                      </div>
+                  </a>
+                  <div class="ui hidden divider"></div>
+                  <div class="ui hidden divider"></div>
+                  <div class="ui hidden divider"></div>
+
+
+                  <p id='base2'><b>{{ entry.title|upper }}</b></p>
+                  <p id='desc' style="color:silver">Author: Mama</p>
+                  <p id='desc' style="color:silver">Yield: {{ entry.serving|safe}}</p>
+                  <div class="ui hidden divider"></div>
+                  <div class="ui hidden divider"></div>
+                  <p id='base2'><b>INGREDIENTS</b></p>
+                  <p  style="color:silver"></p>
+                  <span id='desc' style="color:silver"> {{ entry.ingredients|safe}}</span>
+                  <div class="ui hidden divider"></div>
+                  <div class="ui hidden divider"></div>
+                  <p id='base2'><b>INSTRUCTIONS</b></p>
+                  <span id='desc' style="color:black">{{ entry.instructions|safe}}</span>
+                  <div class="ui hidden divider"></div>
+                  <div class="ui hidden divider"></div>
+                </div>
+
+            </div>
+            {% endif %}
 
         </div>
         <div class="ui hidden divider"></div>
@@ -103,6 +163,17 @@
     <div class="ui hidden divider"></div>
     <div class="ui hidden divider"></div>
     <div class="ui hidden divider"></div>
+    {% if user.is_authenticated %}
+                <div class="ui two column doubling stackable grid container">
+                    <div class="column"></div>
+                    <div class="right aligned column" style="margin-bottom: 30px">
+                        <a  href="{% url 'the_blog:edit' entry.pk %}" style="color: inherit; margin-right: 40px;"><i class="edit outline large link green icon" ></i>Edit post</a>
+                        <button class="ui black button" id="delete" style="color: white">
+                            <i class="trash alternate outline large link red icon" ></i>Delete Post
+                        </button>
+                    </div>
+                </div>
+    {% endif %}
 
     <div class="ui container">
 
@@ -217,9 +288,31 @@
         </div>
     </div>
 
+    <div class="ui center aligned container" style="padding-top: 100px">
+    <div class="ui center aligned basic modal" id="data-modal">
+      <div class="ui icon header" style="margin-top: 100px; >
+        <i class="archive icon"></i>
+        Delete Post
+      </div>
+      <div class="content">
+        <p>Deleted posts cannot be recovered, Are you sure you would like to delete the post??       Just making sure</p>
+      </div>
+      <form action="{% url 'the_blog:delete' entry.id %}" method="post" >
+          {% csrf_token %}
+          <div class="actions">
+            <div class="ui red basic cancel inverted button">
+              <i class="remove icon"></i>
+              No
+            </div>
 
-
-
+            <button class="ui green ok inverted button" type="submit">
+              <i class="checkmark icon"></i>
+              Yes
+            </button>
+          </div>
+      </form>
+    </div>
+    </div>
 
 
 
@@ -263,7 +356,7 @@
             font-family: 'Josefin Sans', sans-serif;
             font-size: 16px;
             font-weight: 500;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
         }
         #base2{
             font-family: 'Josefin Sans', sans-serif;
@@ -341,6 +434,13 @@
         }*/
     </style>
 {% block scripts %}
+    <script>
+        $('#delete').on('click', function () {
+            $('#data-modal').modal('show');
+        });
+
+    </script>
+
     <script type="text/javascript">
         $('#dmt').on('click', function () {
             $('.ui.sidebar').sidebar('toggle');

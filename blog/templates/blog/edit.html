@@ -1,0 +1,292 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+
+    {% if user.is_authenticated %}
+    <div class="ui hidden divider"></div>
+    <div class="right aligned container">
+        <button class="ui right floated secondary button" style="text-decoration:none">
+         <a href="{% url 'the_blog:logout' %}" style="text-decoration:none; color:white">Logout</a>
+        </button>
+    </div>
+    <div class="ui hidden divider"></div>
+    <div class="ui hidden divider"></div>
+    <div class="ui hidden divider"></div>
+    {% endif %}
+    <div class="center aligned fluid ui container">
+    <div class="ui labeled icon left floated inverted vertical menu" style="margin-right: 40px ; margin-left: -25px; border: thin solid #EFC008; background: black " >
+
+        <div class="item" id="dmt">
+            <i class="large bars icon"></i>
+        </div>
+
+    </div>
+    <div class="center aligned sixteen wide column" id="v_menu">
+                <div class="ui hidden divider"></div>
+                <span>
+                    <a class="active item" style="color: black; text-decoration: none; margin: 0 30px" href="{% url 'the_blog:index' %}" id="headmenu">
+                      HOME
+                    </a>
+                </span>
+		<span>
+                    <a class="item" style="color: black; text-decoration: none; margin: 0 35px" href="{% url 'the_blog:blog' %}" id="headmenu">
+                      BLOG
+                    </a>
+                </span>
+
+                <!--<a href="{% url 'the_blog:index' %}" style="text-decoration: none">
+                    <img src="{% static "/media/landing/circle-cropped.png" %}"
+                                 alt="My image" style="max-height: 150px; max-width: 150px ; margin: 0px 40px 10px ; border:0">
+                </a>-->
+
+                <span>
+                    <a class="item" style="color: black; text-decoration: none; margin: 0 35px" href="{% url 'the_menu:menu' %}" id="headmenu">
+                      MENU
+                    </a>
+                </span>
+                <span>
+                    <a class="item" style="color: black; text-decoration: none; margin: 0 35px" href="{% url 'the_blog:about' %}" id="headmenu">
+                      ABOUT
+                    </a>
+                </span>
+    </div>
+    </div>
+    <div class="ui sidebar vertical menu" style="text-decoration: none">
+            <div class="ui hidden divider"></div>
+            <div class="ui hidden divider"></div>
+            <div class="ui hidden divider"></div>
+            <div class="ui hidden divider"></div>
+            <a style="color:black;text-decoration:none; padding:20px; margin:0px 110px 0px 60px" href="{% url 'the_blog:index' %}">
+               HOME
+            </a>
+            <div class="ui hidden divider"></div>
+            <div class="ui hidden divider"></div>
+
+
+	    <a style="color:black;text-decoration:none; padding:20px; margin:0 110px 0 60px" href="{% url 'the_blog:blog' %}">
+               BLOG
+            </a>
+            <div class="ui hidden divider"></div>
+            <div class="ui hidden divider"></div>
+
+
+            <a style="color:black;text-decoration:none; padding:20px; margin:0 110px 0 60px" href="{% url 'the_menu:menu' %}" >
+               MENU
+            </a>
+            <div class="ui hidden divider"></div>
+            <div class="ui hidden divider"></div>
+
+
+            <a style="color: #EFC008; margin:0px 110px 0px 60px; border: 1px solid #EFC008;padding:20px" href="{% url 'the_blog:about' %}">
+               ABOUT
+            </a>
+            <div class="ui hidden divider"></div>
+            <div class="ui hidden divider"></div>
+            <div class="ui hidden divider"></div>
+
+            <div class="ui hidden divider"></div>
+
+    </div>
+
+
+
+
+    <div class="ui fluid container">
+
+            <div class="ui hidden divider"></div>
+            <div class="ui hidden divider" style="margin-bottom: 30px"></div>
+        <div class="ui container">
+            {% if user.is_authenticated %}
+            <div class="ui hidden divider"></div>
+            <div class="ui hidden divider"></div>
+                <div class="ui left aligned fluid container" style="margin: 10px 0 50px -10px">
+
+                    <h2 style="color: #e7c547; padding-left: -5px" id="desc" >These details are required for every post/recipe</h2>
+
+                </div>
+            <div>
+                <form method="post" class="ui form" style="margin-top: 20px">
+
+                {% csrf_token %}
+                <div class="form-row">
+                  <div class="form-group col-md-6 mb-0">
+                    {{ form.header_image|as_crispy_field }}
+                  </div><div class="form-group col-md-10 mb-0">
+                   {{ form.title|as_crispy_field }}
+                  </div>
+
+                    <div>{{ form.content|as_crispy_field }}</div>
+
+
+                  <div class="form-group col-md-2 mb-0">
+                    {{ form.category|as_crispy_field }}
+                  </div>
+
+
+
+                    <div class="ui hidden divider"></div>
+                    <div class="ui hidden divider"></div>
+                    <div class="ui hidden divider" ></div>
+
+
+
+                  <div class="form-row" style="margin-top:100px">
+                  <div class="ui center aligned container" style="margin: 50px 0 50px -10px">
+
+                    <h2 style="color: #e7c547" id="desc">These details are optional, they are only necessary for downloadable recipes </h2>
+
+                  </div>
+
+
+                  <div class="form-group col-md-4 mb-0">
+                    {{ form.serving|as_crispy_field }}
+                  </div>
+                      <div class="ui hidden divider" ></div>
+
+                  <div class="form-group col-md-10 mb-0">
+                    {{ form.ingredients|as_crispy_field }}
+                  </div>
+                      <div class="ui hidden divider" ></div>
+
+                   <div class="form-group col-md-10 mb-0">
+                    {{ form.instructions|as_crispy_field }}
+                  </div>
+                      <div class="ui hidden divider" ></div>
+
+                  <div class="ui center aligned container" style="margin: 100px 0 50px -10px">
+
+                    <h2 style="color: #e7c547" id="desc">Only fill this one if the recipe has special disclaimer </h2>
+
+                  </div>
+                  <div class="form-group col-md-10 mb-0">
+                    {{ form.extra_info|as_crispy_field }}
+                  </div>
+                      <div class="ui hidden divider" ></div>
+
+
+
+                  </div>
+                <div class="ui hidden divider"></div>
+                <button class="ui right floated big button" type="submit" style="background-color:black !important;color: white; margin-top: 20px">Save</button>
+                </form>
+            </div>
+            <div class="ui hidden divider"></div>
+            <div class="ui hidden divider"></div>
+            {% endif %}
+        </div>
+        <div class="ui hidden divider"></div>
+        <div class="ui hidden divider"></div>
+    </div>
+    <style type="text/css">
+        body {
+
+            }
+    </style>
+
+
+    <style type="text/css">
+        body {
+
+              background-repeat: repeat;
+              background-size: cover;
+              background-position: center;
+
+
+            }
+        .ui.icon.vertical.menu{
+                display: none;
+            }
+
+        #title{
+           font-family: 'Cabin Sketch', cursive;
+           font-size:45px;
+           letter-spacing: 3px;
+           font-weight:bold;
+        }
+        #head1{
+            font-family: 'Cabin Sketch', cursive;
+            font-size:35px;
+
+        }
+        #head2{
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        #base2{
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 3px;
+        }
+
+        #desc{
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 25px;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+        #headmenu {
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        #price{
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 18px;
+            font-weight: 500;
+        }
+        #menu_item {
+            font-size: 14px;
+            letter-spacing: 2px;
+            }
+
+        #menu {
+            margin-left: initial;
+            }
+        @media only screen and (max-width: 1200px) {
+            #images{
+               width: 355px !important;
+
+            }
+            #headmenu{
+                display: none;
+            }
+            .ui.icon.vertical.menu{
+              display: block;
+              position: fixed; /* Set the navbar to fixed position */
+              top: 20.5%; /* Position the navbar at the top of the page */
+              z-index: 1;
+            }
+            #menu{
+                margin-left: 0;
+            }
+            #length{
+                width:initial;
+            }
+            #price{
+                margin: auto;
+            }
+            #dish{
+                margin: auto;
+                padding: 0;
+            }
+            #description{
+                margin: auto;
+                padding: 0;
+            }
+
+
+        }
+        /*@media only screen and (max-width: 767px) {
+            #sandwich{
+                display: inline !important;
+                margin-right: -60px;
+            }
+            .stackable.compact.menu{
+                display: none !important;
+            }
+        }*/
+    </style>
+{% endblock content %}

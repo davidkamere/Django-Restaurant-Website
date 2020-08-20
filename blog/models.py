@@ -1,6 +1,6 @@
 from django.db import models
-from ckeditor_uploader.fields import  RichTextUploadingField
-
+from ckeditor_uploader.fields import RichTextUploadingField
+from ckeditor.fields import RichTextField
 
 # Create your models here.
 class Post(models.Model):
@@ -14,8 +14,10 @@ class Post(models.Model):
     content = RichTextUploadingField()
     title = models.CharField(max_length=200)
     date_added = models.DateTimeField(auto_now_add=True)
-    ingredients = models.CharField(max_length=200, blank=True, null=True)
-    recipe = models.CharField(max_length=500, blank=True, null=True)
+    extra_info = RichTextField(blank=True, null=True)
+    ingredients = RichTextField(blank=True, null=True)
+    instructions = RichTextField(blank=True, null=True)
+    serving = models.TextField(blank=True, null=True)
     category = models.IntegerField(choices=CATEGORY_CHOICES, default=2)
     header_image = models.ImageField(upload_to='images/', blank=True, null=True)
 

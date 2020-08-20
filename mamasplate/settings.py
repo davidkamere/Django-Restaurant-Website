@@ -27,7 +27,7 @@ SECRET_KEY = 'iw^7m4lm%(@s@v5nefqi3qo1y)9z5xm-c#_-)u0h6th)&nkvgi'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['']
 
 
 # Application definition
@@ -63,7 +63,7 @@ ROOT_URLCONF = 'mamasplate.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'mamasplate/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -134,6 +134,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'blog/static/media')
 MEDIA_URL = '/media/'
 
 # ckeditor
+CKEDITOR_ALLOW_NONIMAGE_FILES = False
 CKEDITOR_JQUERY_URL = 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'
 
 CKEDITOR_UPLOAD_PATH = 'uploads/'
@@ -141,9 +142,11 @@ CKEDITOR_IMAGE_BACKEND = "pillow"
 
 CKEDITOR_CONFIGS = {
     'default': {
-        'toolbar': None,
+        'toolbar': None, 'width': '100%', 'image2_maxSize': {'width': '100%'},
     },
+
 }
+
 
 # email settings
 EMAIL_USE_TLS = True
@@ -158,6 +161,10 @@ EMAIL_PORT = 587
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
+# Login and out settings
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = '/login/'
+LOGIN_URL = '/login/'
 
 # Heroku settings
 django_heroku.settings(locals())

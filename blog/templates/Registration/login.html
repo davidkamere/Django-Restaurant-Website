@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="ui left aligned container" style="margin: 40px 10px">
+       <form method="post" class="from-group">
+	{% csrf_token %}
+	{{form|crispy}}
+	<p>Would you like to change your password? <a href="{% url 'the_blog:password_change' %}">Click here</a></p>
+	<button type="submit" class="btn btn-success">Login</button>
+    </form>
+   </div>
+{% endblock %}
