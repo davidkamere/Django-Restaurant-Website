@@ -179,5 +179,5 @@ django_heroku.settings(locals())
 if os.getcwd() == '/app':
     DEBUG = False
     ALLOWED_HOSTS = ['https://mamasplate.herokuapp.com/']
-    DATABASES['default'] = dj_database_url.config(conn_max_age=600)
+   
 
