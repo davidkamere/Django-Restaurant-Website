@@ -139,7 +139,6 @@ STATICFILES_DIRS = (
 MEDIA_ROOT = os.path.join(BASE_DIR, 'blog/static/media')
 MEDIA_URL = '/media/'
 
-COMPRESS_ENABLED = os.environ.get('COMPRESS_ENABLED', False)
 
 # ckeditor
 CKEDITOR_ALLOW_NONIMAGE_FILES = False
@@ -182,4 +181,3 @@ if os.getcwd() == '/app':
     ALLOWED_HOSTS = ['https://mamasplate.herokuapp.com/']
     DATABASES['default'] = dj_database_url.config(conn_max_age=600)
 
-    ALLOWED_HOSTS = ['*']
