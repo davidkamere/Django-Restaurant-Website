@@ -175,8 +175,10 @@ LOGIN_URL = 'the_blog:login'
 
 # Heroku settings
 django_heroku.settings(locals())
+
+
 # heroku setting
 if os.getcwd() == '/app':
     DEBUG = False
-    DATABASES = {'default': dj_database_url.config(conn_max_age=600)}
+
 
