@@ -175,9 +175,6 @@ LOGIN_URL = 'the_blog:login'
 
 # Heroku settings
 django_heroku.settings(locals())
-# heroku setting
-if os.getcwd() == '/app':
-    DEBUG = False
-    ALLOWED_HOSTS = ['https://mamasplate.herokuapp.com/']
+
 
 
