@@ -25,7 +25,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'iw^7m4lm%(@s@v5nefqi3qo1y)9z5xm-c#_-)u0h6th)&nkvgi'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['https://mamasplate.herokuapp.com/']
 
@@ -175,6 +175,9 @@ LOGIN_URL = 'the_blog:login'
 
 # Heroku settings
 django_heroku.settings(locals())
-
-
+# heroku setting
+if os.getcwd() == '/app':
+    DEBUG = False
+    ALLOWED_HOSTS = ['https://mamasplate.herokuapp.com/']
+    DATABASES['default'] = dj_database_url.config(conn_max_age=600)
 
