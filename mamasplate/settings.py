@@ -27,7 +27,7 @@ SECRET_KEY = 'iw^7m4lm%(@s@v5nefqi3qo1y)9z5xm-c#_-)u0h6th)&nkvgi'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://mamasplate.herokuapp.com/']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -178,6 +178,7 @@ django_heroku.settings(locals())
 # heroku setting
 if os.getcwd() == '/app':
     DEBUG = False
+    DATABASES = {}
     ALLOWED_HOSTS = ['https://mamasplate.herokuapp.com/']
     DATABASES['default'] = dj_database_url.config(conn_max_age=600)
 
