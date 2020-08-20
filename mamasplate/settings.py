@@ -132,6 +132,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # My settings
 MEDIA_ROOT = os.path.join(BASE_DIR, 'blog/static/media')
 MEDIA_URL = '/media/'
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+COMPRESS_ENABLED = os.environ.get('COMPRESS_ENABLED', False)
 
 # ckeditor
 CKEDITOR_ALLOW_NONIMAGE_FILES = False
