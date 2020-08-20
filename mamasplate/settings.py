@@ -25,9 +25,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'iw^7m4lm%(@s@v5nefqi3qo1y)9z5xm-c#_-)u0h6th)&nkvgi'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['']
+ALLOWED_HOSTS = ['https://mamasplate.herokuapp.com/']
 
 
 # Application definition
@@ -163,8 +163,8 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # Login and out settings
 LOGIN_REDIRECT_URL = "/"
-LOGOUT_REDIRECT_URL = '/login/'
-LOGIN_URL = '/login/'
+LOGOUT_REDIRECT_URL = 'the_blog:login'
+LOGIN_URL = 'the_blog:login'
 
 # Heroku settings
 django_heroku.settings(locals())

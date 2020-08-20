@@ -7,7 +7,8 @@
        <form method="post" class="from-group">
 	{% csrf_token %}
 	{{form|crispy}}
-	<p>Would you like to change your password? <a href="{% url 'the_blog:password_change' %}">Click here</a></p>
+	<div class="ui hidden divider"></div>
+	<p>Go to the main site without logging in <a href="{% url 'the_blog:index' %}">Click here</a></p>
 	<button type="submit" class="btn btn-success">Login</button>
     </form>
    </div>
