@@ -172,13 +172,13 @@
 	    <div class="row" style="color:silver; font-weight: bold; letter-spacing: 2px" id="head2">RECENT POSTS</div>
 	
          
-	    <div class="row" style="margin: auto">
+	    <div class="row" style="margin: auto; padding: 50px">
 	    {% for post in posts %}
 	    <a href="{% url 'the_blog:post' post.id %}" style="text-decoration:none; color:black">
 	    <div class="left aligned column">
 		
-			<img src="{% static "/media/menu/hamburger.jpeg" %}" id="images" alt="My image" style="height: 300px;
-                 	width: 320px;object-fit: scale-down;">
+			<img src={{post.header_image.url}} id="images" alt="My image" style="height: 300px;
+                 	width: 400px;object-fit: scale-down;">
 				
 				<div class="ui items" style="margin: auto">
   					<div class="item">
@@ -214,7 +214,7 @@
 	    </div>
 	</div>
 	<a style="text-decoration: none;"href="{% url 'the_blog:blog' %}">
-			<button class="ui right floated black basic button" style="padding: 18px; margin-top:40px;"><span id="head3">READ MORE</span></button>
+			<button class="ui right floated black basic button" style="padding: 18px; margin-top:40px;"><span id="head3" style="font-size:16px">READ MORE</span></button>
 	</a>
     </div>
 

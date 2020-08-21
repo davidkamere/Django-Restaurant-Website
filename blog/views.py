@@ -176,7 +176,7 @@ def render_pdf(request, entry_id):
     # context = extract_request_variables(request)
 
     response = HttpResponse(content_type='application/pdf')
-    response['Content-Disposition'] = 'attachment; filename="report.pdf"'
+    response['Content-Disposition'] = 'attachment; filename="%s.pdf"' %entry.title
 
     template = get_template(template_path)
     html = template.render(context)
@@ -213,7 +213,7 @@ def edit(request, pk, template_name='blog/edit.html'):
     form = PostForm(request.POST or None, instance=entry)
     if form.is_valid():
         form.save()
-        return HttpResponseRedirect(reverse('the_blog:index'))
+        return HttpResponseRedirect(reverse('the_blog:blog'))
     return render(request, template_name, {'form': form})  # Delete post
 
 
@@ -223,7 +223,7 @@ def delete(request, entry_id):
     entry = get_object_or_404(Post, pk=entry_id)
     if request.method == 'POST':
         entry.delete()
-        return HttpResponseRedirect(reverse('the_blog:index'))
+        return HttpResponseRedirect(reverse('the_blog:blog'))
     return render(request, template_name, context={'entry': entry})
 
 
