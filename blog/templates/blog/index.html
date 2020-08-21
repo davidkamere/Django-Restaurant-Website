@@ -80,10 +80,9 @@
             <div class="ui hidden divider"></div>
             <div class="ui hidden divider"></div>
             <div class="ui hidden divider"></div>
-            <a style="color: #EFC008; margin:0px 110px 0px 60px; border: 1px solid #EFC008;padding:20px" href="{% url 'the_blog:index' %}">
+            <a style="color: #EFC008; margin:0px 110px 0px 60px;padding:20px" href="{% url 'the_blog:index' %}">
                HOME
             </a>
-            <div class="ui hidden divider"></div>
             <div class="ui hidden divider"></div>
             <div class="ui hidden divider"></div>
 
@@ -94,7 +93,7 @@
             <div class="ui hidden divider"></div>
             <div class="ui hidden divider"></div>
 
-            <a style="color:black;text-decoration:none; padding:40px 20px; margin:0 110px 0 60px" href="{% url 'the_menu:menu' %}" >
+            <a style="color:black;text-decoration:none; padding:20px 20px; margin:0 110px 0 60px" href="{% url 'the_menu:menu' %}" >
                MENU
             </a>
             <div class="ui hidden divider"></div>
@@ -113,7 +112,7 @@
     <div class="pusher">
     <div class="ui center aligned fluid container" style="margin-top:0; background: url(../../static/media/landing/header.jpeg) no-repeat center;" >
 
-        <div class="ui center aligned grid" >
+        <div class="ui center aligned fluid grid" >
 
             <div class="four wide column" id="h_menu">
                 <img src="{% static "/media/landing/circle-cropped.png" %}" alt="My image" style="max-height: 150px; max-width: 150px">
@@ -137,19 +136,19 @@
                   </div>
               </div>
 
-        <div class="four wide column"></div>
+        <div class="four wide  column"></div>
 
-        <div class="sixteen wide center aligned column" style="margin-bottom: 40px;" id="mail_p">
-            <div style="background-color: black;opacity: 0.6;padding: 50px; margin: 0px;border-radius: 3px;">
+        <div class="sixteen wide center aligned fluid column" style="margin:0 0 40px 0;" id="mail_p">
+            <div style="background-color: black;opacity: 0.6;padding: 30px; margin: 0;border-radius: 3px;">
                 <p style="color: white" id="mailing">
                     Join our mailing list to get the latest offers and posts
                 </p>
                 <form method="post" action="{% url 'the_blog:index' %}" name="subscribeForm" id="subForm">
                         {% csrf_token %}
-                    <div class="ui fluid center aligned action input" style="min-width: 200px;">
-                        <input placeholder="Enter your Email here..." style="min-width: 120px;" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" type="email" id="recipient_email" name="recipient_email_address" required>
+                    <div class="ui fluid center aligned action input" style="min-width: 220px;">
+                        <input placeholder="Enter your Email here..." style="min-width: 140px;" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" type="email" id="recipient_email" name="recipient_email_address" required>
                         <button class="ui inverted big basic olive button" type="submit" data-modal-target="empty" name="email" style="background: #EFC008;" id="dmt">
-                            <a style="color: white; min-width: 40px;" id="desc">SUBSCRIBE</a>
+                            <a style="color: white; min-width: 20px;" id="desc">SUBSCRIBE</a>
                         </button>
                     </div>
                 </form>>
@@ -172,13 +171,13 @@
 	    <div class="row" style="color:silver; font-weight: bold; letter-spacing: 2px" id="head2">RECENT POSTS</div>
 	
          
-	    <div class="row" style="margin: auto; padding: 50px">
+	    <div class="row" style="margin: auto; padding: 20px">
 	    {% for post in posts %}
 	    <a href="{% url 'the_blog:post' post.id %}" style="text-decoration:none; color:black">
 	    <div class="left aligned column">
 		
 			<img src={{post.header_image.url}} id="images" alt="My image" style="height: 300px;
-                 	width: 400px;object-fit: scale-down;">
+                 	width: 380px;padding-left: -50px">
 				
 				<div class="ui items" style="margin: auto">
   					<div class="item">
@@ -366,8 +365,8 @@
     <div class="ui hidden divider"></div>
 
 
-    <div class="ui center aligned fluid container" style="margin:0; padding: 0;" >
-        <div class="ui three column stackable center aligned grid" style="margin:5px; padding: 0 10px">
+    <div class="ui center aligned fluid container" style="margin:0; padding: 10px;" >
+        <div class="ui three column stackable center aligned grid" style="margin:5px; padding: 0 20px">
 
           <div class="column" style="margin:0;">
             <div class="ui fluid card" style="object-fit: scale-down">
@@ -378,10 +377,10 @@
             </div>
           </div>
 
-          <div class="column" style="margin:0;padding: 4px">
+          <div class="column" style="margin:0;">
             <div class="ui fluid card" style="object-fit: scale-down">
 
-                <img src="{% static "/media/gallery/two.jpeg" %}" style="max-height: 330px">
+                <img src="{% static "/media/gallery/two.jpeg" %}" style="max-height: 310px">
 
 
             </div>
@@ -560,7 +559,10 @@
                 margin: auto;
                 padding: 0;
             }
-
+	    #images{
+		width: 280px !important;
+		height: 250px !important;
+            }
 
         }
 

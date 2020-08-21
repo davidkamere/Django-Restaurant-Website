@@ -170,8 +170,8 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # Login and out settings
 LOGIN_REDIRECT_URL = "/"
-LOGOUT_REDIRECT_URL = 'the_blog:login'
-LOGIN_URL = 'the_blog:login'
+LOGOUT_REDIRECT_URL = '/login'
+LOGIN_URL = '/login'
 
 # Heroku settings
 django_heroku.settings(locals())

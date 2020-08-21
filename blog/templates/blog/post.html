@@ -80,12 +80,12 @@
             <div class="ui hidden divider"></div>
 
 
-            <a style="color: #EFC008; margin:0px 110px 0px 60px; border: 1px solid #EFC008;padding:20px" href="{% url 'the_blog:about' %}">
+            <a style="color: #EFC008; margin:0px 110px 0px 60px; padding:20px" href="{% url 'the_blog:about' %}">
                ABOUT
             </a>
             <div class="ui hidden divider"></div>
             <div class="ui hidden divider"></div>
-            <div class="ui hidden divider"></div>
+            
 
 
             <div class="ui hidden divider"></div>
@@ -94,11 +94,47 @@
 
     <div class="ui hidden divider"></div>
 
-    <div class="ui container">
+    <div class="ui fluid container">
+
+
+
+
+
+
+	<div class="ui center aligned container" style="padding-top: 100px">
+    <div class="ui center aligned basic modal" id="data-modal">
+      <div class="ui icon header" style="margin-top: 100px; >
+        <i class="archive icon"></i>
+        Delete Post
+      </div>
+      <div class="content">
+        <p>Deleted posts cannot be recovered, Are you sure you would like to delete the post??       Just making sure</p>
+      </div>
+      <form action="{% url 'the_blog:delete' entry.id %}" method="post" >
+          {% csrf_token %}
+          <div class="actions">
+            <div class="ui red basic cancel inverted button">
+              <i class="remove icon"></i>
+              No
+            </div>
+
+            <button class="ui green ok inverted button" type="submit">
+              <i class="checkmark icon"></i>
+              Yes
+            </button>
+          </div>
+      </form>
+    </div>
+    </div>
+
+
+
+
+
         <div class="ui hidden divider"></div>
         <div class="ui hidden divider"></div>
         <div class="ui hidden divider"></div>
-        <div class="ui container">
+        <div class="ui fluid container">
 
 
             <div class="ui center aligned container">
@@ -108,7 +144,7 @@
             <div class="ui hidden divider"></div>
 
             <div id="desc" style="color: silver" class="ui center aligned container">{{ entry.date_added }}</div>
-            <div class="ui center aligned  container" style="margin-top:40px">
+            <div class="ui center aligned  fluid container" style="margin:40px 0 0 -10px">
 	    <img src={{entry.header_image.url}} id="images" alt="My image">
 
             </div>
@@ -173,46 +209,57 @@
                         </button>
                     </div>
                 </div>
+		<div class="ui hidden divider"></div>
+                <div class="ui hidden divider"></div>
+		<div class="ui hidden divider"></div>
+                <div class="ui hidden divider"></div>
+		
     {% endif %}
 
-    <div class="ui fluid container">
+    <div class="ui fluid container" style="padding:80px">
 
 
             <div class="ui hidden divider"></div>
 	   
-            <div class="ui four column doubling stackable grid container" id="next" style="margin-bottom:100px">
+            <div class="ui four column doubling stackable grid container" id="next" style="margin-bottom:60px">
               <div class="column">
 		
                 <h2 id="base2" style="color: #EFC008">PREVIOUS POST</h2>
-		<img src="{% static "/media/menu/hamburger.jpeg" %}" id="images" alt="My image" style="height: 300px;
-                 	width: 300px;object-fit: scale-down;">
+		<img src={{previous.header_image.url}} id="images" alt="My image" style="height: 300px;
+                 	width: 280px;object-fit: scale-down;">
                 <p><a style="color: black;text-decoration:none" href="{% url 'the_blog:post' previous.id %}" id="base2">{{ previous.title|upper }}</a></p>
                 
               </div>
-              <div class="column">
+              <div class="column" style="margin:0">
                 <p></p>
                 <p></p>
               </div>
-              <div class="column">
+              <div class="column" style="margin:-10px">
                 <p></p>
                 <p></p>
               </div>
+
               <div class="column">
 		
-                <h2 id="base2" style="color: #EFC008">NEXT POST</h2>
-		<img src="{% static "/media/menu/hamburger.jpeg" %}" id="images" alt="My image" style="height: 300px;
-                 	width: 300px;object-fit: scale-down;">
+                <h2 id="base2" style="color: #EFC008;">NEXT POST</h2>
+		<img src={{next.header_image.url}} id="images" alt="My image" style="height: 300px;
+                 	width: 280px;object-fit: scale-down;">
                 <p><a style="color: black;text-decoration:none" href="{% url 'the_blog:post' next.id %}" id="base2">{{ next.title|upper }}</a></p>
                
               </div>
             </div>
+		
 	  
 
 
 
 
+	<div class="ui hidden divider"></div>
+	<div class="ui hidden divider"></div>
 
-    <div class="ui comments" id="commentSection" style="margin: 50px">
+
+
+    <div class="ui comments" id="commentSection" style="margin: 50px 0px 20px 0px">
 	<h2 style="color: #EFC008" id="base2">
 		{% with total=entry.comments.count %}
 		{% if total > 0 %}
@@ -288,31 +335,7 @@
         </div>
     </div>
 
-    <div class="ui center aligned container" style="padding-top: 100px">
-    <div class="ui center aligned basic modal" id="data-modal">
-      <div class="ui icon header" style="margin-top: 100px; >
-        <i class="archive icon"></i>
-        Delete Post
-      </div>
-      <div class="content">
-        <p>Deleted posts cannot be recovered, Are you sure you would like to delete the post??       Just making sure</p>
-      </div>
-      <form action="{% url 'the_blog:delete' entry.id %}" method="post" >
-          {% csrf_token %}
-          <div class="actions">
-            <div class="ui red basic cancel inverted button">
-              <i class="remove icon"></i>
-              No
-            </div>
-
-            <button class="ui green ok inverted button" type="submit">
-              <i class="checkmark icon"></i>
-              Yes
-            </button>
-          </div>
-      </form>
-    </div>
-    </div>
+    
 
 
 
@@ -391,7 +414,9 @@
             }
         @media only screen and (max-width: 1200px) {
             #images{
-               width: 355px !important;
+               width: 280px !important;
+	       height: 280px !important;
+
 
             }
             #headmenu{
