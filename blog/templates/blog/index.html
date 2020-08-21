@@ -176,7 +176,7 @@
 	    <a href="{% url 'the_blog:post' post.id %}" style="text-decoration:none; color:black">
 	    <div class="left aligned column">
 		
-			<img src={{post.header_image.url}} id="images" alt="My image" style="height: 300px;
+			<img src={{ MEDIA_URL }}{{post.header_image.url}} id="images" alt="My image" style="height: 300px;
                  	width: 380px;padding-left: -50px">
 				
 				<div class="ui items" style="margin: auto">

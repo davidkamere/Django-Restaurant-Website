@@ -124,7 +124,7 @@
         <div class="ui stackable center aligned  grid" style="padding:45px 30px">
             <div class="ui row">
                 <a href="{% url 'the_blog:post' post.id %}" style="text-decoration:none; color:black"><div class="ui three wide column">
-                    <img src="{{post.header_image.url}}" id="images" alt="My image" style="max-height: 200px;
+                    <img src="{{ MEDIA_URL }}{{post.header_image.url}}" id="images" alt="My image" style="max-height: 200px;
                  width: 200px;object-fit: scale-down;padding: 10px; margin-top: 20px">
                 </div></a>
 		<div class="ui hidden divider" style="margin-top:30px;"></div>
