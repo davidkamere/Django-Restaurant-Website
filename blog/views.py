@@ -229,4 +229,6 @@ def delete(request, entry_id):
 
 def logout_request(request):
 
-    return redirect('/login')
+    logout(request)
+    messages.info(request, "Logged out successfully!")
+    return redirect("/login")
