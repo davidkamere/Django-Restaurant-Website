@@ -179,6 +179,6 @@ django_heroku.settings(locals())
 
 # heroku setting
 if os.getcwd() == '/app':
-    DEBUG = False
+    DEBUG = True
     ALLOWED_HOSTS = ['.herokuapp.com']
 
