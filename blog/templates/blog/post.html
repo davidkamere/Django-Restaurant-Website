@@ -135,6 +135,7 @@
         <div class="ui hidden divider"></div>
         <div class="ui hidden divider"></div>
         <div class="ui fluid container">
+.
 
 
             <div class="ui center aligned container">
@@ -159,7 +160,7 @@
             <h4 id="head2">{{ entry.content|safe }}</h4>
 
 	        {% if entry.ingredients %}
-            <div class="four wide column" style="margin-top: 40px">
+            <div class="four wide column" style="margin-top: 40px;">
 
                 <div class="ui left aligned silver segment" style="background-color:#F9F9F9; padding: 40px">
                   <a style="color: black;text-decoration:none" href="{% url 'the_blog:pdf' entry.id %}">
@@ -197,8 +198,7 @@
     </div>
     <div class="ui hidden divider"></div>
     <div class="ui hidden divider"></div>
-    <div class="ui hidden divider"></div>
-    <div class="ui hidden divider"></div>
+    
     {% if user.is_authenticated %}
                 <div class="ui two column doubling stackable grid container">
                     <div class="column"></div>

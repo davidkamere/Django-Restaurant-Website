@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'crispy_forms',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -124,20 +125,32 @@ USE_L10N = True
 USE_TZ = True
 
 
+# Amazon settings
+AWS_ACCESS_KEY_ID = 'AKIAV5TJQJ54DMZPM35Q'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'mamasplate'
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+AWS_S3_OBJECT_PARAMETERS = {
+    'CacheControl': 'max-age=86400',
+}
+AWS_LOCATION = 'static'
+AWS_MEDIA = 'media'
+DEFAULT_FILE_STORAGE = 'mamasplate.storage_backends.MediaStorage'
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
+
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
 
 # My settings
-MEDIA_ROOT = os.path.join(BASE_DIR, 'blog/static/media')
-MEDIA_URL = '/media/'
+
+MEDIA_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_MEDIA)
 
 
 # ckeditor
