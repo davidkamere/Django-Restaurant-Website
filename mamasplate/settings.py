@@ -59,6 +59,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+
 ROOT_URLCONF = 'mamasplate.urls'
 
 TEMPLATES = [
@@ -126,9 +127,9 @@ USE_TZ = True
 
 # Amazon settings
 
-USE_S3 = os.getenv('USE_S3') == 'TRUE'
+USE_S3 = 'TRUE'
 
-if USE_S3:
+if USE_S3 == 'TRUE':
     # aws settings
     AWS_ACCESS_KEY_ID = 'AKIAV5TJQJ54DMZPM35Q'
     AWS_SECRET_ACCESS_KEY = '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'
@@ -149,7 +150,6 @@ else:
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
     MEDIA_URL = '/media/'
     MEDIA_ROOT = os.path.join(BASE_DIR, 'blog/static/media')
-
 
 # ckeditor
 CKEDITOR_ALLOW_NONIMAGE_FILES = False
@@ -188,8 +188,5 @@ LOGIN_URL = '/login'
 django_heroku.settings(locals())
 
 
-# heroku setting
-if os.getcwd() == '/app':
-    DEBUG = True
-    ALLOWED_HOSTS = ['.herokuapp.com']
+
 
