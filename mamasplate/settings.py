@@ -127,7 +127,7 @@ USE_TZ = True
 
 # Amazon settings
 
-USE_S3 = 'TRUE'
+USE_S3 = 'FALSE'
 
 if USE_S3 == 'TRUE':
     # aws settings
