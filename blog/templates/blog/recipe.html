@@ -1,142 +1,62 @@
+
 {% extends "base.html" %}
 
+
+ 
+    
+
+
+
 {% block content %}
-{{data|safe}}
-{{title|safe}}
 
-<p>{{ serving|safe}}</p>
-<p>{{ ingredients|safe}}</p>
-<p>{{ instructions|safe}}</p>
 
-    <!--<div class="four wide column" style="margin-top: 40px">
 
-                <div class="ui left aligned silver segment" style="background-color:#F9F9F9; padding: 40px">
+
+
+
+                
 
                   <div class="ui hidden divider"></div>
                   <div class="ui hidden divider"></div>
 
-                  <p id='base2'><b>{{ title|upper }}</b></p>
-                  <p id='desc' style="color:silver">Author: Mama</p>
-                  <p id='desc' style="color:silver">Yield: {{ serving|safe}}</p>
+                  <p><b>{{ title|upper }}</b></p>
+
+                  <p>Author: Mama</p>
+
+                  <p >Yield: {{ serving|safe}}</p>
+
                   <div class="ui hidden divider"></div>
+
+                  <div class="ui hidden divider"></div></span>
+
+                  <p><b>INGREDIENTS</b></p>
+
+                  <span> {{ ingredients|safe}}
+
                   <div class="ui hidden divider"></div>
-                  <p id='base2'><b>INGREDIENTS</b></p>
-                  <p  style="color:silver"></p>
-                  <span id='desc' style="color:silver"> {{ ingredients|safe}}</span>
+
                   <div class="ui hidden divider"></div>
+
+                  <p><b>INSTRUCTIONS</b></p>
+
+                  <p> {{ instructions|safe}} </p>
+
                   <div class="ui hidden divider"></div>
-                  <p id='base2'><b>INSTRUCTIONS</b></p>
-                  <span id='desc' style="color:black">{{ instructions|safe}}</span>
+
                   <div class="ui hidden divider"></div>
-                  <div class="ui hidden divider"></div>
-                </div>
+               
 
 
-    </div>-->
 
-    <style type="text/css">
-        body {
+    
+       
 
-              background-repeat: repeat;
-              background-size: cover;
-              background-position: center;
-
-
-            }
-        .ui.icon.vertical.menu{
-                display: none;
-            }
-
-        #title{
-           font-family: 'Cabin Sketch', cursive;
-           font-size:45px;
-           letter-spacing: 3px;
-           font-weight:bold;
-        }
-        #head1{
-            font-family: 'Cabin Sketch', cursive;
-            font-size:35px;
-
-        }
-        #head2{
-            font-family: 'Josefin Sans', sans-serif;
-            font-size: 16px;
-            font-weight: 500;
-            letter-spacing: 2px;
-        }
-        #base2{
-            font-family: 'Josefin Sans', sans-serif;
-            font-size: 16px;
-            font-weight: 500;
-            letter-spacing: 3px;
-        }
-
-        #desc{
-            font-family: 'Josefin Sans', sans-serif;
-            font-size: 16px;
-            font-weight: 500;
-            letter-spacing: 1px;
-        }
-        #headmenu {
-            font-family: 'Josefin Sans', sans-serif;
-            font-size: 16px;
-            font-weight: 500;
-        }
-        #price{
-            font-family: 'Josefin Sans', sans-serif;
-            font-size: 18px;
-            font-weight: 500;
-        }
-        #menu_item {
-            font-size: 14px;
-            letter-spacing: 2px;
-            }
-
-        #menu {
-            margin-left: initial;
-            }
-        @media only screen and (max-width: 1200px) {
-            #images{
-               width: 355px !important;
-
-            }
-            #headmenu{
-                display: none;
-            }
-            .ui.icon.vertical.menu{
-              display: block;
-              position: fixed; /* Set the navbar to fixed position */
-              top: 20.5%; /* Position the navbar at the top of the page */
-              z-index: 1;
-            }
-            #menu{
-                margin-left: 0;
-            }
-            #length{
-                width:initial;
-            }
-            #price{
-                margin: auto;
-            }
-            #dish{
-                margin: auto;
-                padding: 0;
-            }
-            #description{
-                margin: auto;
-                padding: 0;
-            }
-
-
-        }
-        /*@media only screen and (max-width: 767px) {
-            #sandwich{
-                display: inline !important;
-                margin-right: -60px;
-            }
-            .stackable.compact.menu{
-                display: none !important;
-            }
-        }*/
+    <style>
+	
+        	@font-face {
+   		font-family: Courier New;
+   	
+    		}
+	
     </style>
-{% endblock %}
+{%  endblock content %}
