@@ -20,7 +20,7 @@ class Post(models.Model):
     instructions = RichTextField(blank=True, null=True)
     serving = models.TextField(blank=True, null=True)
     category = models.IntegerField(choices=CATEGORY_CHOICES, default=2)
-    header_image = models.ImageField(upload_to='media/images/', blank=True, null=True)
+    header_image = models.ImageField(upload_to='images/', blank=True, null=True)
 
     def __str__(self):
         return "%s" % self.title
@@ -43,7 +43,7 @@ class Comment(models.Model):
 
 
 class Images(models.Model):
-    img = models.ImageField(upload_to='media/images/', blank=True, null=True)
+    img = models.ImageField(upload_to='images/', blank=True, null=True)
     back_story = models.ForeignKey(Post, on_delete=models.CASCADE, blank=True, null=True)
     date_added = models.DateTimeField(auto_now_add=True)
 
