@@ -146,11 +146,11 @@
 
             <div id="desc" style="color: silver" class="ui center aligned container">{{ entry.date_added }}</div>
             <div class="ui center aligned  fluid container" style="margin:40px 0 0 -10px">
-	    <img src={{entry.header_image.url}} id="images" alt="My image">
+	    <img src="{{ MEDIA_URL }}{{entry.header_image.url}}" id="images" alt="My image">
 
             </div>
                         
-
+	
             <div class="ui hidden divider"></div>
 
             <div class="ui hidden divider"></div>
