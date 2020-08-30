@@ -1,6 +1,7 @@
 from django.db import models
 from ckeditor_uploader.fields import RichTextUploadingField
 from ckeditor.fields import RichTextField
+from django.urls import reverse
 
 
 # Create your models here.
@@ -13,17 +14,22 @@ class Post(models.Model):
     )
 
     content = RichTextUploadingField()
-    title = models.CharField(max_length=200)
+    title = models.CharField(max_length=200, unique=True)
     date_added = models.DateTimeField(auto_now_add=True)
-    extra_info = RichTextField(blank=True, null=True)
-    ingredients = RichTextField(blank=True, null=True)
-    instructions = RichTextField(blank=True, null=True)
+    extra_info = models.TextField(blank=True, null=True)
+    ingredients = models.TextField(blank=True, null=True)
+    instructions = models.TextField(blank=True, null=True)
     serving = models.TextField(blank=True, null=True)
     category = models.IntegerField(choices=CATEGORY_CHOICES, default=2)
-    header_image = models.ImageField(upload_to='images/', blank=True, null=True)
+    header_image = models.ImageField(upload_to='images/', blank=False, null=False)
+    slug = models.SlugField()
+
 
     def __str__(self):
         return "%s" % self.title
+
+    def get_absolute_url(self):
+        return reverse('post', kwargs={'slug': self.slug})
 
     class Meta:
         verbose_name_plural = 'Posts'

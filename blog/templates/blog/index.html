@@ -35,7 +35,7 @@
                 </span>
                 
                 <a href="{% url 'the_blog:index' %}" style="text-decoration: none">
-                    <img src="{% static "/media/landing/circle-cropped.png" %}"
+                    <img src="{% static "media/landing/circle-cropped.png" %}"
                                  alt="My image" style="max-height: 150px; max-width: 150px ; margin: 0px 40px 10px ; border:0">
                 </a>
                 <span>
@@ -115,7 +115,7 @@
         <div class="ui center aligned fluid grid" >
 
             <div class="four wide column" id="h_menu">
-                <img src="{% static "/media/landing/circle-cropped.png" %}" alt="My image" style="max-height: 150px; max-width: 150px">
+                <img src="{% static "media/landing/circle-cropped.png" %}" alt="My image" style="max-height: 150px; max-width: 150px">
             </div>
               <div class="eight wide center aligned column" style="margin-top: 40px">
 
@@ -160,7 +160,7 @@
     <div class="ui hidden divider"></div>
     <div class="ui hidden divider"></div>
 
-    <div class="ui center aligned fluid container" style="padding:50px; margin-bottom:40px;">
+    <div class="ui center aligned fluid container" style="padding:30px; margin-bottom:40px;">
 
 
 	<div class="ui center aligned three column stackable grid" style="padding:0px;">
@@ -173,8 +173,8 @@
          
 	    <div class="row" style="margin: auto; padding: 20px">
 	    {% for post in posts %}
-	    <a href="{% url 'the_blog:post' post.id %}" style="text-decoration:none; color:black">
-	    <div class="left aligned column">
+	    <a href="{% url 'the_blog:post' post.slug %}" style="text-decoration:none; color:black">
+	    <div class="left aligned column" style="padding:0 40px">
 		
 			<img src={{ MEDIA_URL }}{{post.header_image.url}} id="images" alt="My image" style="height: 300px;
                  	width: 380px;padding-left: -50px">
@@ -183,10 +183,10 @@
   					<div class="item">
 						
     						<div class="content">
-      							<a class="header" style="color: #EFC008;" id="base2"href="{% url 'the_blog:post' post.id %}" style="text-decoration:none; color:black">{{ post.title|upper }}</a>
+      							<a class="header" style="color: #EFC008;" id="base2"href="{% url 'the_blog:post' post.slug %}" style="text-decoration:none; color:black">{{ post.title|upper }}</a>
       							<div class="description" id="desc">
-							<a href="{% url 'the_blog:post' post.id %}" style="text-decoration:none; color:black">
-        						<p>{{ post.content|safe|truncatewords:30}}</p>
+							<a href="{% url 'the_blog:post' post.slug %}" style="text-decoration:none; color:black">
+        						<p>{{ post.content|striptags|safe|truncatewords:30}}</p>
 							</a>
       							</div>
       							<div class="extra">
@@ -212,9 +212,10 @@
 	    
 	    </div>
 	</div>
-	<a style="text-decoration: none;"href="{% url 'the_blog:blog' %}">
+	<a style="text-decoration: none;" href="{% url 'the_blog:blog' %}">
 			<button class="ui right floated black basic button" style="padding: 18px; margin-top:40px;"><span id="head3" style="font-size:16px">READ MORE</span></button>
 	</a>
+	<div class="ui hidden divider"></div>
     </div>
 
     </div>
@@ -371,7 +372,7 @@
           <div class="column" style="margin:0;">
             <div class="ui fluid card" style="object-fit: scale-down">
 
-                <img src="{% static "/media/gallery/one.jpeg" %}" style="max-height: 310px;" >
+                <img src="{% static "media/gallery/one.jpeg" %}" style="max-height: 310px;" >
 
 
             </div>
@@ -380,7 +381,7 @@
           <div class="column" style="margin:0;">
             <div class="ui fluid card" style="object-fit: scale-down">
 
-                <img src="{% static "/media/gallery/two.jpeg" %}" style="max-height: 310px">
+                <img src="{% static "media/gallery/two.jpeg" %}" style="max-height: 310px">
 
 
             </div>
@@ -389,7 +390,7 @@
           <div class="column" style="margin:0;">
             <div class="ui fluid card" style="object-fit: scale-down">
 
-                <img src="{% static "/media/gallery/three.jpeg" %}" style="max-height: 310px;">
+                <img src="{% static "media/gallery/three.jpeg" %}" style="max-height: 310px;">
 
 
             </div>
@@ -433,6 +434,11 @@
     </div>
     <div class="ui hidden divider"></div>
     <style type="text/css">
+        img{
+	       max-width: 100%;
+               height: 100%;
+               object-fit: contain;
+	    }
         body {
 
               background-repeat: repeat;
@@ -516,6 +522,11 @@
             margin-left: initial;
             }
         @media only screen and (max-width: 1200px) {
+            img{
+	       max-width: 100%;
+               height: 100%;
+               object-fit: contain;
+	    }
 
             #mail_p{
                 padding:0;

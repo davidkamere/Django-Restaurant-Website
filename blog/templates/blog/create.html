@@ -36,7 +36,7 @@
                 </span>
 
                 <!--<a href="{% url 'the_blog:index' %}" style="text-decoration: none">
-                    <img src="{% static "/media/landing/circle-cropped.png" %}"
+                    <img src="{% static "media/landing/circle-cropped.png" %}"
                                  alt="My image" style="max-height: 150px; max-width: 150px ; margin: 0px 40px 10px ; border:0">
                 </a>-->
 
@@ -106,7 +106,7 @@
 
                 </div>
             <div>
-                <form method="post" class="ui form" style="margin-top: 20px">
+                <form method="post" action="{% url 'the_blog:create' %}" class="ui form" style="margin-top: 20px" enctype="multipart/form-data">
                
                 {% csrf_token %}
                 <div class="form-row">
@@ -134,7 +134,7 @@
                   <div class="form-row" style="margin-top:100px">
                   <div class="ui center aligned container" style="margin: 50px 0 80px -10px">
 
-                    <h2 style="color: #EFC008" id="desc">These details are optional, they are only necessary for downloadable recipes </h2>
+                    <h2 style="color: #EFC008" id="desc">These details are optional, they are only necessary for preserving your recipes </h2>
 
                   </div>
 

@@ -15,6 +15,9 @@ from xhtml2pdf import pisa
 from django.template.loader import get_template
 from django.contrib.staticfiles import finders
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
+from django.utils.text import slugify
+from django.template import RequestContext
 
 
 # Create your views here.
@@ -48,25 +51,25 @@ def blog(request):
 
 
 # posts
-def post(request, entry_id):
-    entry = Post.objects.get(id=entry_id)
+def post(request, slug):
+    entry = Post.objects.get(slug=slug)
     comments = entry.comments.order_by('-created_on')
     comment_form = CommentForm()
     entry_list = Post.objects.all()
 
-    if int(entry_id) >= len(entry_list):
+    if int(entry.id) >= len(entry_list):
         try:
             pre_val = Post.objects.aggregate(Min("id"))['id__min']
-            next_val = Post.objects.filter(id__lt=entry_id).order_by("-id")[0:1].get().id
+            next_val = Post.objects.filter(id__lt=entry.id).order_by("-id")[0:1].get().id
             
         except ObjectDoesNotExist:
             pre_val = Post.objects.aggregate(Min("id"))['id__min']
             next_val = Post.objects.aggregate(Min("id"))['id__min']
        
-    elif int(entry_id) == 1:
+    elif int(entry.id) == 1:
         try:
             next_val = Post.objects.aggregate(Max("id"))['id__max']
-            pre_val = Post.objects.filter(id__gt=entry_id).order_by("id")[0:1].get().id
+            pre_val = Post.objects.filter(id__gt=entry.id).order_by("id")[0:1].get().id
             
         except ObjectDoesNotExist:
             pre_val = Post.objects.aggregate(Min("id"))['id__min']
@@ -74,8 +77,8 @@ def post(request, entry_id):
 
     else:
         try:
-            pre_val = Post.objects.filter(id__gt=entry_id).order_by("id")[0:1].get().id
-            next_val = Post.objects.filter(id__lt=entry_id).order_by("-id")[0:1].get().id
+            pre_val = Post.objects.filter(id__gt=entry.id).order_by("id")[0:1].get().id
+            next_val = Post.objects.filter(id__lt=entry.id).order_by("-id")[0:1].get().id
             
         except ObjectDoesNotExist:
             pre_val = Post.objects.aggregate(Min("id"))['id__min']
@@ -89,7 +92,30 @@ def post(request, entry_id):
                'next': next_post,
                'previous': previous}
 
-    return render(request, 'blog/post.html', context)
+    return render(request, 'blog/post.html', context )
+
+
+def search_posts(request):
+    if request.method == 'GET':
+        query = request.GET.get('q')
+
+        submitbutton = request.GET.get('submit')
+
+        if query is not None:
+            # filters
+            results = Post.objects.filter(Q(content__contains=query) |
+                                          Q(title__contains=query)).distinct()
+
+            context = {'results': results,
+                       'submitbutton': submitbutton}
+
+            return render(request, 'blog/search.html', context)
+
+        else:
+            return render(request, 'blog/index.html')
+
+    else:
+        return render(request, 'blog/index.html')
 
 
 # comments
@@ -199,12 +225,15 @@ def render_pdf(request, entry_id):
 @login_required()
 def post_view(request):
     if request.method == 'POST':
-        form = PostForm(request.POST)
+        form = PostForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            post = form.save(commit=False)
+            post.slug = slugify(post.title)
+            post.save()
             return HttpResponseRedirect(reverse('the_blog:blog'))
-    form = PostForm()
-    return render(request, 'blog/create.html', {'form': form})  # Edit a post
+    else:
+        form = PostForm()
+    return render(request, 'blog/create.html', {'form': form})  # Create a post
 
 
 @login_required()
@@ -214,7 +243,7 @@ def edit(request, pk, template_name='blog/edit.html'):
     if form.is_valid():
         form.save()
         return HttpResponseRedirect(reverse('the_blog:blog'))
-    return render(request, template_name, {'form': form})  # Delete post
+    return render(request, template_name, {'form': form})  # Edit a post
 
 
 @login_required()
@@ -224,7 +253,7 @@ def delete(request, entry_id):
     if request.method == 'POST':
         entry.delete()
         return HttpResponseRedirect(reverse('the_blog:blog'))
-    return render(request, template_name, context={'entry': entry})
+    return render(request, template_name, context={'entry': entry})  # Delete post
 
 
 def logout_request(request):
@@ -232,3 +261,18 @@ def logout_request(request):
     logout(request)
     messages.info(request, "Logged out successfully!")
     return redirect("/login")
+
+
+def handler404(request, exception):
+    context = {}
+    response = render(request, "404.html", context=context)
+    response.status_code = 404
+    return response
+
+
+def handler500(request):
+    context = {}
+    response = render(request, "500.html", context=context)
+    response.status_code = 500
+    return response
+

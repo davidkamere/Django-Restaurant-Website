@@ -21,7 +21,7 @@ class PostForm(forms.ModelForm):
         widgets = {
             'content': forms.CharField(widget=CKEditorUploadingWidget()),
             'title': forms.TextInput(attrs={'placeholder': 'Post Title.....'}),
-            'serving': forms.TextInput(attrs={'placeholder': 'Serving for the recipe.....'}),
+            'serving': forms.TextInput(attrs={'placeholder': 'Serving for the recipe.....'}),      
         }
 
 

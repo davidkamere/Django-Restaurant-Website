@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
 {% load static %}
+
 {% block content %}
+
     {% if user.is_authenticated %}
     <div class="ui hidden divider"></div>
     <div class="right aligned container">
@@ -38,7 +40,7 @@
                 </span>
                 
                 <a href="{% url 'the_blog:index' %}" style="text-decoration: none">
-                    <img src="{% static "/media/landing/circle-cropped.png" %}"
+                    <img src="{% static "media/landing/circle-cropped.png" %}"
                                  alt="My image" style="max-height: 150px; max-width: 150px ; margin: 0px 40px 10px ; border:0">
                 </a>
                 <span>
@@ -101,14 +103,15 @@
 
 
 
-	<div class="ui center aligned container" style="padding-top: 100px">
+
+    <div class="ui center aligned container">
     <div class="ui center aligned basic modal" id="data-modal">
       <div class="ui icon header" style="margin-top: 100px; >
-        <i class="archive icon"></i>
+        <i class=">
         Delete Post
       </div>
       <div class="content">
-        <p>Deleted posts cannot be recovered, Are you sure you would like to delete the post??       Just making sure</p>
+        <p>Deleted posts cannot be recovered, Are you sure you would like to delete the post?</p>
       </div>
       <form action="{% url 'the_blog:delete' entry.id %}" method="post" >
           {% csrf_token %}
@@ -129,12 +132,12 @@
 
 
 
+    </div>
 
-
+   	<div class="ui hidden divider"></div>
         <div class="ui hidden divider"></div>
-        <div class="ui hidden divider"></div>
-        <div class="ui hidden divider"></div>
-        <div class="ui fluid container">
+       
+   <div class="ui container">
 .
 
 
@@ -145,160 +148,240 @@
             <div class="ui hidden divider"></div>
 
             <div id="desc" style="color: silver" class="ui center aligned container">{{ entry.date_added }}</div>
-            <div class="ui center aligned  fluid container" style="margin:40px 0 0 -10px">
-	    <img src="{{ MEDIA_URL }}{{entry.header_image.url}}" id="images" alt="My image">
-
-            </div>
-                        
-	
-            <div class="ui hidden divider"></div>
-
-            <div class="ui hidden divider"></div>
-            <div class="ui hidden divider"></div>
-            <div class="ui hidden divider"></div>
-            <div class="ui hidden divider"></div>
 
 
-            <h4 id="head2">{{ entry.content|safe }}</h4>
+	   <div class="ui center aligned container">
+                {% if user.is_authenticated %}
+                    <a class="ui centered olive card" href="{% url 'the_blog:edit' entry.pk %}" style="background-color: black; margin-top: 50px">
+                      <div class="content">
+                          <div class="center aligned header">
 
-	        {% if entry.ingredients %}
-            <div class="four wide column" style="margin-top: 40px;">
-
-                <div class="ui left aligned silver segment" style="background-color:#F9F9F9; padding: 40px">
-                  <a style="color: black;text-decoration:none" href="{% url 'the_blog:pdf' entry.id %}">
-                      <div class="ui right aligned fluid container">
-                      <i class="large red file pdf icon"></i>
-                      Download this recipe
+                          </div>
+                        <div class="center aligned description" style="padding: 10px">
+                          <h3 style="color: white; font-size: 18px" id="base2">EDIT this POST</h3>
+                        </div>
                       </div>
-                  </a>
-                  <div class="ui hidden divider"></div>
-                  <div class="ui hidden divider"></div>
-                  <div class="ui hidden divider"></div>
+                      <div class="extra content">
+                        <div class="center aligned author">
+                            <i class="yellow large plus icon"></i>
+                            <i class="black large pencil alternate icon"></i>
+                        </div>
+                      </div>
+                    </a>
 
 
-                  <p id='base2'><b>{{ entry.title|upper }}</b></p>
-                  <p id='desc' style="color:silver">Author: Mama</p>
-                  <p id='desc' style="color:silver">Yield: {{ entry.serving|safe}}</p>
-                  <div class="ui hidden divider"></div>
-                  <div class="ui hidden divider"></div>
-                  <p id='base2'><b>INGREDIENTS</b></p>
-                  <p  style="color:silver"></p>
-                  <span id='desc' style="color:silver"> {{ entry.ingredients|safe}}</span>
-                  <div class="ui hidden divider"></div>
-                  <div class="ui hidden divider"></div>
-                  <p id='base2'><b>INSTRUCTIONS</b></p>
-                  <span id='desc' style="color:black">{{ entry.instructions|safe}}</span>
-                  <div class="ui hidden divider"></div>
-                  <div class="ui hidden divider"></div>
-                </div>
 
-            </div>
-            {% endif %}
+
+                    <div class="ui hidden divider"></div>
+                    <div class="ui hidden divider"></div>
+
+
+		{% endif %}
+
+       </div>
+
+        <div class="ui center aligned  fluid container" style="margin:40px 0 0 -10px; padding:-100px">
+	        <img src="{{ MEDIA_URL }}{{entry.header_image.url}}" id="images" alt="My image">
 
         </div>
-        <div class="ui hidden divider"></div>
-    </div>
-    <div class="ui hidden divider"></div>
-    <div class="ui hidden divider"></div>
-    
-    {% if user.is_authenticated %}
-                <div class="ui two column doubling stackable grid container">
-                    <div class="column"></div>
-                    <div class="right aligned column" style="margin-bottom: 30px">
-                        <a  href="{% url 'the_blog:edit' entry.pk %}" style="color: inherit; margin-right: 40px;"><i class="edit outline large link green icon" ></i>Edit post</a>
-                        <button class="ui black button" id="delete" style="color: white">
-                            <i class="trash alternate outline large link red icon" ></i>Delete Post
-                        </button>
-                    </div>
-                </div>
-		<div class="ui hidden divider"></div>
-                <div class="ui hidden divider"></div>
-		<div class="ui hidden divider"></div>
-                <div class="ui hidden divider"></div>
-		
-    {% endif %}
-
-    <div class="ui fluid container" style="padding:80px">
-
+                        
+	    
+            <div class="ui hidden divider"></div>
 
             <div class="ui hidden divider"></div>
-	   
-            <div class="ui four column doubling stackable grid container" id="next" style="margin-bottom:60px">
+            <div class="ui hidden divider"></div>
+            <div class="ui hidden divider"></div>
+            <div class="ui hidden divider"></div>
+		
+        <div class="ui left aligned container" style="margin:auto">
+	    
+                <h4 id="desc" style="margin:0">{{ entry.content|safe }}</h4>
+
+                <div class="ui hidden divider"></div>
+                <div class="ui hidden divider"></div>
+
+                {% if user.is_authenticated %}
+                    <div class="ui two column doubling grid">
+                        <div class="column"></div>
+                        <div class="right aligned column" style="margin-bottom: 30px">
+
+                            <button class="ui black button" id="delete" style="color: white;">
+                                <i class="trash alternate outline large link red icon" ></i>Delete Post
+                            </button>
+                        </div>
+
+                    </div>
+                    <div class="ui hidden divider"></div>
+                    <div class="ui hidden divider"></div>
+                    <div class="ui hidden divider"></div>
+                    <div class="ui hidden divider"></div>
+
+                {% endif %}
+
+
+
+
+                {% if entry.ingredients %}
+                <!--<div class="four wide column" style="margin-top: 40px;">
+
+                    <div class="ui container" padding: 40px">
+                      <a style="color: black;text-decoration:none" href="{% url 'the_blog:pdf' entry.id %}">
+                          <div class="ui right aligned fluid container">
+                          <i class="large red file pdf icon"></i>
+                          Download this recipe
+                          </div>
+
+                      </a>
+                      <div class="ui hidden divider"></div>
+                      <div class="ui hidden divider"></div>
+                      <div class="ui hidden divider"></div>
+
+
+                    </div>
+
+                </div>-->
+                {% endif %}
+
+
+                <div class="ui hidden divider"></div>
+                <div class="ui hidden divider"></div>
+
+
+
+            <h2 style="color: #EFC008" id="base2">SHARE THIS POST</h2>
+            <div class="ui hidden divider"></div>
+
+                 <a style="color: black;text-decoration:none" href="http://www.facebook.com/sharer.php?u={{ request.build_absolute_uri }}">
+                    <span><i class="large facebook icon" style="color:#3b5998"></i></span>
+                 </a>
+                 <a style="color: black;text-decoration:none" href="http://twitter.com/share?url={{ request.build_absolute_uri }}&text={{entry.title|title}}">
+                    <span><i class="large twitter icon" style="color:#00acee"></i></span>
+                 </a>
+                 <a style="color: black;text-decoration:none" href="https://plus.google.com/share?url={{ request.build_absolute_uri }}">
+                    <span><i class="large google plus icon" style="color:#db4a39"></i></span>
+                 </a>
+
+
+
+	    
+
+	    </div>
+	    
+  </div>
+
+                <div class="ui hidden divider"></div>
+
+
+
+
+
+    
+
+    <div class="ui fluid container">
+
+        <div class="ui container" style="padding:0 30px;">
+
+            <div class="ui comments" id="commentSection">
+                <h2 style="color: #EFC008" id="base2">
+                    {% with total=entry.comments.count %}
+                        {% if total > 0 %}
+                            {{ total }} COMMENT{{ total|pluralize }}
+                        {% endif %}
+                    {% endwith %}
+                </h2>
+
+                      {% for comment in comments %}
+                        <div class="comment" style="padding: 0px;margin-bottom:40px;">
+                            <a class="avatar">
+                              <i class="black user icon"></i>
+                            </a>
+                            <div class="content">
+                                <a class="author">
+                                {{ comment.name }}
+                                </a>
+                                <div class="metadata">
+                                  <div class="date">{{ comment.created_on }}</div>
+                                </div>
+                              <div class="text" id="desc">{{ comment.comment | linebreaks }}</div>
+                            </div>
+                        </div>
+                      {% endfor %}
+
+                      <div class="ui hidden divider"></div>
+                      <div class="ui hidden divider"></div>
+
+
+                       <h2 style="color: #EFC008" id="base2">LEAVE A COMMENT</h2>
+                       <div class="ui hidden divider"></div>
+
+                          <form method="post" action="{% url 'the_blog:comment' entry.id %}" class="ui form">
+                              {{ comment_form|crispy }}
+                              {% csrf_token %}
+                              <button class="ui button" type="submit" style="margin-top: 10px">Submit</button>
+                          </form>
+
+                      <div class="ui hidden divider"></div>
+                      <div class="ui hidden divider"></div>
+            </div>
+
+        </div>
+
+
+
+
+	        <div class="ui hidden divider"></div>
+            <div class="ui hidden divider"></div>
+            <div class="ui hidden divider"></div>
+
+
+
+
+	   <div class="ui fluid container" style="padding-right:40px">
+            <div class="ui four column doubling stackable fluid grid container" id="next" style="margin-bottom:60px; margin-top:60px;">
+
               <div class="column">
 		
                 <h2 id="base2" style="color: #EFC008">PREVIOUS POST</h2>
-		<img src={{ MEDIA_URL }}{{previous.header_image.url}} id="images" alt="My image" style="height: 300px;
+		        <a style="color: black;text-decoration:none" href="{% url 'the_blog:post' previous.slug %}" id="base2">
+                    <img src={{ MEDIA_URL }}{{previous.header_image.url}} id="images" alt="My image" style="height: 300px;
                  	width: 280px;object-fit: scale-down;">
-                <p><a style="color: black;text-decoration:none" href="{% url 'the_blog:post' previous.id %}" id="base2">{{ previous.title|upper }}</a></p>
+                </a>
+                <p><a style="color: black;text-decoration:none" href="{% url 'the_blog:post' previous.slug %}" id="base2">{{ previous.title|upper }}</a></p>
               </div>
+
               <div class="column" style="margin:0">
                 <p></p>
                 <p></p>
               </div>
+
               <div class="column" style="margin:-10px">
                 <p></p>
                 <p></p>
               </div>
 
-              <div class="column">
-		
-                <h2 id="base2" style="color: #EFC008;">NEXT POST</h2>
-		<img src={{ MEDIA_URL }}{{next.header_image.url}} id="images" alt="My image" style="height: 300px;
-                 	width: 280px;object-fit: scale-down;">
-                <p><a style="color: black;text-decoration:none" href="{% url 'the_blog:post' next.id %}" id="base2">{{ next.title|upper }}</a></p>
+              <div class="column" style="margin:-5px">
+
+                  <h2 id="base2" style="color: #EFC008;">NEXT POST</h2>
+                  <a style="color: black;text-decoration:none" href="{% url 'the_blog:post' next.slug %}" id="base2"><img src={{ MEDIA_URL }}{{next.header_image.url}} id="images" alt="My image" style="height: 300px;
+                 	width: 280px;object-fit: scale-down;"></a>
+                  <p><a style="color: black;text-decoration:none" href="{% url 'the_blog:post' next.slug %}" id="base2">{{ next.title|upper }}</a></p>
                
               </div>
+
             </div>
 		
+       </div>
 	  
 
 
 
 
-	<div class="ui hidden divider"></div>
-	<div class="ui hidden divider"></div>
+        <div class="ui hidden divider"></div>
+        <div class="ui hidden divider"></div>
+        <div class="ui hidden divider"></div>
+        <div class="ui hidden divider"></div>
 
-
-
-    <div class="ui comments" id="commentSection" style="margin: 50px 0px 20px 0px">
-	<h2 style="color: #EFC008" id="base2">
-		{% with total=entry.comments.count %}
-		{% if total > 0 %}
-        	{{ total }} COMMENT{{ total|pluralize }}
-		{% endif %}
-        	{% endwith %}
-	</h2>
-              {% for comment in comments %}
-                <div class="comment" style="padding: 10px;margin-bottom:40px;">
-                    <a class="avatar">
-                      <i class="black user icon"></i>
-                    </a>
-                    <div class="content">
-                        <a class="author">
-                        {{ comment.name }}
-                        </a>
-                        <div class="metadata">
-                          <div class="date">{{ comment.created_on }}</div>
-                        </div>
-                      <div class="text" id="desc">{{ comment.comment | linebreaks }}</div>
-                    </div>
-                </div>
-              {% endfor %}
-              <div class="ui hidden divider"></div>
-	      <div class="ui hidden divider"></div>
-              
-
-                  <h2 style="color: #EFC008" id="base2">LEAVE A COMMENT</h2>
-                  <div class="ui hidden divider"></div>
-                  <form method="post" action="{% url 'the_blog:comment' entry.id %}" class="ui form">
-                      {{ comment_form|crispy }}
-                      {% csrf_token %}
-                      <button class="ui button" type="submit" style="margin-top: 10px">Submit</button>
-                  </form>
-
-              <div class="ui hidden divider"></div>
-              <div class="ui hidden divider"></div>
-    </div>
+    
     </div>
 
     <div class="ui hidden divider"></div>
@@ -353,6 +436,12 @@
 
 
     <style type="text/css">
+        img{
+	           max-width: 100%;
+               height: 100%;
+               object-fit: contain;
+	    }
+
         body {
 
               background-repeat: repeat;
@@ -413,22 +502,34 @@
         #menu {
             margin-left: initial;
             }
+
         @media only screen and (max-width: 1200px) {
-            #images{
-               width: 280px !important;
-	       height: 280px !important;
+           
 
+            img{
+	           max-width: 100%;
+               max-height: 100%;
+               object-fit: contain;
+               margin:0;
+               padding:0;
+	           }
 
+	        #commentSection{
+               margin: 50px -50px 20px -50px;
             }
+
+            
             #headmenu{
                 display: none;
             }
+
             .ui.icon.vertical.menu{
               display: block;
               position: fixed; /* Set the navbar to fixed position */
               top: 20.5%; /* Position the navbar at the top of the page */
               z-index: 1;
             }
+
             #menu{
                 margin-left: 0;
             }
@@ -450,6 +551,12 @@
 
         }
         /*@media only screen and (max-width: 767px) {
+	    img{
+	       width: 280px !important;
+               height: 280px !important;
+               object-fit: contain;
+	    }
+
             #sandwich{
                 display: inline !important;
                 margin-right: -60px;
