@@ -7,7 +7,7 @@ from django.conf import settings
 app_name = 'the_menu'
 urlpatterns = [
     # Landing Page
-    url(r'^menu/$', views.menu, name='menu'),
+    url(r'^gallery/$', views.menu, name='menu'),
     ]
 
 

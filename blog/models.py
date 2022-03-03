@@ -24,7 +24,6 @@ class Post(models.Model):
     header_image = models.ImageField(upload_to='images/', blank=False, null=False)
     slug = models.SlugField()
 
-
     def __str__(self):
         return "%s" % self.title
 

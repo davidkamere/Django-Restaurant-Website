@@ -40,7 +40,7 @@
                 </a>
                 <span>
                     <a class="item" style="color: black; text-decoration: none; margin: 0 35px" href="{% url 'the_menu:menu' %}" id="headmenu">
-                      MENU
+                      GALLERY
                     </a>
                 </span>
                 <span>
@@ -94,7 +94,7 @@
             <div class="ui hidden divider"></div>
 
             <a style="color:black;text-decoration:none; padding:20px 20px; margin:0 110px 0 60px" href="{% url 'the_menu:menu' %}" >
-               MENU
+               GALLERY
             </a>
             <div class="ui hidden divider"></div>
             <div class="ui hidden divider"></div>
@@ -110,12 +110,13 @@
 
         </div>
     <div class="pusher">
-    <div class="ui center aligned fluid container" style="margin-top:0; background: url(../../static/media/landing/header.jpeg) no-repeat center;" >
+    <div class="ui center aligned fluid container" style="margin-top:0;
+     background: url(../../static/media/landing/header.jpeg) no-repeat fixed center;background-size: cover;" >
 
         <div class="ui center aligned fluid grid" >
 
             <div class="four wide column" id="h_menu">
-                <img src="{% static "media/landing/circle-cropped.png" %}" alt="My image" style="max-height: 150px; max-width: 150px">
+                <img src="{% static "media/landing/circle-cropped.png" %}" alt="My image" style="max-height: 150px; max-width: 150px;">
             </div>
               <div class="eight wide center aligned column" style="margin-top: 40px">
 
@@ -139,7 +140,7 @@
         <div class="four wide  column"></div>
 
         <div class="sixteen wide center aligned fluid column" style="margin:0 0 40px 0;" id="mail_p">
-            <div style="background-color: black;opacity: 0.6;padding: 30px; margin: 0;border-radius: 3px;">
+            <div style="background-color: black;opacity: 0.6;padding: 40px; margin: 0;border-radius: 3px;">
                 <p style="color: white" id="mailing">
                     Join our mailing list to get the latest offers and posts
                 </p>
@@ -174,10 +175,10 @@
 	    <div class="row" style="margin: auto; padding: 20px">
 	    {% for post in posts %}
 	    <a href="{% url 'the_blog:post' post.slug %}" style="text-decoration:none; color:black">
-	    <div class="left aligned column" style="padding:0 40px">
+	    <div class="center aligned column" style="padding:0 40px">
 		
 			<img src={{ MEDIA_URL }}{{post.header_image.url}} id="images" alt="My image" style="height: 300px;
-                 	width: 380px;padding-left: -50px">
+                 	width: 380px;padding-left: -50px;">
 				
 				<div class="ui items" style="margin: auto">
   					<div class="item">
@@ -212,18 +213,70 @@
 	    
 	    </div>
 	</div>
-	<a style="text-decoration: none;" href="{% url 'the_blog:blog' %}">
-			<button class="ui right floated black basic button" style="padding: 18px; margin-top:40px;"><span id="head3" style="font-size:16px">READ MORE</span></button>
-	</a>
+
+    <div class="ui center aligned container" style="margin-top:40px">
+        <a style="text-decoration: none;" href="{% url 'the_blog:blog' %}">
+                <button class="ui black basic button" style="padding: 18px; margin-top:40px;">
+                    <span id="head3" style="font-size:16px">MORE POSTS</span>
+                </button>
+        </a>
+    </div>
+
 	<div class="ui hidden divider"></div>
     </div>
 
     </div>
     </div>
-    <div class="ui hidden divider"></div>
-    <div class="ui hidden divider"></div>
 
-    <div class="ui center aligned fluid container" style="margin:auto; padding: 15px 3.5%" >
+    <div class="ui center aligned fluid container" style="margin-top:0;
+     background: url(../../static/media/landing/ab2.jpeg) no-repeat fixed center;background-size: cover;padding: 10px 0 0 0;">
+        <div style="opacity: 0.8;background-color: black;" id="bleck">
+        <div class="ui center aligned fluid grid" >
+
+            <div class="four wide column" id="h_menu">
+
+            </div>
+              <div class="eight wide center aligned column" style="margin-top: 40px">
+
+
+              </div>
+
+        <div class="four wide  column"></div>
+
+        <div class="sixteen wide center aligned fluid column" style="opacity: 1;padding: 5px" id="the_name">
+
+                <div class="ui center aligned container">
+                    <div id="head1" style="color: #EFC008">BEHIND THE NAME  : </div>
+                    <div class="ui hidden divider"></div>
+                    <div class="ui hidden divider"></div>
+                    <div class="ui two column stackable grid">
+                        <div class="eight wide left aligned column" style="color:white">
+                            <p id="head2">When I think of Mama, the first thing that comes to mind is my mother. I wanted the name to be centered around the rich African culture. I thought about the things my mom does that scream “Typical African Mum” then it hit me.</p>
+                            <p id="head2">Perhaps my best memory in this respect is of when we attended weddings as a family. We had to sit through the infamously long summons waiting for the moment when everyone would head to the reception. Where the cream of all African weddings is….The Food.</p>
+
+                        </div>
+                        <div class="eight wide left aligned column" style="color:white">
+                            <p id="head2">Fortunately, we didn't have to queue with the uncultured folk that stood in line on behalf of ten other people that were seated in their tents waiting for their "designated queue person”  to get to the front of the buffet then magically show up. I must admit though, I did admire their organization and coordination. I always wondered if they had meetings before these weddings. </p>
+                            <p id="head2">Regardless, we never had to worry about that, because our mum was the plug. She wasn't afraid to get her hands a little dirty to keep us fed and in good time. What an angel. We got our food brought to us where we were seated. That plate was sentimental and the family was happy . So as cheesy as it may sound, that’s how I ended up with the name  <span style="color: #EFC008">Mama’s Plate</span></p>
+
+                        <div class="ui hidden divider"></div>
+                        <div class="ui hidden divider"></div>
+                        </div>
+
+                    </div>
+                    <div class="ui hidden divider"></div>
+                    <div class="ui hidden divider"></div>
+                </div>
+
+
+        </div>
+
+        </div>
+        </div>
+    </div>
+
+
+    <!--<div class="ui center aligned fluid container" style="margin:auto; padding: 15px 3.5%" >
         <div class="ui center aligned grid" style="background-color: black; padding: 12px 10px">
             <div class="sixteen wide center aligned column" >
 
@@ -318,20 +371,20 @@
 		    <a href="https://wa.me/254743676796" target="_blank" style="text-decoration:none"><i class="green whatsapp icon"></i></a>
                 </p>
 		<div class="ui hidden divider"></div>
-		<!--<a style="text-decoration: none;"href="{% url 'the_menu:menu' %}">
+		<a style="text-decoration: none;"href="{% url 'the_menu:menu' %}">
 			<button class="ui right floated inverted button" style="backgroung-color: #EFC008; padding:18px;"><span id="head3">SEE MENU</span></button>
-		</a>-->
+		</a
             </div>
 
             </div>
 
-        </div>
+    </div>-->
 
     </div>
     <div class="ui hidden divider"></div>
     <div class="ui hidden divider"></div>
     <div class="ui hidden divider"></div>
-    <div class="ui center aligned container" style="margin:auto">
+    <!--<div class="ui center aligned container" style="margin:auto">
         <div class="ui center aligned stackable grid" >
                 <div class="four wide column" style="padding:15% 0px">
                     <p style="color: #EFC008;" id="base2">
@@ -359,10 +412,9 @@
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.776663073947!2d36.80927001444972!3d-1.3092812360202326!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f11588d2c0c2d%3A0x7914a0406530bfda!2sMama&#39;s%20Plate!5e0!3m2!1sen!2ske!4v1591220907724!5m2!1sen!2ske" width="500" height="440" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0" id="images"></iframe>
                 </div>
         </div>
-    </div>
+    </div>-->
 
-    <div class="ui hidden divider"></div>
-    <div class="ui hidden divider"></div>
+   
     <div class="ui hidden divider"></div>
 
 
@@ -370,30 +422,30 @@
         <div class="ui three column stackable center aligned grid" style="margin:5px; padding: 0 30px">
 
           <div class="column" style="margin:0;">
-            <div class="ui fluid card" style="object-fit: scale-down">
-
-                <img src="{% static "media/gallery/one.jpeg" %}" style="max-height: 310px;" >
 
 
-            </div>
+                <img src="{% static "media/gallery/one.jpeg" %}" style="max-height: 310px;" id="images" >
+
+
+
           </div>
 
           <div class="column" style="margin:0;">
-            <div class="ui fluid card" style="object-fit: scale-down">
-
-                <img src="{% static "media/gallery/two.jpeg" %}" style="max-height: 310px">
 
 
-            </div>
+                <img src="{% static "media/gallery/two.jpeg" %}" style="max-height: 310px" id="images">
+
+
+
           </div>
 
           <div class="column" style="margin:0;">
-            <div class="ui fluid card" style="object-fit: scale-down">
-
-                <img src="{% static "media/gallery/three.jpeg" %}" style="max-height: 310px;">
 
 
-            </div>
+                <img src="{% static "media/gallery/three.jpeg" %}" style="max-height: 310px;" id="images">
+
+
+
           </div>
 
         </div>
@@ -404,13 +456,14 @@
     <div class="ui hidden divider"></div>
     <div class="ui hidden divider"></div>
     <div class="ui hidden divider"></div>
-    <div class="ui center aligned fluid container" style="margin:auto; padding: 0 3%" >
+    <div class="ui center aligned fluid container" style="margin:auto; padding: 10px 3%" >
         <div class="ui center aligned grid" style="background-color: black; ">
             <div class="sixteen wide center aligned column" style="margin-bottom:-2px" >
                 <p style="color: #EFC008;" id="base2">
                     MAMA'S PLATE
                 </p>
             </div>
+	    
             <div class="sixteen wide center aligned column" style="margin-top:-3px">
                 <span id="bottom_socials">
                       <a href="https://wa.me/254743676796" target="_blank"><button class="ui black circular whatsapp icon button" style="margin: 0 10px">
@@ -425,8 +478,8 @@
                   </span>
             </div>
             <div class="sixteen wide center aligned column" >
-                <p style="color: white" style="border-bottom:6px solid white" id="desc">
-                    Ole-Sangale Link Rd, Nairobi | <a href="tel:+254-743-676-796" style="text-decoration:none; color:white;">Tel: 0743 676796</a>
+                <p style="color: efefef" id="desc">
+                   Where Art meets Passion
                 </p>
             </div>
 
@@ -434,7 +487,7 @@
     </div>
     <div class="ui hidden divider"></div>
     <style type="text/css">
-        img{
+        #images{
 	       max-width: 100%;
                height: 100%;
                object-fit: contain;
@@ -453,6 +506,9 @@
 
         #mail_p{
             padding:0 350px;
+        }
+        #the_name{
+            padding:0 200px;
         }
         #h_menu {
             display: none;
@@ -522,19 +578,13 @@
             margin-left: initial;
             }
         @media only screen and (max-width: 1200px) {
-            img{
-	       max-width: 100%;
-               height: 100%;
-               object-fit: contain;
-	    }
 
             #mail_p{
                 padding:0;
             }
 
-            #images{
-               width: 355px !important;
-
+            #the_name{
+                padding: 10px;
             }
             #headmenu{
                 display: none;
@@ -570,10 +620,11 @@
                 margin: auto;
                 padding: 0;
             }
-	    #images{
-		width: 280px !important;
-		height: 250px !important;
-            }
+	        #images{
+               max-width: 100%;
+               height: 100%;
+               object-fit: contain;
+	    }
 
         }
 

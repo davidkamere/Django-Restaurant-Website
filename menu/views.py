@@ -1,12 +1,12 @@
 from django.shortcuts import render
-from menu.models import Category, SubCategory, Item
+from blog.models import Post
 
 
 # Create your views here.
 def menu(request):
     """The menu for Mama's plate"""
-    items = Item.objects.order_by('dish')
-    context = {'items': items}
+    entries = Post.objects.order_by('title')
+    context = {'posts': entries}
     return render(request, 'menu/menu.html', context)
 
 

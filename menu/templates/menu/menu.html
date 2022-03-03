@@ -1,21 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-    {% if user.is_authenticated %}
-    <div class="ui hidden divider"></div>
-    <div class="right aligned container">
-
-        <button class="ui right floated secondary button" style="text-decoration:none">
-         <a href="{% url 'the_blog:logout' %}" style="text-decoration:none; color:white">Logout</a>
-        </button>
-
-    </div>
-    <div class="ui hidden divider"></div>
-    <div class="ui hidden divider"></div>
-    <div class="ui hidden divider"></div>
-    {% endif %}
-
-    
     <div class="center aligned fluid ui container">
     <div class="ui labeled icon left floated inverted vertical menu" style="margin-right: 40px ; margin-left: -25px; border: thin solid #EFC008; background: black " >
 
@@ -23,8 +8,7 @@
             <i class="large bars icon"></i>
         </div>
 
-    </div>  
-    
+    </div>
     <div class="center aligned sixteen wide column" id="v_menu">
                 <div class="ui hidden divider"></div>
                 <span>
@@ -32,7 +16,7 @@
                       HOME
                     </a>
                 </span>
-		<span>
+	            <span style="" id="headmenu">
                     <a class="item" style="color: black; text-decoration: none; margin: 0 35px" href="{% url 'the_blog:blog' %}" id="headmenu">
                       BLOG
                     </a>
@@ -42,9 +26,9 @@
                     <img src="{% static "/media/landing/circle-cropped.png" %}"
                                  alt="My image" style="max-height: 150px; max-width: 150px ; margin: 0px 40px 10px ; border:0">
                 </a>
-                <span style="border: 1px solid #EFefef;padding: 20px 5px" id="headmenu">
+                <span style="border: 1px solid #EFEFEF;padding: 20px 5px">
                     <a class="item" style="color: #EFC008; text-decoration: none; margin: 0 35px" href="{% url 'the_menu:menu' %}" id="headmenu">
-                      MENU
+                      GALLERY
                     </a>
                 </span>
                 <span>
@@ -54,7 +38,6 @@
                 </span>
     </div>
     </div>
-    <div class="ui hidden divider"></div>
     <div class="ui sidebar vertical menu" style="text-decoration: none">
             <div class="ui hidden divider"></div>
             <div class="ui hidden divider"></div>
@@ -67,572 +50,86 @@
             <div class="ui hidden divider"></div>
 
 
-	    <a style="color:black;text-decoration:none; padding:20px; margin:0px 110px 0px 60px" href="{% url 'the_blog:blog' %}">
+	    <a style="color: black; margin:0px 110px 0px 60px;padding:20px" href="{% url 'the_blog:blog' %}">
                BLOG
             </a>
             
             <div class="ui hidden divider"></div>
             <div class="ui hidden divider"></div>
-            
-            <a style="color: #EFC008; margin:0px 110px 0px 60px;padding:20px" href="{% url 'the_menu:menu' %}" >
-               MENU
+
+
+            <a style="color: #EFC008;text-decoration:none; padding:20px; margin:0 110px 0 60px" href="{% url 'the_menu:menu' %}" >
+               GALLERY
             </a>
             <div class="ui hidden divider"></div>
             <div class="ui hidden divider"></div>
+            
 
             <a style="color:black;text-decoration:none; padding:20px; margin:0 110px 0 60px" href="{% url 'the_blog:about' %}">
                ABOUT
             </a>
             <div class="ui hidden divider"></div>
             <div class="ui hidden divider"></div>
-
            
-            <div class="ui hidden divider"></div>
-
     </div>
-    <div class="ui container" style="padding: 15px; margin: 5px -5px" id="length">
-        <div class="ui stackable center aligned grid" >
+    <div class="ui hidden divider"></div>
+    <div class="ui hidden divider"></div>
+   
+    <div class="ui fluid center aligned container" style="margin:auto">
 
 
-            <div class="row" style="margin-bottom: -2px; margin-right: -12px">
 
-                <h1 id="title" >MAMA'S MENU  :</h1>
 
-            </div>
 
-            <div class="row">
-
-            <div class="four wide left aligned column" style="margin-right: 40px; margin-top:30px" id="menu">
-                <div class="ui hidden divider"></div>
-
-                <div class="ui hidden divider"></div>
-                <div class="ui secondary vertical left aligned menu" style="padding:8px; border-radius:5px">
-                  <a class="item" id="toggle1">
-                      <span id="menu_item"  ><b id="head3">MAIN COURSE</b></span>
-                  </a>
-                  <div class="ui hidden divider" style="background-color: #EFC008; margin-left: 5px;"></div>
-                  <a class="item" id="toggle2" >
-                      <span  id="menu_item"><b >SNACKS & PAIRINGS</b></span>
-                  </a>
-                  <div class="ui hidden divider" style="background-color: #EFC008; margin-left: 5px;"></div>
-                  <a class="item" id="toggle3">
-                      <span id="menu_item" ><b >DRINKS</b></span>
-                  </a>
-                  <div class="ui hidden divider"></div>
-                  <div class="ui hidden divider"></div>
-
-                  <a class="item" id="toggle4" style="color:#39ff14;" >
-                      <span id="menu_item" ><b >VEGETARIAN</b></span>
-                  </a>
-
+                <div style="margin:auto">
+                       <span id="head2" style="color:silver; font-weight: bold; letter-spacing: 2px"></span>
                 </div>
-            </div>
 
 
-
-
-
-
-
-            <div class="ui hidden divider"></div>
-            <div class="eleven wide column" style="padding: 25px" >
-                <div class="ui two column stackable grid" style="margin-left: 5px">
-                    <div class="row">
-                    <!--  -->
-                    <div class="center aligned column" style="color:white;background-color: black;padding: 50px 50px; opacity: 0.9;" id="menu1">
-
-                        <h2 style="margin-bottom: 20px; color:white" id="head1">&nbsp;BEEF</h2>
-
-
-                            {% for item in items %}
-                            {% if item.sub_category.sub_category == 'Beef' %}
-                                <div class="row">
-                                    <div class="ui hidden divider"></div>
-
-
-                                        <div class="left floated column"
-                                        style="padding: 20px 18px 15px;" id="dish">
-                                            <p style="color: #EFC008;" id="head2">{{item.dish}}</p>
-
-                                        </div>
-
-                                        <div class="right floated one wide column"
-                                        style="padding: 20px 18px 15px;" id="price">
-                                            <p style="color:#EFC008;">&nbsp;{{item.price}}/=</p>
-
-                                        </div>
-
-
-                                    <div class="justified row" style="padding: 20px" id="description">
-                                        <div class="center aligned grid">
-                                        <div class="left aligned column">
-                                            <div class="item" >
-                                                <p id="desc" style="color: white;">{{item.description}}</p>
-                                            </div>
-                                        </div>
-                                        </div>
-
-                                    </div>
-
-
-                                </div>
-                                <div class="ui hidden divider"></div>
-                            {% endif %}
-                            {% endfor %}
-
-                    </div>
-                    <div class="center aligned column" style="background-color:black; padding: 50px 50px; opacity: 0.9;" id="menu2">
-
-                        <h2 style="margin-bottom: 20px; color:white" id="head1">&nbsp;SNACKS</h2>
-
-
-                            {% for item in items %}
-                            {% if item.sub_category.sub_category == 'Snacks' %}
-                                <div class="row">
-                                    <div class="ui hidden divider"></div>
-
-
-                                        <div class="left floated column"
-                                        style="padding: 20px 18px 15px;" id="dish">
-                                            <p style="color: #EFC008;" id="head2">{{item.dish}}</p>
-
-                                        </div>
-
-                                        <div class="right floated one wide column"
-                                        style="padding: 20px 18px 15px;" id="price">
-                                            <p style="color:#EFC008;">&nbsp;{{item.price}}/=</p>
-
-                                        </div>
-
-
-                                    <div class="justified row" style="padding: 20px" id="description">
-                                        <div class="center aligned grid">
-                                        <div class="left aligned column">
-                                            <div class="item" >
-                                                <p id="desc" style="color: white;">{{item.description}}</p>
-                                            </div>
-                                        </div>
-                                        </div>
-
-                                    </div>
-
-
-                                </div>
-                                <div class="ui hidden divider"></div>
-                            {% endif %}
-                            {% endfor %}
-
-                    </div>
-                    <div class="center aligned column" style="background-color: black;padding: 50px 50px; opacity: 0.9;" id="menu3">
-
-                        <h2 style="margin-bottom: 20px; color:white" id="head1">&nbsp;HOT&nbsp; BEVERAGES</h2>
-
-
-                            {% for item in items %}
-                            {% if item.sub_category.sub_category == 'Hot Beverages' %}
-                                <div class="row">
-                                    <div class="ui hidden divider"></div>
-
-
-                                        <div class="left floated column"
-                                        style="padding: 20px 18px 15px;" id="dish">
-                                            <p style="color: #EFC008;" id="head2">{{item.dish}}</p>
-
-                                        </div>
-
-                                        <div class="right floated one wide column"
-                                        style="padding: 20px 18px 15px;" id="price">
-                                            <p style="color:#EFC008;">&nbsp;{{item.price}}/=</p>
-
-                                        </div>
-
-
-                                    <div class="justified row" style="padding: 20px" id="description">
-                                        <div class="center aligned grid">
-                                        <div class="left aligned column">
-                                            <div class="item" >
-                                                <p id="desc"style="color:white;" >{{item.description}}</p>
-                                            </div>
-                                        </div>
-                                        </div>
-
-                                    </div>
-
-
-                                </div>
-                                <div class="ui hidden divider"></div>
-                            {% endif %}
-                            {% endfor %}
-
-                    </div>
-                    <div class="center aligned column" style="border: 1px solid #efefef; color:white;background-color: white;padding: 50px 20px; opacity: 1; margin-left:19px" id="menu7">
-
-                        <h2 style="margin-bottom: 20px; color:#39ff14" id="head1">VEGETARIAN</h2>
-
-
-                            {% for item in items %}
-                            {% if item.sub_category.sub_category == "Vegetarian" %}
-                                <div class="row">
-                                    <div class="ui hidden divider"></div>
-
-
-                                        <div class="left floated column"
-                                        style="padding: 20px 18px 15px;" id="dish">
-                                            <p style="color: #EFC008;" id="head2">{{item.dish}}</p>
-
-                                        </div>
-
-                                        <div class="right floated one wide column"
-                                        style="padding: 20px 18px 15px;" id="price">
-                                            <p style="color:#EFC008;">&nbsp;{{item.price}}/=</p>
-
-                                        </div>
-
-
-                                    <div class="justified row" style="padding: 20px" id="description">
-                                        <div class="center aligned grid">
-                                        <div class="left aligned column">
-                                            <div class="item" >
-                                                <p style="color:black" id="desc">{{item.description}}</p>
-                                            </div>
-                                        </div>
-                                        </div>
-
-                                    </div>
-
-
-                                </div>
-                                <div class="ui hidden divider"></div>
-                            {% endif %}
-                            {% endfor %}
-
-                    </div>
-
-
-
-
-
-
-                    <div class="center aligned column" style="background-color: white;padding: 50px 50px;opacity: 1; border: 1px solid #efefef;" id="menu4" >
-
-                        <h2 style="margin-bottom: 20px; color:black;" id="head1" >CHICKEN</h2>
-
-
-                            {% for item in items %}
-                                {% if item.sub_category.sub_category == 'Chicken' %}
-                                <div class="row">
-                                    <div class="ui hidden divider"></div>
-
-
-                                        <div class="left floated column"
-                                        style="padding: 20px 18px 15px;"  id="dish">
-                                            <p style="color: #EFC008;" id="head2">{{item.dish}}</p>
-
-                                        </div>
-
-                                        <div class="right floated one wide column"
-                                        style="padding: 20px 18px 15px;" id="price">
-                                            <p style="color:#EFC008;">&nbsp;{{item.price}}/=</p>
-
-                                        </div>
-
-
-                                    <div class="justified row" style="padding: 20px" id="description">
-                                        <div class="center aligned grid" >
-                                        <div class="left aligned column" style="color: black;" >
-                                            <div class="item" >
-                                                <p id="desc">{{item.description}}</p>
-                                            </div>
-                                        </div>
-                                        </div>
-
-                                    </div>
-
-
-                                </div>
-                                <div class="ui hidden divider"></div>
-                            {% endif %}
-                            {% endfor %}
-
-                    </div>
-
-                    <div class="center aligned column" style="background-color: white;padding: 50px 50px;opacity: 1;" id="menu5">
-
-                        <h2 style="margin-bottom: 20px" id="head1">PAIRINGS</h2>
-
-
-                            {% for item in items %}
-                                {% if item.sub_category.sub_category == 'Pairings' %}
-                                <div class="row">
-                                    <div class="ui hidden divider"></div>
-
-
-                                        <div class="left floated column"
-                                        style="padding: 20px 18px 15px;"  id="dish">
-                                            <p style="color: #EFC008;" id="head2">{{item.dish}}</p>
-
-                                        </div>
-
-                                        <div class="right floated one wide column"
-                                        style="padding: 20px 18px 15px;" id="price">
-                                            <p style="color:#EFC008;">&nbsp;{{item.price}}/=</p>
-
-                                        </div>
-
-
-                                    <div class="justified row" style="padding: 20px" id="description">
-                                        <div class="center aligned grid" >
-                                        <div class="left aligned column" style="color: black;" >
-                                            <div class="item" >
-                                                <p id="desc">{{item.description}}</p>
-                                            </div>
-                                        </div>
-                                        </div>
-
-                                    </div>
-
-
-                                </div>
-                                <div class="ui hidden divider"></div>
-                            {% endif %}
-                            {% endfor %}
-
-                    </div>
-
-                     <div class="center aligned column" style="background-color: white;padding: 50px 50px;opacity: 1;border: 1px solid #efefef;" id="menu6">
-
-                        <h2 style="margin-bottom: 20px" id="head1">COLD BEVERAGES</h2>
-
-
-                            {% for item in items %}
-                                {% if item.sub_category.sub_category == 'Cold Beverages' %}
-                                <div class="row">
-                                    <div class="ui hidden divider"></div>
-
-
-                                        <div class="left floated column"
-                                        style="padding: 20px 18px 15px;"  id="dish">
-                                            <p style="color: #EFC008;" id="head2">{{item.dish}}</p>
-
-                                        </div>
-
-                                        <div class="right floated one wide column"
-                                        style="padding: 20px 18px 15px;" id="price">
-                                            <p style="color:#EFC008;">&nbsp;{{item.price}}/=</p>
-
-                                        </div>
-
-
-                                    <div class="justified row" style="padding: 20px" id="description">
-                                        <div class="center aligned grid" >
-                                        <div class="left aligned column">
-                                            <div class="item" >
-                                                <p id="desc" style="color:black">{{item.description}}</p>
-                                            </div>
-                                        </div>
-                                        </div>
-
-                                    </div>
-
-
-                                </div>
-                                <div class="ui hidden divider"></div>
-                            {% endif %}
-                            {% endfor %}
-
-                    </div>
-                    </div>
-
-                    </div>
-
-
-
+                <div  style="margin:auto">
+                   <!--<span ><i class="spinner loading icon"></i></span>-->
                 </div>
-            </div>
-
-            </div>
-            <div class="row">
-
-            </div>
-    </div>
 
 
-
-    <div class="ui container" style="margin-bottom: 30px">
-        <div class="ui stackable centered grid">
-          <div class="eight wide center aligned column">
-
-            <img src="{% static "/media/menu/hamburger.jpeg" %}" id="images" alt="My image" style="max-height: 1000px;
-             width: 500px;object-fit: scale-down;padding: 10px; margin-top: 20px">
-
-          </div>
-
-          <div class="eight wide center aligned column">
-
-            <img src="{% static "/media/menu/spags.jpeg" %}" id="images" alt="My image" style="max-height: 1000px;
-             width: 500px;object-fit: scale-down;padding: 10px; margin-top: 20px">
-
-          </div>
-
-        </div>
-    </div>
-    <div class="ui hidden divider"></div>
-    <div class="ui hidden divider"></div>
-    <div class="ui hidden divider"></div>
-    <div class="ui fluid container" style="margin: auto;">
-        <div class="ui stackable grid">
-            <div class="row">
-            <div class="ui hidden divider"></div>
-            <div class="sixteen wide column" >
-                <div class="ui three column stackable grid" style="margin-left: 42px">
-                    <div class="row">
-
-                    <div class="center aligned column" style="background-color: white;padding: 50px 50px;opacity: 1;border: 1px solid #efefef;">
-
-                        <h2 style="margin-bottom: 20px" id="head1">MAMA'S COMBOS</h2>
-			<div class="ui hidden divider"></div>
-
-                            {% for item in items %}
-                                {% if item.main_category.main_category == "MAMA'S COMBOS" %}
-                                <div class="row">
-                                    <div class="ui hidden divider"></div>
+                <div class="ui center aligned fluid container" style="margin:0; padding: 0px;" >
+                    <div class="ui four column stackable center aligned grid" style="margin:5px; padding: 0 30px">
+                      {% for post in posts %}
+                      <div class="column" style="margin:0;">
 
 
-                                        <div class="left floated column"
-                                        style="padding: 20px 18px 15px;"  id="dish">
-                                            <p style="color: #EFC008;" id="head2">{{item.dish}}</p>
+                            <a href="{% url 'the_blog:post' post.slug %}" style="text-decoration:none; color:black">
+                                <img src={{ MEDIA_URL }}{{post.header_image.url}} id="images" alt="My image" style="height: 300px;
+                 	width: 380px;padding-left: -50px;">
+                            </a>
 
-                                        </div>
+                            <div class="ui hidden divider"></div>
+                            <!--<a href="{% url 'the_blog:post' post.slug %}" style="text-decoration:none; color:black">
+                                <span style="color: #EFEFEF">{{post.title|title}}</span>
+                            </a>-->
 
-                                        <div class="right floated one wide column"
-                                        style="padding: 20px 18px 15px;" id="price">
-                                            <p style="color:#EFC008;" id="price">&nbsp;{{item.price}}/=</p>
+                      </div>
+                      {% endfor %}
 
-                                        </div>
-
-
-                                    <div class="justified row" style="padding: 20px" id="description">
-                                        <div class="center aligned grid" >
-                                        <div class="left aligned column" style="color: black;" >
-                                            <div class="item" >
-                                                <p id="desc">{{item.description}}</p>
-                                            </div>
-                                        </div>
-                                        </div>
-
-                                    </div>
-
-
-                                </div>
-                                <div class="ui hidden divider"></div>
-                            {% endif %}
-                            {% endfor %}
 
                     </div>
-
-                    <div class="center aligned column" style="color:white;background-color: #EFC008;padding: 50px; opacity: 0.9;">
-
-                        <h2 style="margin-bottom: 20px" id="head1">&nbsp;WRAPS AND PANINIS</h2>
-			<div class="ui hidden divider"></div>
-
-                            {% for item in items %}
-                            {% if item.main_category.main_category == "WRAPS AND PANINIS" %}
-                                <div class="row">
-                                    <div class="ui hidden divider"></div>
-
-
-                                        <div class="left floated column"
-                                        style="padding: 20px 10px 15px;" id="dish">
-                                            <p style="color: black;" id="head2">{{item.dish}}</p>
-
-                                        </div>
-
-                                        <div class="right floated one wide column"
-                                        style="padding: 20px 10px 15px;" id="price">
-                                            <p style="color:black;">&nbsp;{{item.price}}/=</p>
-
-                                        </div>
-
-
-                                    <div class="justified row" style="padding: 20px" id="description">
-                                        <div class="center aligned grid">
-                                        <div class="left aligned column">
-                                            <div class="item" >
-                                                <p id="desc">{{item.description}}</p>
-                                            </div>
-                                        </div>
-                                        </div>
-
-                                    </div>
-
-
-                                </div>
-                                <div class="ui hidden divider"></div>
-                            {% endif %}
-                            {% endfor %}
-
-                    </div>
-                    <div class="center aligned column" style="color:white;background-color: white;padding: 50px 50px; opacity: 1;border: 1px solid #efefef;">
-
-                        <h2 style="margin-bottom: 20px; color:black" id="head1">MAMA'S BURGERS</h2>
-			<div class="ui hidden divider"></div>
-
-                            {% for item in items %}
-                            {% if item.main_category.main_category == "MAMA'S BURGERS" %}
-                                <div class="row">
-                                    <div class="ui hidden divider"></div>
-
-
-                                        <div class="left floated column"
-                                        style="padding: 20px 18px 15px;" id="dish">
-                                            <p style="color: #EFC008;" id="head2">{{item.dish}}</p>
-
-                                        </div>
-
-                                        <div class="right floated one wide column"
-                                        style="padding: 20px 18px 15px;" id="price">
-                                            <p style="color:#EFC008;">&nbsp;{{item.price}}/=</p>
-
-                                        </div>
-
-
-                                    <div class="justified row" style="padding: 20px" id="description">
-                                        <div class="center aligned grid">
-                                        <div class="left aligned column">
-                                            <div class="item" >
-                                                <p style="color:black" id="desc">{{item.description}}</p>
-                                            </div>
-                                        </div>
-                                        </div>
-
-                                    </div>
-
-
-                                </div>
-                                <div class="ui hidden divider"></div>
-                            {% endif %}
-                            {% endfor %}
-
-                    </div>
-                    </div>
-
-                    </div>
+                </div>
 
 
 
-            </div>
-            </div>
 
-            </div>
-            <div class="row">
-
-            </div>
     </div>
     <div class="ui hidden divider"></div>
     <div class="ui hidden divider"></div>
+
+  
     <div class="ui hidden divider"></div>
     <div class="ui hidden divider"></div>
-    <div class="ui center aligned fluid container" style="margin:auto; padding: 2px 3%" >
+   
+    <div class="ui hidden divider"></div>
+    <div class="ui hidden divider"></div>
+    <div class="ui hidden divider"></div>
+    <div class="ui hidden divider"></div>
+     <div class="ui center aligned fluid container" style="margin:auto; padding: 2px 3%" >
         <div class="ui center aligned grid" style="background-color: black;">
             <div class="sixteen wide center aligned column" style="margin-top: 4px; margin-bottom: 1px">
                 <p style="color: #EFC008;" id="base2" >
@@ -641,27 +138,51 @@
             </div>
             <div class="sixteen wide center aligned column" style="margin-top:-3px">
                 <span id="bottom_socials">
-                      <a href="https://wa.me/254769365891" target="_blank"><button class="ui black circular whatsapp icon button" style="margin: 0 10px">
+                      <a href="https://wa.me/254743676796" target="_blank"><button class="ui black circular whatsapp icon button" style="margin: 0 10px">
                           <i class="green whatsapp icon"></i>
                       </button></a>
                       <a href="https://www.instagram.com/mamas.plate/" target="_blank"><button class="ui black circular instagram icon button" style="margin: 0 10px">
                           <i class="pink instagram icon"></i>
                       </button></a>
-                      <a href = "mailto: mamasplate@gmail.com" target="_blank"><button class="ui black circular mail icon button" style="margin: 0 10px">
+                      <a href = "mailto: mamasplate1@gmail.com" target="_blank"><button class="ui black circular mail icon button" style="margin: 0 10px">
                           <i class="white mail icon"></i>
                       </button></a>
                   </span>
             </div>
             <div class="sixteen wide center aligned column" >
-                <p style="color: white" style="border-bottom:6px solid white" id="desc">
-                    Ole-Sangale Link Rd, Nairobi | <a href="tel:+254-743-676-796" style="text-decoration:none; color:white">Tel: 0743 676796</a>
+                <p style="color: efefef" id="desc">
+                   Where Art meets Passion
                 </p>
             </div>
 
         </div>
     </div>
     <div class="ui hidden divider"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <style type="text/css">
+        #images{
+	       max-width: 100%;
+               height: 100%;
+               object-fit: contain;
+	    }
         body {
 
               background-repeat: repeat;
@@ -670,27 +191,33 @@
 
 
             }
-        #menu2{
-            display: none;
-        }
         .ui.icon.vertical.menu{
                 display: none;
             }
-        #headmenu {
-            font-family: 'Josefin Sans', sans-serif;
-            font-size: 16px;
-            font-weight: 500;
+
+        #mail_p{
+            padding:0 350px;
+        }
+        #the_name{
+            padding:0 200px;
+        }
+        #h_menu {
+            display: none;
+        }
+        #v_menu {
+            display: initial;
         }
 
         #title{
            font-family: 'Cabin Sketch', cursive;
-           font-size:35px;
-	   
+           font-size:45px;
+           letter-spacing: 3px;
+           font-weight:bold;
         }
-
         #head1{
             font-family: 'Cabin Sketch', cursive;
-            font-size:35px;
+            font-size:26px;
+            letter-spacing: 2.5px;
 
         }
         #head2{
@@ -698,6 +225,17 @@
             font-size: 16px;
             font-weight: 500;
         }
+        #headmenu{
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        #head3 {
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 20px;
+            font-weight: 500;
+        }
+
         #base2{
             font-family: 'Josefin Sans', sans-serif;
             font-size: 16px;
@@ -711,10 +249,16 @@
             font-weight: 500;
             letter-spacing: 1px;
         }
-        #price{
+        #mailing{
             font-family: 'Josefin Sans', sans-serif;
-            font-size: 18px;
+            font-size: 19px;
             font-weight: 500;
+            letter-spacing: 1px;
+        }
+        #head4{
+            font-family: 'Cabin Sketch', cursive;
+            font-size: 20px;
+
         }
         #menu_item {
             font-size: 14px;
@@ -725,20 +269,29 @@
             margin-left: initial;
             }
         @media only screen and (max-width: 1200px) {
-            .ui.icon.vertical.menu{
-              display: block;
-              position: fixed; /* Set the navbar to fixed position */
-              top: 20.5%; /* Position the navbar at the top of the page */
-              z-index: 1;
+
+            #mail_p{
+                padding:0;
             }
 
-            #images{
-               width: 355px !important;
-
+            #the_name{
+                padding: 10px;
             }
-
             #headmenu{
                 display: none;
+            }
+
+            #h_menu{
+                display: none;
+            }
+            #v_menu{
+                display: initial;
+            }
+            .ui.icon.vertical.menu{
+              display: block;
+             position: fixed;  /* Set the navbar to fixed position */
+              top: 20.5%; /* Position the navbar at the top of the page */
+              z-index: 1;
             }
 
             #menu{
@@ -758,89 +311,19 @@
                 margin: auto;
                 padding: 0;
             }
-
+	        #images{
+               max-width: 100%;
+               height: 100%;
+               object-fit: contain;
+	    }
 
         }
-        /*@media only screen and (max-width: 767px) {
-            #sandwich{
-                display: inline !important;
-                margin-right: -60px;
-            }
-            .stackable.compact.menu{
-                display: none !important;
-            }
-        }*/
+
     </style>
 {% block scripts %}
     <script type="text/javascript">
         $('#dmt').on('click', function () {
             $('.ui.sidebar').sidebar('toggle');
-    });
-        $(document).ready(function() {
-            $("#menu1").show();
-            $("#menu4").show();
-            $('#menu2').hide();
-            $('#menu3').hide();
-            $('#menu5').hide();
-            $('#menu6').hide();
-            $('#menu7').hide();
-            $('#toggle1').attr('style','color:#EFC008');
-            $('#toggle2').attr('style','color:black');
-            $('#toggle3').attr('style','color:black');
-            $('#toggle4').show();
-        });
-
-        $('#toggle2').on('click', function () {
-            $("#menu2").show();
-            $("#menu5").show();
-            $('#menu1').hide();
-            $('#menu3').hide();
-            $('#menu4').hide();
-            $('#menu6').hide();
-            $("#menu7").hide();
-            $('#toggle1').attr('style','color:black');
-            $('#toggle2').attr('style','color:#EFC008');
-            $('#toggle3').attr('style','color:black');
-            $('#toggle4').hide();
-    });
-        $('#toggle1').on('click', function () {
-            $("#menu1").show();
-            $("#menu4").show();
-            $('#menu2').hide();
-            $('#menu3').hide();
-            $('#menu5').hide();
-            $('#menu6').hide();
-            $("#menu7").hide();
-            $('#toggle1').attr('style','color:#EFC008');
-            $('#toggle2').attr('style','color:black');
-            $('#toggle3').attr('style','color:black');
-            $('#toggle4').show();
-    });
-        $('#toggle3').on('click', function () {
-            $("#menu3").show();
-            $("#menu6").show();
-            $('#menu1').hide();
-            $('#menu2').hide();
-            $('#menu4').hide();
-            $('#menu5').hide();
-            $("#menu7").hide();
-            $('#toggle1').attr('style','color:black');
-            $('#toggle2').attr('style','color:black');
-            $('#toggle3').attr('style','color:#EFC008');
-            $('#toggle4').hide();
-    });
-        $('#toggle4').on('click', function () {
-            $("#menu7").show();
-            $("#menu6").hide();
-            $('#menu1').hide();
-            $('#menu1').hide();
-            $('#menu2').hide();
-            $('#menu4').hide();
-            $('#menu5').hide();
-            $('#toggle1').attr('style','color:black');
-            $('#toggle2').attr('style','color:black');
-            $('#toggle3').attr('style','color:black');
-            $('#toggle4').hide();
     });
     </script>
 {% endblock scripts %}
